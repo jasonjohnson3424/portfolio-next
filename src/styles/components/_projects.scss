@@ -1,0 +1,324 @@
+#projects {
+  background-color: $color-section-navy;
+
+  .section-subtitle {
+    color: #ffffff;
+  }
+}
+
+.project-filters {
+  background-color: $color-card-light;
+  border: 1px solid darken($color-card-light, 10%);
+  border-radius: 0.25rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid darken($color-card-light, 10%);
+}
+
+.filter-result-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-card-dark-text;
+
+  .filter-result-label {
+    color: $color-card-dark-muted;
+    font-weight: 500;
+    margin-right: 0.3em;
+  }
+}
+
+.filter-clear-btn {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #0969da;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: $transition;
+  &:hover {
+    color: #0550ae;
+  }
+}
+
+.filter-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.filter-group-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-card-dark-text;
+  white-space: nowrap;
+  min-width: 90px;
+  padding-top: 0.35rem;
+}
+
+.filter-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-btn {
+  padding: 0.28rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid darken($color-card-light, 14%);
+  background: white;
+  color: $color-card-dark-muted;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $color-warm;
+    color: $color-warm-hover;
+    background: rgba($color-warm, 0.08);
+  }
+  &.active {
+    background-color: #0969da;
+    border-color: #0969da;
+    color: white;
+    font-weight: 600;
+  }
+}
+
+.project-card {
+  background-color: $color-card-light;
+  border: 1px solid darken($color-card-light, 8%);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: $transition;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: rgba($color-accent, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    .project-thumbnail-overlay {
+      opacity: 1;
+    }
+    .project-thumbnail .lazy-image,
+    .project-thumbnail img {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.project-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: linear-gradient(135deg, $color-surface, $color-subtle);
+  border-bottom: 3px solid darken($color-card-light, 12%);
+
+  .lazy-image,
+  img {
+    transition: transform 0.45s ease;
+    transform-origin: center center;
+  }
+
+  .lazy-image-wrapper,
+  .lazy-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.project-thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: $color-border;
+}
+
+.project-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba($color-bg, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: $transition;
+}
+
+.project-lock-badge {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  background: rgba($color-bg, 0.85);
+  border: 1px solid $color-border;
+  color: $color-muted;
+  border-radius: 6px;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  backdrop-filter: blur(4px);
+}
+
+.project-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-category-badge {
+  display: inline-block;
+  padding: 0.22rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+
+  &.cat-elearning {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+    border: 1px solid rgba($color-success, 0.28);
+  }
+  &.cat-web-dev {
+    background: rgba($color-accent, 0.1);
+    color: $color-accent;
+    border: 1px solid rgba($color-accent, 0.28);
+  }
+  &.cat-instructional-design {
+    background: rgba(#d29922, 0.1);
+    color: #d29922;
+    border: 1px solid rgba(#d29922, 0.28);
+  }
+  &.cat-other {
+    background: rgba($color-muted, 0.1);
+    color: $color-muted;
+    border: 1px solid rgba($color-muted, 0.28);
+  }
+}
+
+.project-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: $color-card-dark-text;
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+}
+
+.project-description {
+  font-size: 0.86rem;
+  color: $color-card-dark-muted;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1.1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    color: #0969da;
+  }
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.project-tag {
+  font-size: 0.7rem;
+  padding: 0.18rem 0.55rem;
+  background: darken($color-card-light, 5%);
+  border-radius: 50px;
+  color: $color-card-dark-muted;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(#0d1117, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.project-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: $color-card-dark-muted;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: $transition;
+  &:hover { color: $color-card-dark-text; background: darken($color-card-light, 6%); }
+}
+
+.project-modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $color-card-dark-text;
+  margin-bottom: 0.5rem;
+}
+
+.project-modal-subtitle {
+  font-size: 0.85rem;
+  color: $color-card-dark-muted;
+  margin-bottom: 1.5rem;
+}

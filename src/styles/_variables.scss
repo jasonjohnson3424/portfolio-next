@@ -1,0 +1,25 @@
+// Colors
+$primary: #deb98e;
+$secondary: #383e38;
+$tertiary: #ba5d1f;
+$body-color: #3b2111;
+//$body-bg: #542811;
+$body-bg: #deb98e;
+
+// Typography
+$font-family-base: "Poppins", sans-serif;
+$headings-font-family: "Poppins", sans-serif;
+
+// Button styles
+$btn-border-radius: 50px;
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 2rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;

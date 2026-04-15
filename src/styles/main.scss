@@ -1,0 +1,184 @@
+// ============================================================
+// Color & design tokens
+// ============================================================
+$color-bg:           #0d1117;
+$color-surface:      #161b22;
+$color-section-navy: #0b1120;
+$color-section-slate: #1e2330;
+$color-card-light:   #f6f8fa;
+$color-section-light: #2e343b;
+$color-card-dark-text:  #1c2128;
+$color-card-dark-muted: #57606a;
+$color-subtle:       #21262d;
+$color-border:       #30363d;
+$color-text:         #e6edf3;
+$color-muted:        #8b949e;
+$color-accent:       #58a6ff;
+$color-accent-hover: #79c0ff;
+$color-warm:         #7bb940;
+$color-warm-hover:   #62b940;
+$color-success:      #7bb940;
+$color-error:        #f85149;
+$section-py:         5rem;
+$transition:         all 0.25s ease;
+
+// ============================================================
+// Bootstrap variable overrides — must come BEFORE @import
+// ============================================================
+$primary:             $color-accent;
+$secondary:           $color-muted;
+$success:             $color-success;
+$danger:              $color-error;
+$warning:             #d29922;
+$info:                $color-accent-hover;
+$dark:                $color-bg;
+$light:               $color-subtle;
+
+$body-bg:             $color-bg;
+$body-color:          $color-text;
+$link-color:          $color-accent;
+$link-hover-color:    $color-accent-hover;
+
+$font-family-base:    'Poppins', system-ui, -apple-system, sans-serif;
+$font-size-base:      1rem;
+$line-height-base:    1.7;
+$headings-font-weight: 700;
+
+$border-color:        $color-subtle;
+$border-radius:       0.5rem;
+$border-radius-lg:    0.75rem;
+
+$card-bg:             $color-surface;
+$card-border-color:   $color-subtle;
+$card-border-radius:  0.75rem;
+$card-spacer-y:       1.5rem;
+$card-spacer-x:       1.5rem;
+
+$input-bg:            $color-surface;
+$input-border-color:  $color-border;
+$input-color:         $color-text;
+$input-focus-bg:      $color-surface;
+$input-focus-border-color: $color-accent;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($color-accent, 0.15);
+$input-placeholder-color: $color-muted;
+$form-label-color:    $color-muted;
+$form-label-font-weight: 500;
+
+$navbar-dark-color:               rgba($color-text, 0.85);
+$navbar-dark-hover-color:         $color-text;
+$navbar-dark-active-color:        $color-accent;
+$navbar-dark-disabled-color:      rgba($color-text, 0.3);
+$navbar-dark-toggler-border-color: rgba($color-text, 0.15);
+$navbar-padding-y:    1rem;
+
+$btn-border-radius:   50px;
+$btn-border-radius-sm: 50px;
+$btn-border-radius-lg: 50px;
+$btn-padding-y:       0.6rem;
+$btn-padding-x:       1.75rem;
+$btn-font-weight:     600;
+
+$badge-border-radius: 50px;
+$badge-font-size:     0.75em;
+$badge-padding-y:     0.4em;
+$badge-padding-x:     0.8em;
+
+// ============================================================
+// Bootstrap import
+// ============================================================
+@import "bootstrap/scss/bootstrap";
+
+// ============================================================
+// Global styles
+// ============================================================
+:root {
+  --color-warm: #{$color-warm};
+  --color-accent: #{$color-accent};
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: 'Poppins', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+section { padding: calc($section-py / 2) 0 $section-py; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .section-divider {
+    width: 48px;
+    height: 3px;
+    background: $color-accent;
+    margin: 0 auto 1.25rem;
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
+    color: $color-muted;
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+}
+
+.accent { color: $color-accent; }
+.text-muted { color: $color-muted !important; }
+
+.btn-accent {
+  background-color: $color-accent;
+  border-color: $color-accent;
+  color: $color-bg;
+  font-weight: 600;
+  &:hover, &:focus {
+    background-color: $color-accent-hover;
+    border-color: $color-accent-hover;
+    color: $color-bg;
+  }
+}
+
+.btn-outline-accent {
+  border: 2px solid $color-accent;
+  color: $color-accent;
+  background: transparent;
+  font-weight: 600;
+  &:hover, &:focus {
+    background-color: $color-accent;
+    color: $color-bg;
+  }
+}
+
+@import './components/lazy-image';
+@import './components/navbar';
+@import './components/hero';
+@import './components/about';
+@import './components/projects';
+@import './components/services';
+@import './components/contact';
+@import './components/footer';
+@import './components/project-detail';
+@import './components/recommendations';

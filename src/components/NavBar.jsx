@@ -1,0 +1,119 @@
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+
+const NAV_LINKS = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "Recommendations", href: "#recommendations" },
+  { label: "Contact", href: "#contact" },
+];
+
+const NavBar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["hero", ...NAV_LINKS.map((l) => l.href.slice(1))];
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setActiveSection(id === "hero" ? "" : id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -54% 0px", threshold: 0 },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    return () => obs.disconnect();
+  }, []);
+
+  const scrollTo = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    if (href === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark fixed-top${scrolled ? " scrolled" : ""}`}
+    >
+      <div className="container">
+        <a
+          className="nav-logo"
+          href="#top"
+          onClick={(e) => scrollTo(e, "#top")}
+        >
+          <Image
+            src={scrolled ? "/1x1-chartreuse.svg" : "/1x1-white.svg"}
+            alt="Jason L. Johnson logo"
+            height={20}
+            width={20}
+            style={{ height: "3rem", width: "3rem" }}
+          />
+          &nbsp;&nbsp;Jason L. Johnson
+        </a>
+        <button
+          className="navbar-toggler border-0"
+          type="button"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-controls="navbarNav"
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div
+          className={`collapse navbar-collapse${menuOpen ? " show" : ""}`}
+          id="navbarNav"
+        >
+          <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            {NAV_LINKS.map(({ label, href }) => (
+              <li className="nav-item" key={href}>
+                <a
+                  className={`nav-link${activeSection === href.slice(1) ? " active" : ""}`}
+                  href={href}
+                  onClick={(e) => scrollTo(e, href)}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li className="nav-item ms-lg-2">
+              <a
+                className="nav-link nav-hire-btn"
+                href="#contact"
+                onClick={(e) => scrollTo(e, "#contact")}
+              >
+                Hire Me
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;

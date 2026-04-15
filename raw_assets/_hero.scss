@@ -1,0 +1,46 @@
+@use "bootstrap/scss/bootstrap";
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  ); // Folio-style gradient
+  color: white;
+  padding: 2rem;
+  background: url("../assets/hero-bg-large.webp") center/cover no-repeat;
+
+  .hero-content {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

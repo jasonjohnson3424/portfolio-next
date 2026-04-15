@@ -1,0 +1,90 @@
+.navbar {
+  background-color: rgba($color-bg, 0.35) !important;
+  background-image: none !important;
+  backdrop-filter: blur(16px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+  border-bottom: 1px solid rgba($color-border, 0.65);
+  transition: $transition;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+
+  &.scrolled {
+    background-color: rgba($color-bg, 0.82) !important;
+    border-bottom-color: $color-border;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+    box-shadow: 0 1px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $color-text !important;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+
+  img { flex-shrink: 0; }
+
+  span {
+    color: $color-accent;
+  }
+  &:hover {
+    color: $color-text !important;
+  }
+}
+
+.navbar-nav .nav-link {
+  color: rgba($color-text, 0.75) !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem !important;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition: $transition;
+
+  &:hover {
+    color: $color-text !important;
+    background-color: rgba($color-text, 0.06);
+    border-bottom-color: rgba($color-text, 0.3);
+  }
+
+  &.active {
+    color: $color-accent !important;
+    background-color: transparent;
+    border-bottom-color: $color-accent;
+  }
+}
+
+.navbar-nav .nav-hire-btn {
+  color: $color-accent !important;
+  font-weight: 900 !important;
+  border-bottom-color: rgba($color-text, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-toggler {
+  border-color: $color-border !important;
+  padding: 0.35rem 0.6rem;
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($color-accent, 0.2);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-hire-btn {
+    border-bottom-color: transparent;
+    &:hover { border-bottom-color: rgba($color-text, 0.3); }
+    &.active { border-bottom-color: $color-accent; }
+  }
+}

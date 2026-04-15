@@ -1,0 +1,75 @@
+.footer {
+  background-color: $color-bg;
+  border-top: 1px solid $color-border;
+  padding: 1.5rem 0 1rem;
+  color: $color-muted;
+}
+
+.footer-logo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $color-text;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  img { flex-shrink: 0; }
+  span { color: $color-accent; }
+}
+
+.footer-tagline {
+  font-size: 0.86rem;
+  color: $color-accent;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+
+  a {
+    font-size: 0.86rem;
+    color: $color-muted;
+    text-decoration: none;
+    transition: $transition;
+    &:hover { color: $color-accent; }
+  }
+
+  &--centered {
+    justify-content: center;
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: $transition;
+  }
+
+  a[aria-label="LinkedIn"] {
+    background-color: #0a66c2;
+    border-color: #0a66c2;
+    &:hover {
+      background-color: #004182;
+      border-color: #004182;
+    }
+  }
+}
+
+.footer-divider { border-color: $color-border; margin: 1.5rem 0 1.25rem; }
+.footer-copyright { font-size: 0.8rem; color: $color-muted; }

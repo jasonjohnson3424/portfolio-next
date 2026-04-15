@@ -1,0 +1,34 @@
+@use "./variables" as *;
+
+.navbar {
+  width: 100vw; // Makes sure navbar spans full width
+  /* backdrop-filter: blur(10px); */
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent; // Start with no background
+  transition: background-color 0.3s ease-in-out; // Smooth transition for background color
+  transition: all 0.3s ease-in-out;
+
+  .nav-link {
+    color: $primary;
+    font-weight: 600;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $secondary;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 400px;
+    }
+  }
+}
+
+.navbar.scrolled {
+  background: $body-color; // Visible background on scroll
+  backdrop-filter: blur(10px); // Optional: Stylish blur effect
+}

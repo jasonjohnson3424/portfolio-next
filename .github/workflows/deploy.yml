@@ -1,0 +1,64 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # required for OIDC
+  contents: read
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: |
+            portfolio-next/package-lock.json
+            infra/package-lock.json
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::017820696429:role/GitHubActionsDeployRole
+          aws-region: us-east-1
+
+      # ── Next.js build ──────────────────────────────────────────────
+      - name: Install Next.js dependencies
+        working-directory: portfolio-next
+        run: npm ci
+
+      - name: Build Next.js (open-next)
+        working-directory: portfolio-next
+        run: npm run build:open-next
+
+      # ── CDK deploy ─────────────────────────────────────────────────
+      - name: Install CDK dependencies
+        working-directory: infra
+        run: npm ci
+
+      - name: CDK synth (validation)
+        working-directory: infra
+        run: npx cdk synth
+
+      - name: CDK deploy
+        working-directory: infra
+        run: npx cdk deploy --require-approval never --outputs-file cdk-outputs.json
+
+      # ── CloudFront invalidation ─────────────────────────────────────
+      - name: Invalidate CloudFront cache
+        run: |
+          DIST_ID=$(jq -r '.PortfolioStack.CloudFrontDistributionId' infra/cdk-outputs.json)
+          aws cloudfront create-invalidation \
+            --distribution-id "$DIST_ID" \
+            --paths "/*"
