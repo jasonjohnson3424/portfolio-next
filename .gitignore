@@ -3,5 +3,5 @@ node_modules/
 .next/
 next-env.d.ts
 
-# Leftover artifacts from initial repo restructure
-src/
+# Leftover artifacts from initial repo restructure (root-level only)
+/src/
