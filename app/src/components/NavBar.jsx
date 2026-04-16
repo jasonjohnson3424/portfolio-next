@@ -23,6 +23,13 @@ const NavBar = () => {
 
   useEffect(() => {
     const sectionIds = ["hero", ...NAV_LINKS.map((l) => l.href.slice(1))];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    // If no sections exist on this page (e.g. project detail), clear active state
+    if (sections.length === 0) {
+      setActiveSection("");
+      return;
+    }
 
     const obs = new IntersectionObserver(
       (entries) => {
@@ -36,10 +43,7 @@ const NavBar = () => {
       { rootMargin: "-45% 0px -54% 0px", threshold: 0 },
     );
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
+    sections.forEach((el) => obs.observe(el));
 
     return () => obs.disconnect();
   }, []);

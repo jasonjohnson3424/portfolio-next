@@ -103,6 +103,10 @@ body {
   color: $color-text;
   font-family: 'Poppins', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+// Overflow containment on wrapper, not body, so position:fixed NavBar works on mobile
+.site-wrapper {
   overflow-x: hidden;
 }
 

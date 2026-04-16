@@ -49,11 +49,11 @@ jobs:
 
       - name: CDK synth (validation)
         working-directory: infra
-        run: npx cdk synth
+        run: npx cdk synth PortfolioStack
 
       - name: CDK deploy
         working-directory: infra
-        run: npx cdk deploy --require-approval never --outputs-file cdk-outputs.json
+        run: npx cdk deploy PortfolioStack --require-approval never --outputs-file cdk-outputs.json
 
       # ── CloudFront invalidation ─────────────────────────────────────
       - name: Invalidate CloudFront cache

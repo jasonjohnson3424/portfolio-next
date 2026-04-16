@@ -78,7 +78,10 @@ export class PortfolioStack extends cdk.Stack {
         NEXT_PUBLIC_API_URL: `https://${apiSubdomain}`,
         AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       },
-      logRetention: logs.RetentionDays.ONE_MONTH,
+      logGroup: new logs.LogGroup(this, "ServerFunctionLogGroup", {
+        retention: logs.RetentionDays.ONE_MONTH,
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
+      }),
     });
 
     // Grant server function read access to assets bucket (for ISR cache reads)
@@ -111,7 +114,10 @@ export class PortfolioStack extends cdk.Stack {
         BUCKET_KEY_PREFIX: "_assets",
         AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       },
-      logRetention: logs.RetentionDays.ONE_MONTH,
+      logGroup: new logs.LogGroup(this, "ImageOptFunctionLogGroup", {
+        retention: logs.RetentionDays.ONE_MONTH,
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
+      }),
     });
 
     assetsBucket.grantRead(imageOptFunction);
@@ -351,7 +357,10 @@ export class PortfolioStack extends cdk.Stack {
         SES_TO: sestoAddress,
         CORS_ORIGIN: `https://${domainName}`,
       },
-      logRetention: logs.RetentionDays.THREE_MONTHS,
+      logGroup: new logs.LogGroup(this, "ContactFunctionLogGroup", {
+        retention: logs.RetentionDays.THREE_MONTHS,
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
+      }),
     });
 
     // Grant contact Lambda write access to DynamoDB

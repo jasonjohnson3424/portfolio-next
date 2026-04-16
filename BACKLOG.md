@@ -8,6 +8,19 @@ Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
 
 ---
 
+## SEO (treat as P0 bugs)
+
+| ID | Priority | Description |
+|----|----------|-------------|
+| S01 | P0 | **Page metadata** — Update `layout.jsx` with full title, description, OpenGraph, Twitter card, and `metadataBase`. Every page needs unique, descriptive metadata. |
+| S02 | P0 | **Sitemap** — Add `app/src/app/sitemap.js` for automatic `/sitemap.xml` generation. Submit to Google Search Console after deploy. |
+| S03 | P0 | **robots.txt** — Add `app/src/app/robots.js` to allow all crawlers and reference sitemap. |
+| S04 | P1 | **Canonical URL** — Add `alternates: { canonical: "https://jasonljohnson.com" }` to root metadata to prevent duplicate content between apex and www. |
+| S05 | P1 | **Structured data / JSON-LD** — Add `Person` schema to homepage so Google can surface rich results and understand professional identity. |
+| S06 | P1 | **Google Search Console** — Register domain, verify ownership via Route 53 DNS TXT record, submit sitemap. |
+
+---
+
 ## Bugs
 
 | ID | Priority | Description |
@@ -33,6 +46,16 @@ Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
 | F06 | P2 | **GitHub social icon in Hero and Footer** — Add FA GitHub icon and link alongside existing social icons. **Blocked:** repo must be reviewed and made public-ready before link is exposed. |
 | F07 | P2 | **Mobile UX audit** — Review and enlarge font sizes and interactive elements (buttons, links) for xs screen sizes beyond hamburger menu fix in B01/B02. |
 | F08 | P1 | **reCAPTCHA on contact form** — Add Google reCAPTCHA v3 (invisible, score-based) to the contact form. Verify token server-side in the contact Lambda before processing submission. Requires Google reCAPTCHA site key + secret key stored in SSM. Add required Google disclosure notice below the Submit button: "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply." (linked, muted small text). |
+
+---
+
+## Social Media & Content Automation (Post-Launch)
+
+- Create professional Facebook and Instagram pages (separate from personal profiles) to mirror portfolio content
+- Evaluate automation tools: **HootSuite** (robust, higher cost — free tier covers 2 accounts) vs. **Buffer** (leaner, cheaper alternative)
+- LinkedIn is primary platform; Facebook for local/regional client discovery; Instagram for visual work samples
+- Once GitHub is public-ready, add to social profiles and site (see F06)
+- Add all verified social profiles to JSON-LD `sameAs` as each platform is activated
 
 ---
 
