@@ -32,6 +32,7 @@ Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
 | F05 | P1 | **Email template branding** — Add corporate logo to both emails (asset to be provided by owner). Increase name font size in header. Replace profile description line with roles from Hero/Footer. Sign-off: "Respectfully,". |
 | F06 | P2 | **GitHub social icon in Hero and Footer** — Add FA GitHub icon and link alongside existing social icons. **Blocked:** repo must be reviewed and made public-ready before link is exposed. |
 | F07 | P2 | **Mobile UX audit** — Review and enlarge font sizes and interactive elements (buttons, links) for xs screen sizes beyond hamburger menu fix in B01/B02. |
+| F08 | P1 | **reCAPTCHA on contact form** — Add Google reCAPTCHA v3 (invisible, score-based) to the contact form. Verify token server-side in the contact Lambda before processing submission. Requires Google reCAPTCHA site key + secret key stored in SSM. |
 
 ---
 
