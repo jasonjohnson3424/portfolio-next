@@ -10,6 +10,7 @@ const Avatar = ({ rec }) => {
       alt={rec.authorName}
       width={96}
       height={96}
+      unoptimized
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
       onError={() => setImgError(true)}
     />

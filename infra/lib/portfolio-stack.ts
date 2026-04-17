@@ -227,6 +227,13 @@ export class PortfolioStack extends cdk.Stack {
           cachePolicy: staticCachePolicy,
           compress: true,
         },
+        // Avatar images — served directly from S3
+        "/avatars/*": {
+          origin: s3Origin,
+          viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          cachePolicy: staticCachePolicy,
+          compress: true,
+        },
         // Image optimization
         "/_next/image*": {
           origin: imageOrigin,
@@ -366,6 +373,16 @@ export class PortfolioStack extends cdk.Stack {
 
     // Grant contact Lambda write access to DynamoDB
     contactTable.grantWriteData(contactLambda);
+
+    // Grant contact Lambda permission to read reCAPTCHA secret from SSM
+    contactLambda.addToRolePolicy(
+      new iam.PolicyStatement({
+        actions: ["ssm:GetParameter"],
+        resources: [
+          `arn:aws:ssm:us-east-1:${this.account}:parameter/portfolio/recaptcha/secret-key`,
+        ],
+      })
+    );
 
     // Grant contact Lambda permission to send email via SES
     contactLambda.addToRolePolicy(

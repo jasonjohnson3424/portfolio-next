@@ -102,18 +102,26 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     setSubmitError(false);
+    let recaptchaToken;
     try {
-      const recaptchaToken = await getRecaptchaToken("contact_submit");
+      recaptchaToken = await getRecaptchaToken("contact_submit");
+    } catch (err) {
+      console.error("reCAPTCHA error:", err);
+      setSubmitError("recaptcha");
+      return;
+    }
+    try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${apiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, recaptchaToken }),
       });
-      if (!res.ok) throw new Error("Submission failed");
+      if (!res.ok) throw new Error(`API error ${res.status}`);
       setSubmitted(true);
-    } catch {
-      setSubmitError(true);
+    } catch (err) {
+      console.error("Contact submit error:", err);
+      setSubmitError("api");
     }
   };
 
@@ -274,7 +282,9 @@ const Contact = () => {
                     {submitError && (
                       <div className="col-12">
                         <p className="text-danger mb-0" role="alert">
-                          Something went wrong. Please try again or email me directly.
+                          {submitError === "recaptcha"
+                            ? "Security check failed. Please refresh the page and try again."
+                            : "Something went wrong. Please try again or email me directly."}
                         </p>
                       </div>
                     )}
