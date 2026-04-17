@@ -1,9 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-const ProjectPasswordModal = ({ project, onSuccess, onClose }) => {
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+
+const ProjectPasswordModal = ({ onSuccess, onClose }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -13,15 +16,31 @@ const ProjectPasswordModal = ({ project, onSuccess, onClose }) => {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (project.password && password === project.password) {
-      setError(false);
-      onSuccess();
-    } else {
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch(`${API_URL}/verify-password`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        sessionStorage.setItem("portfolioUnlocked", "true");
+        onSuccess();
+      } else {
+        setError(true);
+        setPassword("");
+        inputRef.current?.focus();
+      }
+    } catch {
       setError(true);
       setPassword("");
       inputRef.current?.focus();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,7 +66,7 @@ const ProjectPasswordModal = ({ project, onSuccess, onClose }) => {
           Password Required
         </h3>
         <p className="project-modal-subtitle">
-          {project.title} is password-protected. Enter the password to continue.
+          This project is password-protected. Enter the password to continue.
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -64,6 +83,7 @@ const ProjectPasswordModal = ({ project, onSuccess, onClose }) => {
               onChange={(e) => { setPassword(e.target.value); setError(false); }}
               placeholder="Enter password"
               autoComplete="off"
+              disabled={loading}
             />
             {error && (
               <div className="invalid-feedback">
@@ -77,8 +97,12 @@ const ProjectPasswordModal = ({ project, onSuccess, onClose }) => {
               type="submit"
               className="btn-send"
               aria-label="Submit password"
+              disabled={loading}
             >
-              <i className="fas fa-arrow-right"></i>
+              {loading
+                ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                : <i className="fas fa-arrow-right"></i>
+              }
             </button>
           </div>
         </form>

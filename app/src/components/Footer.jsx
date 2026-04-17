@@ -20,7 +20,7 @@ const Footer = () => {
               onClick={(e) => scrollTo(e, "#hero")}
             >
               <Image
-                src="/1x1-chartreuse.svg"
+                src="/logo.svg"
                 alt="Jason L. Johnson logo"
                 height={40}
                 width={40}
@@ -58,7 +58,14 @@ const Footer = () => {
               >
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              {/* TODO: Activate GitHub link when profile is ready. href="https://github.com/jasonljohnson" */}
+              <a
+                href="https://github.com/jasonjohnson3424"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i className="fab fa-github"></i>
+              </a>
               {/* FUTURE: Add social icons for Instagram, Facebook, X/Twitter, YouTube, etc. */}
             </div>
           </div>

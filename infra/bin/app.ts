@@ -9,17 +9,17 @@ const app = new cdk.App();
 // Deploy once before PortfolioStack:  npx cdk deploy GithubOidcStack
 new GithubOidcStack(app, "GithubOidcStack", {
   env: {
-    account: "017820696429",
-    region: "us-east-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION ?? "us-east-1",
   },
   githubOrg: "jasonjohnson3424",
-  githubRepo: "portfolio-next", // UPDATE: your repo name
+  githubRepo: "portfolio-next",
 });
 
 new PortfolioStack(app, "PortfolioStack", {
   env: {
-    account: "017820696429",
-    region: "us-east-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION ?? "us-east-1",
   },
   domainName: "jasonljohnson.com",
   apiSubdomain: "api.jasonljohnson.com",

@@ -15,6 +15,12 @@
     padding-bottom: 0.55rem !important;
     box-shadow: 0 1px 24px rgba(0, 0, 0, 0.5);
   }
+
+  .container {
+    max-width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }
 
 .nav-logo {
@@ -22,18 +28,53 @@
   align-items: center;
   font-size: 1.75rem;
   font-weight: 700;
-  color: $color-text !important;
+  color: #ffffff !important;
   text-decoration: none;
   letter-spacing: -0.01em;
 
-  img { flex-shrink: 0; }
+  img {
+    flex-shrink: 0;
+  }
 
-  span {
-    color: $color-accent;
-  }
   &:hover {
-    color: $color-text !important;
+    color: #ffffff !important;
   }
+}
+
+// Name — inline next to logo at md+, hidden at xs/sm
+.nav-logo-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding-left: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  display: inline;
+
+  @media (max-width: 767.98px) { display: none; }
+}
+
+// Initials — fixed to viewport top at xs/sm only
+.nav-logo-initials {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4.5rem;
+  display: none;
+  align-items: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.18em;
+  transition: color 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1031;
+
+  @media (max-width: 767.98px) { display: flex; }
 }
 
 .navbar-nav .nav-link {
@@ -68,8 +109,24 @@
 .navbar-toggler {
   border-color: $color-border !important;
   padding: 0.35rem 0.6rem;
+  filter: brightness(0) invert(1);
   &:focus {
     box-shadow: 0 0 0 2px rgba($color-accent, 0.2);
+  }
+
+  @media (max-width: 575.98px) {
+    padding: 0.5rem 0.9rem;
+    .navbar-toggler-icon {
+      width: 1.75em;
+      height: 1.75em;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-nav .nav-link {
+    font-size: 1.15rem;
+    padding: 0.75rem 0.85rem !important;
   }
 }
 
@@ -84,7 +141,11 @@
 
   .navbar-nav .nav-hire-btn {
     border-bottom-color: transparent;
-    &:hover { border-bottom-color: rgba($color-text, 0.3); }
-    &.active { border-bottom-color: $color-accent; }
+    &:hover {
+      border-bottom-color: rgba($color-text, 0.3);
+    }
+    &.active {
+      border-bottom-color: $color-accent;
+    }
   }
 }

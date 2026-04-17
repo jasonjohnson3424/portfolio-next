@@ -84,12 +84,12 @@
   padding: 1rem 0 0;
   cursor: pointer;
   transition: $transition;
-  color: rgba($color-warm, 0.6);
+  color: $color-warm;
 
   &:hover {
-    color: $color-warm;
+    color: lighten($color-warm, 12%);
     .timeline-toggle-line {
-      background: $color-warm;
+      background: lighten($color-warm, 12%);
     }
   }
 }

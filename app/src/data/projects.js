@@ -51,7 +51,7 @@ export const projects = [
     demoType: "s3",
     featured: true,
     protected: true,
-    password: "tgi fridays",
+
     metaDescription:
       "This global training program created for TGI Fridays restaurant management teams covers food safety best practices through a gamified, interactive eLearning experience built in Articulate Storyline and published as SCORM for LMS deployment.",
   },
@@ -107,7 +107,6 @@ export const projects = [
     demoType: "s3",
     featured: true,
     protected: true,
-    password: "doordash",
     metaDescription:
       "When your labor force–thousands of independent contractors nationally–need app training and simulation (and your bottom line depends on it), only give them the best.",
   },
@@ -163,7 +162,6 @@ export const projects = [
     demoType: "s3",
     featured: true,
     protected: true,
-    password: "doordash",
     metaDescription:
       "Dasher app training for DoorDash labor force built in Rise 360 provides technical insight by walking the learner through app tools and settings.",
   },
@@ -225,7 +223,6 @@ export const projects = [
     demoType: "s3",
     featured: true,
     protected: true,
-    password: "self",
     metaDescription:
       "Full-stack portfolio site built with React, AWS Lambda, DynamoDB, and GitHub Actions CI/CD.",
   },
@@ -281,7 +278,6 @@ export const projects = [
     demoType: "s3",
     featured: false,
     protected: true,
-    password: "sample",
     metaDescription:
       "A sample onboarding course for a fictional financial institution, built in Rise 360 and published as SCORM for LMS deployment. This course demonstrates how to structure and design an engaging onboarding experience with interactive elements and real-world scenarios.",
   },
@@ -344,7 +340,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "maxmara",
     metaDescription:
       "While with Doner Advertising, MaxMara required a banner ad campaign demonstrating their newest product line featuring Teflon-coated fabrics. I developed a series of interactive HTML5 banner ads that showcased the water-resistant properties of the fabric through engaging animations and user interactions.",
   },
@@ -386,7 +381,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "chrysler",
     metaDescription:
       "Chrysler Academy, as it was called, was a product knowledge and sales training program for retail sales associates at Jeep dealerships across the US and Canada. The program was built as a custom HTML/CSS eLearning course and published as SCORM for deployment on the client’s LMS. The course covered Jeep product features, competitive differentiators, and sales techniques through a series of interactive modules, knowledge checks, and a final certification assessment.",
   },
@@ -427,7 +421,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "chrysler",
     metaDescription:
       "Mopar Service & Parts Training was an eLearning course developed for Chrysler service technicians, focusing on the features and benefits of Mopar parts and service offerings. The course was designed to enhance technicians’ product knowledge and upselling capabilities during service appointments. It included interactive modules covering key product lines, diagnostic tools, and customer communication strategies, all built in Flash/Actionscript, HTML/CSS and published as SCORM for LMS deployment.",
   },
@@ -467,7 +460,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "teksystems",
     metaDescription:
       "This software simulation training was developed for TEKsystems to provide their internal HR staff with hands-on practice using Microsoft SharePoint. The course included a series of interactive simulations that walked learners through common SharePoint tasks and scenarios, such as document management, collaboration features, and site navigation. Built using Camtasia for screen recording and interactivity, the course was published as SCORM for deployment on the client’s LMS. The training aimed to enhance technical proficiency and confidence with SharePoint.",
   },
@@ -500,7 +492,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "teksystems",
     metaDescription:
       "For TEKsystems, a go-to-market strategy was developed to build a business model and solicit clients across a full spectrum of eLearning products and services following a good/better/best offering approach.",
   },
@@ -539,7 +530,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "motorola",
     metaDescription:
       "Motorola needed a course built for their technicians and sales staff to communicate the features and benefits of their new ET1 enterprise tablet. The course was built for both ILT and digital delivery. It included interactive animations covering product specifications, use cases, competitive differentiators, and sales strategies to equip both technical and sales teams with the knowledge needed to effectively support and sell the ET1 tablet.",
   },
@@ -578,7 +568,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "teksystems",
     metaDescription:
       "This 2-day ILT workshop was designed to equip Scrum Masters with the knowledge and skills needed to effectively facilitate Agile teams. The curriculum covered Agile principles, Scrum framework, team dynamics, and practical facilitation techniques through a mix of interactive lectures, group activities, and real-world case studies. The workshop was delivered in-person and later adapted for virtual delivery to accommodate remote learners.",
   },
@@ -612,7 +601,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "motorola",
     metaDescription:
       "Motorola required a technical training course to enable their sales and support teams to effectively sell and support RhoElements, a mobile application development platform. The course was designed for ILT delivery with a train-the-trainer component to facilitate internal delivery by Motorola’s learning and development team. The curriculum covered product features, use cases, competitive differentiators, and sales strategies through interactive lectures, group discussions, and hands-on activities to ensure learners were equipped with the knowledge needed to effectively support and sell RhoElements.",
   },
@@ -654,7 +642,6 @@ export const projects = [
     demoType: "web",
     featured: false,
     protected: true,
-    password: "deloitte",
     metaDescription:
       "As an eLearning Developer for Deloitte, web and eLearning components were developed for global IFRS training programs, targeting thousands of independent and internal CPAs worldwide for annual CPE credits. The project involved creating interactive learning components using a mix of web development tools and skill sets. The curriculum covered complex accounting standards and compliance requirements through a mix of engaging content, real-world scenarios, and knowledge checks to ensure learners were equipped with the knowledge needed to effectively apply IFRS and other accountingstandards in their work as part of their continuing education.",
   },
@@ -694,7 +681,6 @@ export const projects = [
     demoType: "none",
     featured: false,
     protected: true,
-    password: "pictsweet",
     metaDescription:
       "PictSweet needed an uplift on their website with a custom video player to showcase their product line and brand story. I developed an interactive video player using Flash, Actionscript, HTML/CSS, and JavaScript that allowed users to explore PictSweet’s offerings through engaging video content. The player integrated with the client’s existing website design to create an immersive brand experience for visitors.",
   },

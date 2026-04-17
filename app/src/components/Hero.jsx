@@ -9,7 +9,6 @@ const ROLES = [
 ];
 
 const useTypewriter = (words, speed = 80, pause = 1800) => {
-  const [display, setDisplay] = useState("");
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -24,14 +23,15 @@ const useTypewriter = (words, speed = 80, pause = 1800) => {
     } else if (deleting && charIdx > 0) {
       timeout = setTimeout(() => setCharIdx((c) => c - 1), speed / 2);
     } else {
-      setDeleting(false);
-      setWordIdx((w) => (w + 1) % words.length);
+      timeout = setTimeout(() => {
+        setDeleting(false);
+        setWordIdx((w) => (w + 1) % words.length);
+      }, 0);
     }
-    setDisplay(current.slice(0, charIdx));
     return () => clearTimeout(timeout);
   }, [charIdx, deleting, wordIdx, words, speed, pause]);
 
-  return display;
+  return words[wordIdx].slice(0, charIdx);
 };
 
 const fadeUp = (delay = 0) => ({
@@ -94,7 +94,14 @@ const Hero = () => {
               >
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              {/* TODO: Activate GitHub link when profile is ready */}
+              <a
+                href="https://github.com/jasonjohnson3424"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i className="fab fa-github"></i>
+              </a>
               {/* FUTURE: Add Instagram, Facebook, X/Twitter, YouTube social icons */}
             </motion.div>
           </div>
@@ -137,6 +144,15 @@ const Hero = () => {
             className="hero-mobile-social"
           >
             <i className="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://github.com/jasonjohnson3424"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="hero-mobile-social"
+          >
+            <i className="fab fa-github"></i>
           </a>
         </motion.div>
       </div>

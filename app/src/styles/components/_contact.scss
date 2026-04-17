@@ -8,18 +8,13 @@
 
 .contact-info-item {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 1.75rem;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-  }
+  margin-bottom: 1rem;
 
   .contact-info-icon {
-    min-width: 36px;
-    aspect-ratio: 1 / 1;
+    min-width: 44px;
+    height: 44px;
     border-radius: 8px;
     background: rgba($color-accent, 0.1);
     border: 1px solid rgba($color-accent, 0.2);
@@ -27,18 +22,8 @@
     align-items: center;
     justify-content: center;
     color: $color-accent;
-    font-size: 1rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
-    align-self: stretch;
-  }
-
-  .contact-info-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: $color-accent;
-    margin-bottom: 0.2rem;
   }
 
   .contact-info-value {
@@ -159,6 +144,24 @@
   &:hover {
     background: rgba($color-warm, 0.1);
     border-color: $color-warm;
+  }
+}
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+.recaptcha-disclosure {
+  font-size: 0.68rem;
+  color: $color-muted;
+  line-height: 1.5;
+
+  a {
+    color: $color-muted;
+    text-decoration: underline;
+    &:hover {
+      color: $color-accent;
+    }
   }
 }
 

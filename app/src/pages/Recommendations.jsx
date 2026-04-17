@@ -1,27 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { recommendations } from "../data/recommendations";
-
-const getTruncateLimit = () => {
-  if (typeof window === "undefined") return 1003;
-  if (window.innerWidth < 576) return 300;
-  if (window.innerWidth < 992) return 500;
-  return 1003;
-};
 
 const Recommendations = () => {
   const visible = recommendations.filter((r) => r.featured);
   const [active, setActive] = useState(0);
   const [expanded, setExpanded] = useState(false);
-  const [truncateAt, setTruncateAt] = useState(1003);
-
-  useEffect(() => {
-    const update = () => setTruncateAt(getTruncateLimit());
-    update();
-    window.addEventListener("resize", update, { passive: true });
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   const prev = () => {
     setActive((a) => (a - 1 + visible.length) % visible.length);
@@ -33,11 +18,6 @@ const Recommendations = () => {
   };
 
   const current = visible[active];
-  const needsTruncation = current.body.length > truncateAt;
-  const displayBody =
-    needsTruncation && !expanded
-      ? current.body.slice(0, truncateAt).trimEnd()
-      : current.body;
 
   return (
     <section id="recommendations">
@@ -59,31 +39,15 @@ const Recommendations = () => {
                 <i className="fas fa-quote-left"></i>
               </div>
 
-              <p className="rec-body">
-                {displayBody}
-                {needsTruncation && !expanded && (
-                  <>
-                    {"\u2026 "}
-                    <button
-                      className="rec-expand-btn"
-                      onClick={() => setExpanded(true)}
-                    >
-                      Read more
-                    </button>
-                  </>
-                )}
-                {needsTruncation && expanded && (
-                  <>
-                    {" "}
-                    <button
-                      className="rec-expand-btn"
-                      onClick={() => setExpanded(false)}
-                    >
-                      Show less
-                    </button>
-                  </>
-                )}
-              </p>
+              <div className={`rec-body-wrapper${expanded ? " rec-body-wrapper--expanded" : ""}`}>
+                <p className="rec-body">{current.body}</p>
+              </div>
+              <button
+                className="rec-expand-btn"
+                onClick={() => setExpanded((e) => !e)}
+              >
+                {expanded ? "Show less" : "Read more"}
+              </button>
 
               <div className="rec-author">
                 <div className="rec-avatar">

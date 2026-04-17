@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
@@ -58,7 +58,14 @@ const EMPTY_FILTERS = { modality: [], domain: [], role: [], technology: [] };
 const Projects = () => {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [pendingProject, setPendingProject] = useState(null);
+  const [unlocked, setUnlocked] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (sessionStorage.getItem("portfolioUnlocked") === "true") {
+      setUnlocked(true);
+    }
+  }, []);
 
   const isFiltered = Object.values(filters).some((arr) => arr.length > 0);
 
@@ -149,7 +156,7 @@ const Projects = () => {
                 <div
                   className="project-card h-100"
                   onClick={() =>
-                    project.password
+                    project.protected && !unlocked
                       ? setPendingProject(project)
                       : router.push(`/projects/${project.slug}`)
                   }
@@ -168,7 +175,7 @@ const Projects = () => {
                     )}
                     <div className="project-thumbnail-overlay">
                       <span className="btn btn-sm btn-accent">
-                        {project.password ? (
+                        {project.protected && !unlocked ? (
                           <><i className="fas fa-lock me-1"></i> Enter Password</>
                         ) : (
                           <><i className="fas fa-eye me-1"></i> View Details</>
@@ -197,9 +204,9 @@ const Projects = () => {
 
       {pendingProject && (
         <ProjectPasswordModal
-          project={pendingProject}
           onClose={() => setPendingProject(null)}
           onSuccess={() => {
+            setUnlocked(true);
             setPendingProject(null);
             router.push(`/projects/${pendingProject.slug}`);
           }}

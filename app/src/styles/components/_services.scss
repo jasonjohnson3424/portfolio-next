@@ -46,11 +46,11 @@
 }
 
 .service-icon { font-size: 1.6rem; color: $color-accent; transition: $transition; flex-shrink: 0; }
-.service-title { font-size: 1.02rem; font-weight: 600; color: $color-card-dark-text; margin-bottom: 0; }
-.service-description { font-size: 0.88rem; font-weight: 500; color: $color-card-dark-muted; line-height: 1.7; flex: 1; margin-bottom: 1.5rem; }
+.service-title { font-size: 1.08rem; font-weight: 600; color: $color-card-dark-text; margin-bottom: 0; }
+.service-description { font-size: 0.95rem; font-weight: 500; color: $color-card-dark-muted; line-height: 1.75; flex: 1; margin-bottom: 1.5rem; }
 
 .service-cta {
-  font-size: 0.83rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #0969da;
   text-decoration: none;

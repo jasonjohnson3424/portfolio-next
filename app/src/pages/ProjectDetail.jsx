@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 import { projects } from "../data/projects";
 import { recommendations } from "../data/recommendations";
 import LazyImage from "../components/LazyImage";
@@ -81,7 +83,7 @@ const ProjectDetail = ({ slug }) => {
           <button className="btn btn-outline-accent" onClick={() => router.push("/")}>
             ← Back to Portfolio
           </button>
-          <a href="/#contact" className="btn btn-accent">Contact Me</a>
+          <Link href="/#contact" className="btn btn-accent">Contact Me</Link>
         </div>
       </div>
     );
@@ -162,7 +164,7 @@ const ProjectDetail = ({ slug }) => {
                     <div className="project-rec-author">
                       <div className="rec-avatar">
                         {rec.avatarUrl
-                          ? <img src={rec.avatarUrl} alt={rec.authorName} />
+                          ? <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
                           : rec.avatarInitials
                         }
                       </div>

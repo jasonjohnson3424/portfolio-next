@@ -69,6 +69,15 @@
       border-color: #004182;
     }
   }
+
+  a[aria-label="GitHub"] {
+    background-color: transparent;
+    border-color: rgba(#ffffff, 0.4);
+    &:hover {
+      background-color: rgba(#ffffff, 0.1);
+      border-color: #ffffff;
+    }
+  }
 }
 
 .footer-divider { border-color: $color-border; margin: 1.5rem 0 1.25rem; }

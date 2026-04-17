@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -11,6 +12,7 @@ const NAV_LINKS = [
 ];
 
 const NavBar = () => {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,8 +29,8 @@ const NavBar = () => {
 
     // If no sections exist on this page (e.g. project detail), clear active state
     if (sections.length === 0) {
-      setActiveSection("");
-      return;
+      const t = setTimeout(() => setActiveSection(""), 0);
+      return () => clearTimeout(t);
     }
 
     const obs = new IntersectionObserver(
@@ -46,7 +48,7 @@ const NavBar = () => {
     sections.forEach((el) => obs.observe(el));
 
     return () => obs.disconnect();
-  }, []);
+  }, [pathname]);
 
   const scrollTo = (e, href) => {
     e.preventDefault();
@@ -63,6 +65,7 @@ const NavBar = () => {
     <nav
       className={`navbar navbar-expand-lg navbar-dark fixed-top${scrolled ? " scrolled" : ""}`}
     >
+      <span className="nav-logo-initials" aria-hidden="true">JLJ</span>
       <div className="container">
         <a
           className="nav-logo"
@@ -70,14 +73,14 @@ const NavBar = () => {
           onClick={(e) => scrollTo(e, "#top")}
         >
           <Image
-            src={scrolled ? "/1x1-chartreuse.svg" : "/1x1-white.svg"}
+            src={scrolled ? "/logo.svg" : "/logo-white.svg"}
             alt="Jason L. Johnson logo"
             height={20}
             width={20}
             style={{ height: "3rem", width: "3rem" }}
           />
-          &nbsp;&nbsp;Jason L. Johnson
         </a>
+        <span className="nav-logo-name" aria-hidden="true">Jason L. Johnson</span>
         <button
           className="navbar-toggler border-0"
           type="button"

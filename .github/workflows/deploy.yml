@@ -30,13 +30,17 @@ jobs:
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::017820696429:role/GitHubActionsDeployRole
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsDeployRole
           aws-region: us-east-1
 
       # ── Next.js build ──────────────────────────────────────────────
       - name: Install Next.js dependencies
         working-directory: app
         run: npm ci
+
+      - name: Lint
+        working-directory: app
+        run: npm run lint
 
       - name: Build Next.js (open-next)
         working-directory: app

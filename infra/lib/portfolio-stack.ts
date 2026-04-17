@@ -285,6 +285,7 @@ export class PortfolioStack extends cdk.Stack {
       distribution,
       distributionPaths: ["/_next/static/*"],
       memoryLimit: 256,
+      prune: true,
     });
 
     // =========================================================
@@ -400,6 +401,46 @@ export class PortfolioStack extends cdk.Stack {
       integration: new apiIntegrations.HttpLambdaIntegration(
         "ContactIntegration",
         contactLambda
+      ),
+    });
+
+    // =========================================================
+    // 13. LAMBDA — Password verification for protected projects
+    // Compares SHA-256 hash of submitted password against SSM
+    // =========================================================
+    const verifyPasswordLambda = new lambda.Function(this, "VerifyPasswordFunction", {
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: "index.handler",
+      code: lambda.Code.fromAsset(path.join(__dirname, "../lambda/verify-password")),
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(10),
+      environment: {
+        CORS_ORIGIN: `https://${domainName}`,
+        PASSWORD_HASH_PARAM: "/portfolio/project-password",
+      },
+      logGroup: new logs.LogGroup(this, "VerifyPasswordFunctionLogGroup", {
+        retention: logs.RetentionDays.ONE_MONTH,
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
+      }),
+    });
+
+    // Grant permission to read the hashed password from SSM
+    verifyPasswordLambda.addToRolePolicy(
+      new iam.PolicyStatement({
+        actions: ["ssm:GetParameter"],
+        resources: [
+          `arn:aws:ssm:us-east-1:${this.account}:parameter/portfolio/project-password`,
+        ],
+      })
+    );
+
+    // Wire POST /verify-password to the verify Lambda
+    httpApi.addRoutes({
+      path: "/verify-password",
+      methods: [apigateway.HttpMethod.POST],
+      integration: new apiIntegrations.HttpLambdaIntegration(
+        "VerifyPasswordIntegration",
+        verifyPasswordLambda
       ),
     });
 

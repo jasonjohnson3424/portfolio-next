@@ -1,9 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { services } from "../data/services";
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (document.getElementById("recaptcha-script")) return;
+  const script = document.createElement("script");
+  script.id = "recaptcha-script";
+  script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+function getRecaptchaToken(action) {
+  return new Promise((resolve, reject) => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(RECAPTCHA_SITE_KEY, { action })
+        .then(resolve)
+        .catch(reject);
+    });
+  });
+}
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -67,6 +89,8 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
+  useEffect(() => { loadRecaptcha(); }, []);
+
   const {
     register,
     handleSubmit,
@@ -79,11 +103,12 @@ const Contact = () => {
   const onSubmit = async (data) => {
     setSubmitError(false);
     try {
+      const recaptchaToken = await getRecaptchaToken("contact_submit");
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${apiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
       if (!res.ok) throw new Error("Submission failed");
       setSubmitted(true);
@@ -107,14 +132,13 @@ const Contact = () => {
 
         <div className="row g-5">
           {/* Contact Info */}
-          <div className="col-lg-4" data-aos="fade-right">
+          <div className="col-xl-4" data-aos="fade-right">
             {CONTACT_INFO.map(({ icon, label, value, href, custom }) => (
               <div className="contact-info-item" key={label}>
                 <div className="contact-info-icon">
                   <i className={icon}></i>
                 </div>
                 <div>
-                  <p className="contact-info-label">{label}</p>
                   <p className="contact-info-value">
                     {custom ? (
                       custom
@@ -136,7 +160,7 @@ const Contact = () => {
           </div>
 
           {/* Form */}
-          <div className="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+          <div className="col-xl-8" data-aos="fade-left" data-aos-delay="100">
             <div className="contact-form">
               {submitted ? (
                 <div className="contact-success">
@@ -267,6 +291,15 @@ const Contact = () => {
                           : <i className="fas fa-paper-plane" aria-hidden="true"></i>
                         }
                       </button>
+                    </div>
+                    <div className="col-12 mt-2">
+                      <p className="recaptcha-disclosure mb-0">
+                        This site is protected by reCAPTCHA and the Google{" "}
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>{" "}
+                        and{" "}
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>{" "}
+                        apply.
+                      </p>
                     </div>
                   </div>
                 </form>
