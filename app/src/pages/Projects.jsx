@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
@@ -58,14 +58,10 @@ const EMPTY_FILTERS = { modality: [], domain: [], role: [], technology: [] };
 const Projects = () => {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [pendingProject, setPendingProject] = useState(null);
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState(
+    () => typeof window !== "undefined" && sessionStorage.getItem("portfolioUnlocked") === "true"
+  );
   const router = useRouter();
-
-  useEffect(() => {
-    if (sessionStorage.getItem("portfolioUnlocked") === "true") {
-      setUnlocked(true);
-    }
-  }, []);
 
   const isFiltered = Object.values(filters).some((arr) => arr.length > 0);
 
