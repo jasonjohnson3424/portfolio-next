@@ -204,6 +204,7 @@ exports.handler = async (event) => {
       { method: "POST" }
     );
     const verifyData = await verifyRes.json();
+    console.log("reCAPTCHA response:", JSON.stringify(verifyData));
     if (!verifyData.success || verifyData.score < 0.5) {
       return response(400, { error: "reCAPTCHA verification failed" });
     }
