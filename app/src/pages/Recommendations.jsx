@@ -1,6 +1,24 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+
+const Avatar = ({ rec }) => {
+  const [imgError, setImgError] = useState(false);
+  const inner = rec.avatarUrl && !imgError ? (
+    <Image
+      src={rec.avatarUrl}
+      alt={rec.authorName}
+      width={96}
+      height={96}
+      onError={() => setImgError(true)}
+    />
+  ) : (
+    <span className="rec-avatar-initials">{rec.avatarInitials}</span>
+  );
+  return rec.linkedInUrl ? (
+    <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer">{inner}</a>
+  ) : inner;
+};
 import { recommendations } from "../data/recommendations";
 
 const Recommendations = () => {
@@ -51,33 +69,7 @@ const Recommendations = () => {
 
               <div className="rec-author">
                 <div className="rec-avatar">
-                  {current.linkedInUrl ? (
-                    <a
-                      href={current.linkedInUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {current.avatarUrl ? (
-                        <Image
-                          src={current.avatarUrl}
-                          alt={current.authorName}
-                          width={96}
-                          height={96}
-                        />
-                      ) : (
-                        current.avatarInitials
-                      )}
-                    </a>
-                  ) : current.avatarUrl ? (
-                    <Image
-                      src={current.avatarUrl}
-                      alt={current.authorName}
-                      width={96}
-                      height={96}
-                    />
-                  ) : (
-                    current.avatarInitials
-                  )}
+                  <Avatar rec={current} />
                 </div>
                 <div>
                   <p className="rec-author-name">

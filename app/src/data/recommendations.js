@@ -6,8 +6,7 @@ export const recommendations = [
     authorCompany: "JPMorgan Chase",
     relationship: "manager",
     avatarInitials: "JZ",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/D5603AQHp27dj_BnI6Q/profile-displayphoto-scale_400_400/B56Zsn9Ed.IAAg-/0/1765901880218?e=1777507200&v=beta&t=lJl67GVsWG_buxTP3IliQmc-xY8Usc8WLNpXwH7f1sY",
+    avatarUrl: "/avatars/avatar-jz.jpg",
     linkedInUrl: "https://www.linkedin.com/in/jeff-zwick-6897841/",
     body: "Jason was a key member of my Digital Learning Solutions team at JPMC, where his expertise in learning technology, vendor evaluations, and digital delivery made a lasting impact. I relied on him to conduct in-depth technical reviews and recommendations for commercial learning tools such as WalkMe, Oracle Guided Learning, the Articulate 360 suite, and AI-driven solutions like Synthesia. His ability to assess these tools for capability, scalability, and fit within the JPMC landscape was invaluable to our decision-making process. Beyond technical reviews, Jason played a critical role in course development using Articulate and Adobe tools and our custom web-based course development tool, as well as enhancing our custom LCMS and Oracle HCM learning systems. He was exceptional in his delivery of train-the-trainer sessions to internal training developers for our internal course development tool. Clients enjoyed his engaging presentation style, clarity in communication, and ability to simplify complex topics. He also worked closely with our learning vendor partners, managing relationships, reviewing vendor materials, and troubleshooting third-party content within our LMS. His ability to balance technical expertise, strategic vendor management, and instructional excellence made him an asset to our team.",
     date: "2025-02",
@@ -21,8 +20,7 @@ export const recommendations = [
     authorCompany: "Bosch Automotive Service Solutions",
     relationship: "colleague",
     avatarInitials: "JR",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/D5603AQH2O5r8KXSvNg/profile-displayphoto-scale_400_400/B56ZjAT5CCHAAk-/0/1755573097525?e=1777507200&v=beta&t=rnRHp_hzSOC8gVPdYebOCNIu-zWPBVApHP1ExuNoEEs",
+    avatarUrl: "/avatars/avatar-jr.jpg",
     linkedInUrl: "https://www.linkedin.com/in/justin-rogers-9aa4a714/",
     body: "I had the pleasure of working with Jason during our time at SPX Valley Forge, where he played a key role in developing highly effective digital training solutions for automotive clients like Harley-Davidson, Ford, and General Motors. Jason has a remarkable ability to translate complex technical concepts into engaging, business-focused solutions—something I saw firsthand in his work on the Harley-Davidson Screamin’ Eagle Super Tuner Kit software simulation and Ford’s BlueOval Suspension Dynamics training program. These projects showcased his deep technical expertise and instructional design skills. In addition to his proficiency with web technologies like JavaScript, HTML/CSS, and Flash/ActionScript, Jason was an outstanding project manager. He consistently kept projects on track while balancing client expectations and deadlines. His strong communication skills and ability to drive technical delivery were instrumental in maintaining client relationships and contributing to business growth.",
     date: "2025-02",
@@ -36,8 +34,7 @@ export const recommendations = [
     authorCompany: "Ford Motor Company",
     relationship: "colleague",
     avatarInitials: "CD",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/D5603AQF52mT7b7bOiQ/profile-displayphoto-scale_400_400/B56ZvgkjDLIYAg-/0/1768999236976?e=1777507200&v=beta&t=0wPAMx5z29QWQ4uX4Iy-Puw10HDAoBYOu5p3OgaERPE",
+    avatarUrl: "/avatars/avatar-cd.jpg",
     linkedInUrl: "https://www.linkedin.com/in/carol-droin-25b3594/",
     body: "Jason and I worked together at Ford, where he was the lead web developer within our Learning & Development team. In a department of approximately a dozen training professionals, Jason stood out as a go-to resource for developing software solutions that streamlined course production. He played a critical role in combining instructional design, graphic design, and code into fully developed digital training experiences. His ability to create tools and processes significantly reduced production time for our instructional designers, improving efficiency across the team. Jason worked closely with our graphic designers to ensure course layouts were engaging, interactive, and technically seamless. His depth of knowledge and ability to solve complex technical challenges made a tangible impact on our team’s success. His expertise and collaborative approach made him an invaluable asset to the department.",
     date: "2025-02",
@@ -51,8 +48,7 @@ export const recommendations = [
     authorCompany: "Verizon",
     relationship: "manager",
     avatarInitials: "MB",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/D4E35AQGzIiLdU0TmEg/profile-framedphoto-shrink_400_400/B4EZqmj82lHEAc-/0/1763731033754?e=1776751200&v=beta&t=Ac_tJorYtHNfhNmKaYDTExfTBgUALDo66TnOqk4p04o",
+    avatarUrl: "/avatars/avatar-mb.jpg",
     linkedInUrl: "https://www.linkedin.com/in/margaretkbell/",
     body: "I had the pleasure of hiring Jason Johnson at TEKsystems, where he worked as a Senior Instructional Designer, eLearning Developer, and quickly became a trusted Project Manager. From day one, Jason played a key role in managing client relationships, scoping projects, and ensuring successful training delivery. His expertise was instrumental in developing high-quality eLearning and instructor-led training (ILT) courses for top clients such as McDonald's, Motorola, Verizon, and T-Mobile. He was deeply involved in project kick-off meetings, stakeholder calls, product demos, and timeline management, ensuring that every project was aligned with client expectations. Beyond instructional design, Jason was a technical and strategic leader who helped build our department’s technical delivery capabilities and pricing model, refining a good/better/best tiered approach that improved our client sales strategy. He also played a crucial role in mitigating project risks, proposing revised timelines when product enhancements or scope changes arose, and served as a technical liaison to keep projects on track. Jason’s ability to balance instructional expertise, technical acumen, and client-facing professionalism made him an invaluable part of our team. He was truly a pleasure to work with, and his contributions helped shape the department’s long-term success. I would happily work with him again.",
     date: "2025-02",
@@ -66,8 +62,7 @@ export const recommendations = [
     authorCompany: "GP Strategies Corporation",
     relationship: "colleague",
     avatarInitials: "AM",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C4D03AQHfCO9wCoDdOg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516894433331?e=1777507200&v=beta&t=F4l9NY5dfTRkhhad06mmpvIAKa-WSmR3FZ0y1SyhDj4",
+    avatarUrl: "/avatars/avatar-am.jpg",
     linkedInUrl: "https://www.linkedin.com/in/aaron-mccray-28844b20/",
     body: "I’ve had the rare opportunity to work with Jason at two different companies—ES3 and JPMorgan Chase—which speaks to how valuable and skilled he is as a training developer and technologist. Briefly at ES3, we collaborated on product launch and sales enablement training programs for major automotive clients like Chrysler Academy and Jeep, among others. We also worked together for many years at JPMorgan Chase (JPMC), where we were both part of the Asset & Wealth Management Learning Technology team. We’ve spent years collaborating on high-impact training initiatives for JPMC's global workforce. Jason played a key role in helping me develop Cross Border training for banking analysts across 130+ countries, Dodd-Frank compliance programs, Suitability training for financial advisors, and AML/KYC training. Jason has been involved in every facet of training development and delivery, including LMS administration, assessment development, surveys, script writing, software simulations, train-the-trainer, ILT, blended learning, and digital delivery complete with custom interactive components. One of the things I valued most about working with Jason was how his technical expertise perfectly complemented my UI/UX design skills—he has the programming and technical knowledge to bring designs to life. We’ve also collaborated on professional projects outside of these two companies, and I can say with confidence that Jason is one of the most talented and reliable professionals I’ve had the pleasure of working with.",
     date: "2025-02",
@@ -81,8 +76,7 @@ export const recommendations = [
     authorCompany: "Tyler Technologies",
     relationship: "colleague",
     avatarInitials: "GP",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C5603AQEx0JBNq866TA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517794630837?e=1777507200&v=beta&t=qiscUoF_PHm_yATBWBt_odUEmkPevxeMpQ7CX77yso8",
+    avatarUrl: "/avatars/avatar-gp.jpg",
     linkedInUrl: "https://www.linkedin.com/in/gavinpohl/",
     body: "I had the pleasure of working with Jason at Doner Advertising, where he was a skilled web designer and developer specializing in HTML/CSS, JavaScript, Flash/ActionScript, PHP/MySQL, and analytics tools like Omniture and Adobe Analytics. We collaborated on digital projects for major clients such as Pictsweet, DuPont, MaxMara, and Pennzoil, as well as Doner’s own website. Jason played a crucial role in developing banner ads and websites, seamlessly integrating the assets I designed into functional and polished digital experiences. What I appreciated most about working with Jason was our mutual knowledge exchange. He provided valuable programming insights, while I offered a UX/UI perspective to support his development work. His attention to detail, problem-solving abilities, and knack for bringing creative concepts to life through code made him an effective and collaborative teammate. Anyone looking for a technically skilled and design-savvy developer would be fortunate to work with Jason.",
     date: "2025-02",
@@ -97,8 +91,7 @@ export const recommendations = [
     authorCompany: "Chrysler Group LLC",
     relationship: "colleague",
     avatarInitials: "RM",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C5603AQGDqJvf-V0ZEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1573049196764?e=1777507200&v=beta&t=JKEyzbwRCgwsNE7aK4bObBY8I3-iaR6daeUA71KJ36M",
+    avatarUrl: "/avatars/avatar-rm.jpg",
     linkedInUrl: "https://www.linkedin.com/in/ricardo-moyet-5326b447/",
     body: "Jason and I worked closely together on Ford’s eLearning development team, where he was a lead eLearning developer, and I was the UI/UX and graphic designer. Our team consisted of instructional designers and technical writers, and Jason played a critical role in bridging the gap between design, development, and technical integration. He built a custom eLearning framework using Flash/ActionScript, HTML/CSS, JavaScript, and integrated it with Ford’s proprietary Java-based LMS via RESTful API calls. His solution allowed instructional designers with limited technical knowledge to input JSON and XML files directly into the tool, which dramatically reduced course development time from 2–4 weeks to under a week. One of the things I valued most about working with Jason was our synergy and seamless collaboration. Sitting next to each other, we could quickly problem-solve, refine course layouts, and enhance designs with custom infographics and iconography. His technical expertise and ability to innovate made our team far more efficient, and we both enjoyed a strong working relationship. Since our time at Ford, we have continued to look for opportunities to collaborate on new projects. Jason is not only an incredibly skilled developer but also a great teammate, and I highly recommend him.",
     date: "2025-02",
@@ -112,8 +105,7 @@ export const recommendations = [
     authorCompany: "ANDI Hyperbaric Wellness & Research Center",
     relationship: "colleague",
     avatarInitials: "PR",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C4E03AQGlBlNHaGaPKQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517687213004?e=1777507200&v=beta&t=SV8jhJSRe3xH7hQY-5J2T8fW28RFQERqmyzlrbyKSj0",
+    avatarUrl: "/avatars/avatar-pr.jpg",
     linkedInUrl: "https://www.linkedin.com/in/polinareznikov/",
     body: "Jason & I worked together at JPMorgan Chase, over a span of 5 years, both within AWM Learning Technology and later in different teams after a corporate realignment. Jason's technical expertise and deep understanding of learning systems made him an invaluable collaborator, particularly as we navigated complex transitions from legacy LMS platforms to SumTotal and later to Oracle HCM. Jason is not only highly skilled in designing and implementing training solutions but also a strategic thinker who understands how technology can drive business objectives. His ability to lead cross-functional teams, develop structured test plans, streamline content migration, and provide sound technical recommendations was instrumental in ensuring smooth transitions. Beyond his technical acumen, Jason is a collaborative and personable professional who is always willing to share knowledge and support his colleagues. I valued our time working together and would highly recommend him for any role Jason pursues.",
     date: "2025-02",
@@ -128,8 +120,7 @@ export const recommendations = [
     authorCompany: "JPMorgan Chase",
     relationship: "colleague",
     avatarInitials: "BM",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C4E03AQFFqTLidy3EFA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1593889622232?e=1777507200&v=beta&t=BwlpjWkbGT9gra54jiV2vzMAmLf-LTLpL6VIklzAUA0",
+    avatarUrl: "/avatars/avatar-bm.jpg",
     linkedInUrl: "https://www.linkedin.com/in/beckymassey/",
     body: "Jason and I worked closely together on the Digital Learning Solutions team within JPMorgan Chase, where we collaborated on training delivery for a custom web-based course development tool built by our department. As reviewers, testers, and trainers, we played a key role in ensuring the tool’s success by delivering instructor-led training (ILT) to multiple cohorts of professional training developers. The training was well-received, with excellent feedback from participants, and it directly contributed to enhancing the tool’s capabilities and expanding its adoption across the learning organization. Beyond our collaboration, I had the opportunity to observe Jason’s exceptional training development skills, attention to detail, and commitment to quality. He was a technical expert and go-to resource for our department, always willing to provide support and guidance. His ability to simplify complex processes, engage audiences, and drive adoption made him a standout trainer, developer, and product ambassador within the JPMC learning community. I enjoyed working with him.",
     date: "2025-02",
@@ -143,8 +134,7 @@ export const recommendations = [
     authorCompany: "Sumaavi Coaching",
     relationship: "client",
     avatarInitials: "RZ",
-    avatarUrl:
-      "https://media.licdn.com/dms/image/v2/C4E03AQFpZrqvMKsNUQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1558638605990?e=1777507200&v=beta&t=Y5i1JqvncUlt4I4hhjXzKqBovWQT8NzNgUjjSOQ7TKw",
+    avatarUrl: "/avatars/avatar-rz.jpg",
     linkedInUrl: "https://www.linkedin.com/in/rimazig/",
     body: "I had the pleasure of working with Jason while developing eLearning courses for McDonalds’ management training program. As my developer, Jason took my instructional designs and expertly transformed them into polished, interactive courses that met McDonalds’ technical requirements. He was highly professional, responsive, and always provided valuable technical insights that improved the final product. His attention to detail and ability to execute the vision with precision made the entire process painless. I truly appreciated his expertise, collaboration, and commitment to delivering high-quality work and would invite the opportunity to work with him again.",
     date: "2025-02",
