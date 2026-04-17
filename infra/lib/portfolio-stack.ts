@@ -364,6 +364,7 @@ export class PortfolioStack extends cdk.Stack {
         SES_FROM: sesFromAddress,
         SES_TO: sestoAddress,
         CORS_ORIGIN: `https://${domainName}`,
+        RECAPTCHA_SECRET_KEY_PARAM: "/portfolio/recaptcha/secret-key",
       },
       logGroup: new logs.LogGroup(this, "ContactFunctionLogGroup", {
         retention: logs.RetentionDays.THREE_MONTHS,
