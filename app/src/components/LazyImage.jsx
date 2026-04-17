@@ -14,6 +14,7 @@ const LazyImage = ({ src, alt, wrapperClassName = "", className = "", sizes = "1
         alt={alt}
         fill
         sizes={sizes}
+        unoptimized
         className={`lazy-image${loaded ? " lazy-image--loaded" : ""}${className ? ` ${className}` : ""}`}
         onLoad={handleLoad}
         onError={handleLoad}
