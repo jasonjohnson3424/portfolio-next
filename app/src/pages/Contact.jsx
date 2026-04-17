@@ -31,7 +31,7 @@ const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   subject: z.string().min(1, "Please select a subject"),
-  message: z.string().min(20, "Message must be at least 20 characters"),
+  message: z.string().min(20, "Message must be at least 20 characters").max(2000, "Message must be 2000 characters or fewer"),
   honeypot: z.string().max(0),
 });
 
@@ -88,20 +88,25 @@ const CONTACT_INFO = [
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [messageChanged, setMessageChanged] = useState(true);
 
   useEffect(() => { loadRecaptcha(); }, []);
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: { honeypot: "" },
   });
 
+  const messageLength = watch("message", "").length;
+
   const onSubmit = async (data) => {
     setSubmitError(false);
+    setMessageChanged(false);
     let recaptchaToken;
     try {
       recaptchaToken = await getRecaptchaToken("contact_submit");
@@ -112,6 +117,10 @@ const Contact = () => {
     }
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl || apiUrl.includes("localhost")) {
+        setSubmitted(true);
+        return;
+      }
       const res = await fetch(`${apiUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -206,6 +215,7 @@ const Contact = () => {
                       <input
                         id="name"
                         type="text"
+                        autoComplete="name"
                         className={`form-control${errors.name ? " is-invalid" : ""}`}
                         placeholder="Jane Smith"
                         {...register("name")}
@@ -224,6 +234,7 @@ const Contact = () => {
                       <input
                         id="email"
                         type="email"
+                        autoComplete="email"
                         className={`form-control${errors.email ? " is-invalid" : ""}`}
                         placeholder="jane@company.com"
                         {...register("email")}
@@ -270,29 +281,43 @@ const Contact = () => {
                         rows={5}
                         className={`form-control${errors.message ? " is-invalid" : ""}`}
                         placeholder="Tell me about your project…"
-                        {...register("message")}
+                        aria-describedby="message-counter"
+                        {...register("message", {
+                          onChange: () => {
+                            setMessageChanged(true);
+                            setSubmitError(false);
+                          },
+                        })}
                       />
-                      {errors.message && (
-                        <div className="invalid-feedback">
-                          {errors.message.message}
-                        </div>
-                      )}
                     </div>
 
-                    {submitError && (
-                      <div className="col-12">
-                        <p className="text-danger mb-0" role="alert">
+                    <div className="col-12 mt-2 d-flex align-items-start gap-3">
+                      {messageChanged && (
+                        <span
+                          id="message-counter"
+                          className="message-counter"
+                          aria-live="polite"
+                          style={{
+                            color: messageLength > 2000
+                              ? "var(--color-danger, #e85555)"
+                              : messageLength >= 20
+                              ? "var(--color-success, #7bb940)"
+                              : "#e85555",
+                          }}
+                        >
+                          {messageLength} / 2000
+                        </span>
+                      )}
+                      {submitError && (
+                        <p className="text-danger mb-0 pt-0 flex-grow-1" role="alert">
                           {submitError === "recaptcha"
                             ? "Security check failed. Please refresh the page and try again."
-                            : "Something went wrong. Please try again or email me directly."}
+                            : <>Something went wrong. Please try again or <a href={`mailto:${getEmail()}`} className="contact-error-link">email me directly</a>.</>}
                         </p>
-                      </div>
-                    )}
-
-                    <div className="col-12 mt-4 d-flex justify-content-end">
+                      )}
                       <button
                         type="submit"
-                        className="btn-send"
+                        className="btn-send ms-auto"
                         disabled={isSubmitting}
                         aria-label={isSubmitting ? "Sending message" : "Send message"}
                       >

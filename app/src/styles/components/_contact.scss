@@ -151,6 +151,25 @@
   visibility: hidden !important;
 }
 
+.message-counter {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.contact-form .text-danger {
+  padding-top: 0;
+  margin-top: 0;
+
+  .contact-error-link {
+    color: inherit;
+    text-decoration: underline;
+    &:hover { opacity: 0.8; }
+  }
+}
+
 .recaptcha-disclosure {
   font-size: 0.68rem;
   color: $color-muted;
