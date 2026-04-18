@@ -19,4 +19,6 @@ Commit and push low-risk documentation or config changes directly to master — 
    - Commit with the agreed message
    - Push to master
 
-5. Report the result: commit hash, branch, and files pushed.
+5. Report the result with a clear status block:
+   - On success: show commit hash, branch, files pushed, and the exact git push output line (e.g. `master -> master`) so the user can confirm it reached remote.
+   - On any failure (stage, commit, or push): show the exact error output and explain what went wrong. Do not silently continue past a failure.
