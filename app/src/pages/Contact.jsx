@@ -147,7 +147,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="row g-5">
+        <div className="row g-4 g-lg-5">
           {/* Contact Info */}
           <div className="col-xl-4" data-aos="fade-right">
             {CONTACT_INFO.map(({ icon, label, value, href, custom }) => (

@@ -16,6 +16,11 @@
   white-space: nowrap;
   img { flex-shrink: 0; }
   span { color: $color-accent; }
+
+  @media (max-width: 389.98px) {
+    font-size: 1.5rem;
+    img { height: 2rem !important; width: 2rem !important; }
+  }
 }
 
 .footer-tagline {
@@ -23,6 +28,10 @@
   color: $color-accent;
   margin-bottom: 1rem;
   white-space: nowrap;
+
+  @media (max-width: 499.98px) {
+    white-space: normal;
+  }
 }
 
 .footer-nav {

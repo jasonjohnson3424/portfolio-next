@@ -87,7 +87,7 @@ const Projects = () => {
   const clearAll = () => setFilters(EMPTY_FILTERS);
 
   return (
-    <motion.section id="projects" layout transition={{ layout: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } }}>
+    <section id="projects">
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <span className="section-eyebrow">Portfolio</span>
@@ -132,13 +132,12 @@ const Projects = () => {
           ))}
         </div>
 
-        <motion.div className="row g-4" layout>
+        <motion.div className="row g-4">
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
               <motion.div
                 className="col-md-6 col-lg-4"
                 key={project.id}
-                layout
                 initial={{ opacity: 0, scale: 0.88, y: 24 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.84, y: -20 }}
@@ -208,7 +207,7 @@ const Projects = () => {
           }}
         />
       )}
-    </motion.section>
+    </section>
   );
 };
 

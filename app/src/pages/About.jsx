@@ -190,7 +190,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="row g-5 align-items-start">
+        <div className="row g-4 g-lg-5 align-items-start">
           {/* Bio + Avatar */}
           <div className="col-lg-5" data-aos="fade-right">
             <div className="d-flex justify-content-center mb-4">

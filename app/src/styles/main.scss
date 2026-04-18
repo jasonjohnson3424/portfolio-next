@@ -103,9 +103,14 @@ body {
   color: $color-text;
   font-family: 'Poppins', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-width: 320px;
 }
 
 // overflow-x: clip prevents horizontal scroll without creating a BFC (which can clip footer on mobile)
+html {
+  overflow-x: clip;
+}
+
 .site-wrapper {
   overflow-x: clip;
 }
