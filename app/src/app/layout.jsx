@@ -30,6 +30,12 @@ export const metadata = {
     description:
       "L&D Manager, Instructional Designer, and Full-Stack Developer with 20+ years experience. Available for L&D leadership roles and web development projects.",
   },
+  icons: {
+    icon: [
+      { url: "/icon1.png", type: "image/png" },
+      { url: "/icon0.svg", type: "image/svg+xml" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
