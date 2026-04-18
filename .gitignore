@@ -5,3 +5,9 @@ next-env.d.ts
 
 # Leftover artifacts from initial repo restructure (root-level only)
 /src/
+
+# Local-only project management
+BACKLOG.md
+
+# Raw design assets (not part of the build)
+app/raw_assets/

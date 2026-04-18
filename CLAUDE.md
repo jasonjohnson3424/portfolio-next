@@ -20,6 +20,6 @@ Never resolve merge conflicts by accepting all incoming or all current on a whol
 
 # Filesystem Permission Boundary
 
-Claude is permitted to read and write only within `C:\Users\jason\Documents\Apps`.
+Claude is permitted to read and write only within the project repository and the user's Apps directory.
 
-All other paths — including the Claude memory folder at `C:\Users\jason\.claude\...` — require explicit ad hoc permission before each access. Claude must ask before writing outside the permitted path, even when permission seems implied.
+All paths outside the repository — including the Claude memory folder — require explicit ad hoc permission before each access. Claude must ask before writing outside the permitted path, even when permission seems implied.
