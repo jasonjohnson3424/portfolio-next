@@ -1,6 +1,6 @@
 # Backlog
 
-Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
+Items are categorized as **Bug**, **Feature**, or **Chore** and prioritized P0–P2.
 
 - **P0** — Broken/blocking; fix before any public promotion
 - **P1** — High impact; fix in next sprint
@@ -8,16 +8,17 @@ Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
 
 ---
 
-## SEO (treat as P0 bugs)
+## Chores
 
 | ID | Priority | Description |
 |----|----------|-------------|
-| S01 | P0 | **Page metadata** — Update `layout.jsx` with full title, description, OpenGraph, Twitter card, and `metadataBase`. Every page needs unique, descriptive metadata. |
-| S02 | P0 | **Sitemap** — Add `app/src/app/sitemap.js` for automatic `/sitemap.xml` generation. Submit to Google Search Console after deploy. |
-| S03 | P0 | **robots.txt** — Add `app/src/app/robots.js` to allow all crawlers and reference sitemap. |
-| S04 | P1 | **Canonical URL** — Add `alternates: { canonical: "https://jasonljohnson.com" }` to root metadata to prevent duplicate content between apex and www. |
-| S05 | P1 | **Structured data / JSON-LD** — Add `Person` schema to homepage so Google can surface rich results and understand professional identity. |
-| S06 | P1 | **Google Search Console** — Register domain, verify ownership via Route 53 DNS TXT record, submit sitemap. |
+| C01 | P0 | **Page metadata** — Update `layout.jsx` with full title, description, OpenGraph, Twitter card, and `metadataBase`. Every page needs unique, descriptive metadata. |
+| C02 | P0 | **Sitemap** — Add `app/src/app/sitemap.js` for automatic `/sitemap.xml` generation. Submit to Google Search Console after deploy. |
+| C03 | P0 | **robots.txt** — Add `app/src/app/robots.js` to allow all crawlers and reference sitemap. |
+| C04 | P0 | **Search engine submission** — Check if anything needs to be done to manually submit site to Google or other search engines. |
+| C05 | P1 | **Canonical URL** — Add `alternates: { canonical: "https://jasonljohnson.com" }` to root metadata to prevent duplicate content between apex and www. |
+| C06 | P1 | **Structured data / JSON-LD** — Add `Person` schema to homepage so Google can surface rich results and understand professional identity. |
+| C07 | P1 | **Google Search Console** — Register domain, verify ownership via Route 53 DNS TXT record, submit sitemap. |
 
 ---
 

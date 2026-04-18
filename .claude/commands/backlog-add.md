@@ -1,14 +1,14 @@
 Add a new entry to BACKLOG.md at the repo root.
 
 1. Ask the user for:
-   - Type: Bug, Feature, or SEO
+   - Type: Bug, Feature, or Chore
    - Priority: P0, P1, or P2
    - Short description (one sentence)
 
 2. Read BACKLOG.md to find the next available ID for that type:
    - Bugs are B01, B02... → next unused number
    - Features are F01, F02... → next unused number
-   - SEO are S01, S02... → next unused number
+   - Chores are C01, C02... → next unused number
 
 3. Format the row:
    | <ID> | <Priority> | **<Title>** — <description> |
