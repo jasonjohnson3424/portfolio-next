@@ -18,6 +18,14 @@ All work — bugs, features, and chores — must be done on a short-lived branch
 
 Never resolve merge conflicts by accepting all incoming or all current on a whole file — resolve hunk by hunk and run `git diff HEAD` before committing.
 
+# Local-Only Files
+
+`BACKLOG.md` is intentionally gitignored and must never be deleted from disk. It is the sole project backlog and has no remote backup. If a git operation (e.g. `git rm --cached`, merge, checkout) would remove it from disk, stop and warn the user before proceeding.
+
+Never run `git rm` on any file without explicit user confirmation first. `git rm` permanently deletes from disk and index, bypasses the Windows Recycle Bin, and has no recovery path outside of git history. Always show the user exactly which files would be removed and wait for approval before executing.
+
+When untracking a file with `git rm --cached`, always commit that change in isolation before any merge or checkout — never bundle it with other changes, as a fast-forward merge will sync the working tree and delete the file from disk.
+
 # Filesystem Permission Boundary
 
 Claude is permitted to read and write only within the project repository and the user's Apps directory.
