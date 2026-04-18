@@ -59,6 +59,23 @@ Items are categorized as **Bug** or **Feature** and prioritized P0–P2.
 
 ---
 
+## Device & Browser Testing
+
+Verify mobile layouts on real devices or better simulators before major releases. Chrome DevTools responsive mode has known quirks (scrollbar reservation, inaccurate touch simulation).
+
+**Recommended tools (in order of accuracy):**
+
+| Tool | Cost | Notes |
+|------|------|-------|
+| **Xcode Simulator** | Free (Mac only) | Runs actual iOS Safari — gold standard for iPhone testing |
+| **BrowserStack** | Paid (free trial) | Real device cloud; industry standard for QA across devices/browsers |
+| **Responsively App** | Free | Desktop app; shows multiple viewports simultaneously; good for layout work |
+| **Firefox DevTools** | Free | Handles touch simulation and pixel ratios differently than Chrome; worth cross-checking |
+
+**Backlog item:** Verify xs overflow behavior (320px floor, `overflow-x: clip`) on a real iPhone SE or BrowserStack equivalent before next public promotion.
+
+---
+
 ## Future Expansion (Post-Launch)
 
 - **Chatbot** — Conversational assistant for portfolio/resume Q&A
