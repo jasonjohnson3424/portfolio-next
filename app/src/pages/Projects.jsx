@@ -87,7 +87,7 @@ const Projects = () => {
   const clearAll = () => setFilters(EMPTY_FILTERS);
 
   return (
-    <section id="projects">
+    <motion.section id="projects" layout transition={{ layout: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } }}>
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <span className="section-eyebrow">Portfolio</span>
@@ -208,7 +208,7 @@ const Projects = () => {
           }}
         />
       )}
-    </section>
+    </motion.section>
   );
 };
 

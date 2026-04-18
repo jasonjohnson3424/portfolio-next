@@ -105,9 +105,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// Overflow containment on wrapper, not body, so position:fixed NavBar works on mobile
+// overflow-x: clip prevents horizontal scroll without creating a BFC (which can clip footer on mobile)
 .site-wrapper {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 section { padding: calc($section-py / 2) 0 $section-py; }
