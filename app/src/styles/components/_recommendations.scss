@@ -7,6 +7,8 @@
   padding: 1.5rem 1.75rem 2rem;
   position: relative;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 .rec-quote-icon {
@@ -43,8 +45,10 @@
 
 .rec-author {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.9rem;
+
+  &--bottom { margin-top: 0.75rem; }
 }
 
 .rec-avatar {
@@ -63,6 +67,11 @@
   overflow: hidden;
 
   img { width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 575.98px) {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .rec-expand-btn {
@@ -74,9 +83,12 @@
   color: #0969da;
   cursor: pointer;
   transition: $transition;
-  margin-bottom: 1.75rem;
-  display: inline-block;
+  display: block;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
   &:hover { color: #0550ae; }
+
 }
 
 .rec-author-name {

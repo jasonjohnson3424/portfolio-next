@@ -67,7 +67,6 @@ const NavBar = () => {
     <nav
       className={`navbar navbar-expand-lg navbar-dark fixed-top${scrolled ? " scrolled" : ""}`}
     >
-      <span className="nav-logo-initials" aria-hidden="true">JLJ</span>
       <div className="container">
         {isHome ? (
           <a

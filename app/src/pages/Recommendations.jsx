@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 
 const Avatar = ({ rec }) => {
@@ -38,6 +38,20 @@ const Recommendations = () => {
   };
 
   const current = visible[active];
+  const wrapperRef = useRef(null);
+  const [clampLines, setClampLines] = useState(6);
+
+  useLayoutEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const paras = Array.from(wrapper.querySelectorAll("p"));
+    if (paras.length < 2) { setClampLines(6); return; }
+    const lineHeight = parseFloat(getComputedStyle(paras[0]).lineHeight);
+    const zoneMin = lineHeight * 5;
+    const zoneMax = lineHeight * 8;
+    const hasBreakInZone = paras.slice(1).some((p) => p.offsetTop >= zoneMin && p.offsetTop <= zoneMax);
+    setClampLines(hasBreakInZone ? 5 : 6);
+  }, [current]);
 
   return (
     <section id="recommendations">
@@ -59,8 +73,19 @@ const Recommendations = () => {
                 <i className="fas fa-quote-left"></i>
               </div>
 
-              <div className={`rec-body-wrapper${expanded ? " rec-body-wrapper--expanded" : ""}`}>
-                <p className="rec-body">{current.body}</p>
+              <div
+                ref={wrapperRef}
+                className={`rec-body-wrapper${expanded ? " rec-body-wrapper--expanded" : ""}`}
+                onClick={expanded ? () => setExpanded(false) : undefined}
+                style={expanded
+                  ? { cursor: "pointer" }
+                  : clampLines === 5
+                    ? { maxHeight: `calc(1.8em * 5 + 0.75rem)` }
+                    : undefined}
+              >
+                {current.body.split("\n\n").map((para, i) => (
+                  <p key={i} className="rec-body">{para}</p>
+                ))}
               </div>
               <button
                 className="rec-expand-btn"
@@ -69,7 +94,7 @@ const Recommendations = () => {
                 {expanded ? "Show less" : "Read more"}
               </button>
 
-              <div className="rec-author">
+              <div className="rec-author rec-author--bottom">
                 <div className="rec-avatar">
                   <Avatar rec={current} />
                 </div>
@@ -87,9 +112,8 @@ const Recommendations = () => {
                       current.authorName
                     )}
                   </p>
-                  <p className="rec-author-meta">
-                    {current.authorTitle} · {current.authorCompany}
-                  </p>
+                  <p className="rec-author-meta">{current.authorTitle}</p>
+                  <p className="rec-author-meta">{current.authorCompany}</p>
                 </div>
               </div>
             </div>
