@@ -1,8 +1,12 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const scrollTo = (e, href) => {
     e.preventDefault();
@@ -14,20 +18,36 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
-            <a
-              className="footer-logo d-inline-flex justify-content-center mb-2"
-              href="#hero"
-              onClick={(e) => scrollTo(e, "#hero")}
-            >
-              <Image
-                src="/logo.svg"
-                alt="Jason L. Johnson logo"
-                height={40}
-                width={40}
-                style={{ height: "3rem", width: "3rem" }}
-              />
-              &nbsp;&nbsp;Jason L. Johnson
-            </a>
+            {isHome ? (
+              <a
+                className="footer-logo d-inline-flex justify-content-center mb-2"
+                href="#hero"
+                onClick={(e) => scrollTo(e, "#hero")}
+              >
+                <Image
+                  src="/logo.svg"
+                  alt="Jason L. Johnson logo"
+                  height={40}
+                  width={40}
+                  style={{ height: "3rem", width: "3rem" }}
+                />
+                &nbsp;&nbsp;Jason L. Johnson
+              </a>
+            ) : (
+              <Link
+                className="footer-logo d-inline-flex justify-content-center mb-2"
+                href="/"
+              >
+                <Image
+                  src="/logo.svg"
+                  alt="Jason L. Johnson logo"
+                  height={40}
+                  width={40}
+                  style={{ height: "3rem", width: "3rem" }}
+                />
+                &nbsp;&nbsp;Jason L. Johnson
+              </Link>
+            )}
             <p className="footer-tagline">
               Learning &amp; Development Manager · Instructional Designer · Web
               Developer

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
@@ -13,6 +14,7 @@ const NAV_LINKS = [
 
 const NavBar = () => {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -67,19 +69,31 @@ const NavBar = () => {
     >
       <span className="nav-logo-initials" aria-hidden="true">JLJ</span>
       <div className="container">
-        <a
-          className="nav-logo"
-          href="#top"
-          onClick={(e) => scrollTo(e, "#top")}
-        >
-          <Image
-            src={scrolled ? "/logo.svg" : "/logo-white.svg"}
-            alt="Jason L. Johnson logo"
-            height={20}
-            width={20}
-            style={{ height: "3rem", width: "3rem" }}
-          />
-        </a>
+        {isHome ? (
+          <a
+            className="nav-logo"
+            href="#top"
+            onClick={(e) => scrollTo(e, "#top")}
+          >
+            <Image
+              src={scrolled ? "/logo.svg" : "/logo-white.svg"}
+              alt="Jason L. Johnson logo"
+              height={20}
+              width={20}
+              style={{ height: "3rem", width: "3rem" }}
+            />
+          </a>
+        ) : (
+          <Link className="nav-logo" href="/">
+            <Image
+              src={scrolled ? "/logo.svg" : "/logo-white.svg"}
+              alt="Jason L. Johnson logo"
+              height={20}
+              width={20}
+              style={{ height: "3rem", width: "3rem" }}
+            />
+          </Link>
+        )}
         <span className="nav-logo-name" aria-hidden="true">Jason L. Johnson</span>
         <button
           className="navbar-toggler border-0"
