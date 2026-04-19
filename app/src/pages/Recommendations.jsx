@@ -1,5 +1,5 @@
 "use client";
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const Avatar = ({ rec }) => {
@@ -39,19 +39,21 @@ const Recommendations = () => {
 
   const current = visible[active];
   const wrapperRef = useRef(null);
-  const [clampLines, setClampLines] = useState(6);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    if (!wrapper || expanded) {
+      if (wrapper) wrapper.style.maxHeight = "";
+      return;
+    }
     const paras = Array.from(wrapper.querySelectorAll("p"));
-    if (paras.length < 2) { setClampLines(6); return; }
+    if (paras.length < 2) return;
     const lineHeight = parseFloat(getComputedStyle(paras[0]).lineHeight);
     const zoneMin = lineHeight * 5;
     const zoneMax = lineHeight * 8;
     const hasBreakInZone = paras.slice(1).some((p) => p.offsetTop >= zoneMin && p.offsetTop <= zoneMax);
-    setClampLines(hasBreakInZone ? 5 : 6);
-  }, [current]);
+    wrapper.style.maxHeight = hasBreakInZone ? "calc(1.8em * 5 + 0.75rem)" : "";
+  }, [current, expanded]);
 
   return (
     <section id="recommendations">
@@ -77,11 +79,7 @@ const Recommendations = () => {
                 ref={wrapperRef}
                 className={`rec-body-wrapper${expanded ? " rec-body-wrapper--expanded" : ""}`}
                 onClick={expanded ? () => setExpanded(false) : undefined}
-                style={expanded
-                  ? { cursor: "pointer" }
-                  : clampLines === 5
-                    ? { maxHeight: `calc(1.8em * 5 + 0.75rem)` }
-                    : undefined}
+                style={expanded ? { cursor: "pointer" } : undefined}
               >
                 {current.body.split("\n\n").map((para, i) => (
                   <p key={i} className="rec-body">{para}</p>
