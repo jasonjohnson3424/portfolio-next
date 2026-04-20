@@ -65,7 +65,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-dark fixed-top${scrolled ? " scrolled" : ""}`}
+      className={`navbar navbar-expand-lg navbar-dark fixed-top${scrolled ? " scrolled" : ""}${menuOpen ? " nav-menu-open" : ""}`}
     >
       <div className="container">
         {isHome ? (

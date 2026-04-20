@@ -61,6 +61,7 @@ const Projects = () => {
   const [unlocked, setUnlocked] = useState(
     () => typeof window !== "undefined" && sessionStorage.getItem("portfolioUnlocked") === "true"
   );
+  const isDev = process.env.NODE_ENV === "development";
   const router = useRouter();
 
   const isFiltered = Object.values(filters).some((arr) => arr.length > 0);
@@ -151,7 +152,7 @@ const Projects = () => {
                 <div
                   className="project-card h-100"
                   onClick={() =>
-                    project.protected && !unlocked
+                    project.protected && !unlocked && !isDev
                       ? setPendingProject(project)
                       : router.push(`/projects/${project.slug}`)
                   }
@@ -170,18 +171,19 @@ const Projects = () => {
                     )}
                     <div className="project-thumbnail-overlay">
                       <span className="btn btn-sm btn-accent">
-                        {project.protected && !unlocked ? (
+                        {project.protected && !unlocked && !isDev ? (
                           <><i className="fas fa-lock me-1"></i> Enter Password</>
                         ) : (
                           <><i className="fas fa-eye me-1"></i> View Details</>
                         )}
                       </span>
                     </div>
-                    {project.protected && (
-                      <div className="project-lock-badge">
-                        <i className="fas fa-lock"></i> NDA
-                      </div>
-                    )}
+                    <div
+                      className={`project-lock-badge${!project.protected || unlocked || isDev ? " project-lock-badge--unlocked" : ""}`}
+                      aria-label={!project.protected || unlocked || isDev ? "Project unlocked" : "NDA-protected project"}
+                    >
+                      <i className={`fas fa-${!project.protected || unlocked || isDev ? "unlock" : "lock"}`} aria-hidden="true"></i>
+                    </div>
                   </div>
 
                   <div className="project-body">

@@ -2,8 +2,9 @@ import { projects } from "../../../data/projects";
 import ProjectDetail from "../../../pages/ProjectDetail";
 
 export async function generateStaticParams() {
+  const isDev = process.env.NODE_ENV === "development";
   return projects
-    .filter((p) => p.status === "published" && !p.protected)
+    .filter((p) => p.status === "published" && (isDev || !p.protected))
     .map((p) => ({ slug: p.slug }));
 }
 

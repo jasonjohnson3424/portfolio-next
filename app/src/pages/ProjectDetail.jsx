@@ -7,6 +7,15 @@ import { projects } from "../data/projects";
 import { recommendations } from "../data/recommendations";
 import LazyImage from "../components/LazyImage";
 
+// Renders a field that may be a string or array of strings
+const StarField = ({ value, className }) => {
+  if (!value) return null;
+  const paras = Array.isArray(value) ? value : [value];
+  return paras.map((p, i) => (
+    <p key={i} className={className}>{p}</p>
+  ));
+};
+
 const MediaCarousel = ({ items }) => {
   const sorted = [...items].sort((a, b) => a.order - b.order);
   const [active, setActive] = useState(0);
@@ -15,20 +24,48 @@ const MediaCarousel = ({ items }) => {
   const prev = () => setActive((i) => (i - 1 + sorted.length) % sorted.length);
   const next = () => setActive((i) => (i + 1) % sorted.length);
 
+  const renderMedia = (item) => {
+    if (item.type === "video") {
+      return (
+        <video
+          key={item.url + active}
+          src={item.url}
+          controls
+          preload="metadata"
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      );
+    }
+    if (item.type === "embed") {
+      return (
+        <iframe
+          key={item.url + active}
+          src={item.url}
+          title={item.alt || `Media ${active + 1}`}
+          allowFullScreen
+          style={{ width: "100%", height: "100%", border: "none" }}
+        />
+      );
+    }
+    return (
+      <LazyImage
+        key={item.url + active}
+        src={item.url}
+        alt={item.alt || `Media ${active + 1}`}
+      />
+    );
+  };
+
   return (
     <div className="media-carousel">
       <div className="media-carousel-stage">
-        <LazyImage
-          key={current.url + active}
-          src={current.url}
-          alt={current.alt || `Media ${active + 1}`}
-        />
+        {renderMedia(current)}
         {sorted.length > 1 && (
           <>
-            <button className="media-carousel-btn media-carousel-btn--prev" onClick={prev} aria-label="Previous image">
+            <button className="media-carousel-btn media-carousel-btn--prev" onClick={prev} aria-label="Previous">
               <i className="fas fa-chevron-left"></i>
             </button>
-            <button className="media-carousel-btn media-carousel-btn--next" onClick={next} aria-label="Next image">
+            <button className="media-carousel-btn media-carousel-btn--next" onClick={next} aria-label="Next">
               <i className="fas fa-chevron-right"></i>
             </button>
           </>
@@ -55,6 +92,206 @@ const MediaCarousel = ({ items }) => {
   );
 };
 
+const StarSection = ({ label, value }) => {
+  if (!value || (Array.isArray(value) && value.length === 0)) return null;
+  return (
+    <div className="case-study-section">
+      <p className="case-study-label">{label}</p>
+      <StarField value={value} className="case-study-text" />
+    </div>
+  );
+};
+
+const ResultsList = ({ results }) => {
+  if (!results?.length) return null;
+  return (
+    <div className="case-study-section">
+      <p className="case-study-label">Results &amp; Impact</p>
+      <ul className="case-study-outcomes">
+        {results.map((r, i) => <li key={i}>{r}</li>)}
+      </ul>
+    </div>
+  );
+};
+
+const ProjectRecs = ({ recs }) => {
+  if (!recs.length) return null;
+  return (
+    <div className="project-recommendations">
+      <p className="project-recommendations-label">What Colleagues Say</p>
+      {recs.map((rec) => (
+        <div key={rec.id} className="project-rec-card">
+          <p className="project-rec-body">{rec.body}</p>
+          <div className="project-rec-author">
+            <div className="rec-avatar">
+              {rec.avatarUrl
+                ? <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
+                : rec.avatarInitials
+              }
+            </div>
+            <div>
+              <p className="project-rec-name">{rec.authorName}</p>
+              <p className="project-rec-meta">{rec.authorTitle} · {rec.authorCompany}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Sidebar = ({ project }) => (
+  <aside className="project-detail-sidebar">
+    <p className="sidebar-section-label">Project Details</p>
+    <div className="sidebar-meta-grid">
+      {project.year && (
+        <div className="sidebar-meta-item">
+          <p className="meta-label">Year</p>
+          <p className="meta-value">{project.year}</p>
+        </div>
+      )}
+      {project.duration && (
+        <div className="sidebar-meta-item">
+          <p className="meta-label">Duration</p>
+          <p className="meta-value">{project.duration}</p>
+        </div>
+      )}
+      {project.client && (
+        <div className="sidebar-meta-item">
+          <p className="meta-label">Client</p>
+          <p className="meta-value">{project.client}</p>
+        </div>
+      )}
+      {project.clientIndustry && (
+        <div className="sidebar-meta-item">
+          <p className="meta-label">Industry</p>
+          <p className="meta-value">{project.clientIndustry}</p>
+        </div>
+      )}
+      {project.audienceSize && (
+        <div className="sidebar-meta-item">
+          <p className="meta-label">Audience</p>
+          <p className="meta-value">{project.audienceSize}</p>
+        </div>
+      )}
+    </div>
+
+    {project.tags?.length > 0 && (
+      <>
+        <hr className="sidebar-divider" />
+        <p className="sidebar-section-label">Technologies &amp; Tools</p>
+        <div className="sidebar-tags">
+          {project.tags.map((tag) => (
+            <span key={tag} className="sidebar-tag">{tag}</span>
+          ))}
+        </div>
+      </>
+    )}
+
+    {project.liveUrl && (
+      <>
+        <hr className="sidebar-divider" />
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-accent w-100"
+        >
+          <i className="fas fa-external-link-alt me-2"></i>View Live Site
+        </a>
+      </>
+    )}
+  </aside>
+);
+
+const hasStarContent = (p) =>
+  p.situation || p.task || p.action || p.results?.length > 0;
+
+// carousel layout: media hero at top, STAR below, sidebar right
+const CarouselLayout = ({ project, projectRecs }) => (
+  <div className="row g-5">
+    <div className="col-lg-8">
+      <div className="project-detail-thumbnail">
+        {project.thumbnailUrl
+          ? <LazyImage src={project.thumbnailUrl} alt={project.thumbnailAlt || project.title} />
+          : <i className="fas fa-folder-open"></i>
+        }
+      </div>
+
+      <h1 className="project-detail-title">{project.title}</h1>
+      <p className="project-detail-description">{project.description}</p>
+
+      {!hasStarContent(project) && (
+        <div className="project-stub-notice">
+          <i className="fas fa-info-circle"></i>
+          Full case study coming soon. Contact me to discuss this project in detail.
+        </div>
+      )}
+
+      {hasStarContent(project) && (
+        <div className="project-case-study">
+          <StarSection label="Background" value={project.situation} />
+          <StarSection label="The Challenge" value={project.task} />
+          <StarSection label="My Role" value={project.action} />
+          <ResultsList results={project.results} />
+        </div>
+      )}
+
+      {project.mediaItems?.length > 0 && (
+        <MediaCarousel items={project.mediaItems} />
+      )}
+
+      <ProjectRecs recs={projectRecs} />
+    </div>
+
+    <div className="col-lg-4">
+      <Sidebar project={project} />
+    </div>
+  </div>
+);
+
+// article layout: full-width narrative, sidebar below on mobile / right on lg
+const ArticleLayout = ({ project, projectRecs }) => (
+  <div className="row g-5">
+    <div className="col-lg-8">
+      {project.thumbnailUrl && (
+        <div className="project-detail-thumbnail">
+          <LazyImage src={project.thumbnailUrl} alt={project.thumbnailAlt || project.title} />
+        </div>
+      )}
+
+      <h1 className="project-detail-title">{project.title}</h1>
+      <p className="project-detail-description">{project.description}</p>
+
+      {!hasStarContent(project) && (
+        <div className="project-stub-notice">
+          <i className="fas fa-info-circle"></i>
+          Full case study coming soon. Contact me to discuss this project in detail.
+        </div>
+      )}
+
+      {hasStarContent(project) && (
+        <div className="project-case-study project-case-study--article">
+          <StarSection label="Background" value={project.situation} />
+          <StarSection label="The Challenge" value={project.task} />
+          <StarSection label="My Role" value={project.action} />
+          <ResultsList results={project.results} />
+        </div>
+      )}
+
+      {project.mediaItems?.length > 0 && (
+        <MediaCarousel items={project.mediaItems} />
+      )}
+
+      <ProjectRecs recs={projectRecs} />
+    </div>
+
+    <div className="col-lg-4">
+      <Sidebar project={project} />
+    </div>
+  </div>
+);
+
 const ProjectDetail = ({ slug }) => {
   const router = useRouter();
   const project = projects.find((p) => p.slug === slug);
@@ -70,7 +307,9 @@ const ProjectDetail = ({ slug }) => {
     );
   }
 
-  if (project.protected) {
+  const isDev = process.env.NODE_ENV === "development";
+
+  if (project.protected && !isDev) {
     return (
       <div className="container py-5 text-center">
         <i className="fas fa-lock fa-3x mb-4" style={{ color: "#8b949e" }}></i>
@@ -89,8 +328,8 @@ const ProjectDetail = ({ slug }) => {
     );
   }
 
-  const hasCaseStudy = project.challenge || project.approach || project.outcomes?.length > 0;
   const projectRecs = recommendations.filter((r) => r.projectSlugs?.includes(project.slug));
+  const layout = project.layoutType ?? "carousel";
 
   return (
     <div className="project-detail">
@@ -102,151 +341,10 @@ const ProjectDetail = ({ slug }) => {
           <i className="fas fa-arrow-left me-2"></i>Back to Portfolio
         </button>
 
-        <div className="row g-5">
-          {/* Main column */}
-          <div className="col-lg-8">
-            <div className="project-detail-thumbnail">
-              {project.thumbnailUrl
-                ? <LazyImage src={project.thumbnailUrl} alt={project.thumbnailAlt || project.title} />
-                : <i className="fas fa-folder-open"></i>
-              }
-            </div>
-
-            <h1 className="project-detail-title">{project.title}</h1>
-            <p className="project-detail-description">{project.description}</p>
-
-            {!hasCaseStudy && (
-              <div className="project-stub-notice">
-                <i className="fas fa-info-circle"></i>
-                Full case study coming soon. Contact me to discuss this project in detail.
-              </div>
-            )}
-
-            {hasCaseStudy && (
-              <div className="project-case-study">
-                {project.challenge && (
-                  <div className="case-study-section">
-                    <p className="case-study-label">The Challenge</p>
-                    <p className="case-study-text">{project.challenge}</p>
-                  </div>
-                )}
-
-                {project.approach && (
-                  <div className="case-study-section">
-                    <p className="case-study-label">My Approach</p>
-                    <p className="case-study-text">{project.approach}</p>
-                  </div>
-                )}
-
-                {project.outcomes?.length > 0 && (
-                  <div className="case-study-section">
-                    <p className="case-study-label">Outcomes</p>
-                    <ul className="case-study-outcomes">
-                      {project.outcomes.map((outcome, i) => (
-                        <li key={i}>{outcome}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {project.mediaItems?.length > 0 && (
-              <MediaCarousel items={project.mediaItems} />
-            )}
-
-            {projectRecs.length > 0 && (
-              <div className="project-recommendations">
-                <p className="project-recommendations-label">What Colleagues Say</p>
-                {projectRecs.map((rec) => (
-                  <div key={rec.id} className="project-rec-card">
-                    <p className="project-rec-body">{rec.body}</p>
-                    <div className="project-rec-author">
-                      <div className="rec-avatar">
-                        {rec.avatarUrl
-                          ? <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
-                          : rec.avatarInitials
-                        }
-                      </div>
-                      <div>
-                        <p className="project-rec-name">{rec.authorName}</p>
-                        <p className="project-rec-meta">
-                          {rec.authorTitle} · {rec.authorCompany}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Sidebar */}
-          <div className="col-lg-4">
-            <aside className="project-detail-sidebar">
-              <p className="sidebar-section-label">Project Details</p>
-
-              <div className="sidebar-meta-grid">
-                {project.year && (
-                  <div className="sidebar-meta-item">
-                    <p className="meta-label">Year</p>
-                    <p className="meta-value">{project.year}</p>
-                  </div>
-                )}
-                {project.duration && (
-                  <div className="sidebar-meta-item">
-                    <p className="meta-label">Duration</p>
-                    <p className="meta-value">{project.duration}</p>
-                  </div>
-                )}
-                {project.client && (
-                  <div className="sidebar-meta-item">
-                    <p className="meta-label">Client</p>
-                    <p className="meta-value">{project.client}</p>
-                  </div>
-                )}
-                {project.clientIndustry && (
-                  <div className="sidebar-meta-item">
-                    <p className="meta-label">Industry</p>
-                    <p className="meta-value">{project.clientIndustry}</p>
-                  </div>
-                )}
-                {project.audienceSize && (
-                  <div className="sidebar-meta-item">
-                    <p className="meta-label">Audience</p>
-                    <p className="meta-value">{project.audienceSize}</p>
-                  </div>
-                )}
-              </div>
-
-              {project.tags?.length > 0 && (
-                <>
-                  <hr className="sidebar-divider" />
-                  <p className="sidebar-section-label">Technologies &amp; Tools</p>
-                  <div className="sidebar-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="sidebar-tag">{tag}</span>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {project.liveUrl && (
-                <>
-                  <hr className="sidebar-divider" />
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-accent w-100"
-                  >
-                    <i className="fas fa-external-link-alt me-2"></i>View Live Site
-                  </a>
-                </>
-              )}
-            </aside>
-          </div>
-        </div>
+        {layout === "article"
+          ? <ArticleLayout project={project} projectRecs={projectRecs} />
+          : <CarouselLayout project={project} projectRecs={projectRecs} />
+        }
       </div>
     </div>
   );

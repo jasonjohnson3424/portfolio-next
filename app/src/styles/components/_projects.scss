@@ -180,15 +180,19 @@
   top: 0.65rem;
   right: 0.65rem;
   background: rgba($color-bg, 0.85);
-  border: 1px solid $color-border;
-  color: $color-muted;
+  border: 1px solid rgba(#e85555, 0.4);
+  color: #e85555;
   border-radius: 6px;
-  padding: 0.22rem 0.5rem;
-  font-size: 0.72rem;
+  padding: 0.3rem 0.55rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
   backdrop-filter: blur(4px);
+
+  &--unlocked {
+    color: $color-success;
+    border-color: rgba($color-success, 0.4);
+  }
 }
 
 .project-body {

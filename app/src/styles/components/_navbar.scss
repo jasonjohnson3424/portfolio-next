@@ -20,6 +20,7 @@
     max-width: 100%;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+    position: relative;
   }
 }
 
@@ -55,7 +56,12 @@
   @media (max-width: 767.98px) {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    .nav-menu-open & {
+      display: none;
+    }
   }
 
   @media (max-width: 449.98px) {
