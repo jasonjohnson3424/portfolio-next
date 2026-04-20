@@ -64,6 +64,7 @@ function emailHeader() {
   return `
     <tr>
       <td style="background:#0b1120;padding:28px 40px;text-align:center;">
+        <a href="https://jasonljohnson.com" style="text-decoration:none;">
         <table style="border-collapse:collapse;margin:0 auto 6px;">
           <tr>
             <td style="vertical-align:middle;padding-right:14px;">
@@ -75,6 +76,7 @@ function emailHeader() {
             </td>
           </tr>
         </table>
+        </a>
         <span style="color:rgba(255,255,255,0.85);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;margin-top:20px;display:block;">
           L&amp;D Manager &bull; Instructional Designer &bull; Web Developer
         </span>

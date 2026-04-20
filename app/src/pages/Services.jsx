@@ -1,9 +1,11 @@
 "use client";
 import { services } from "../data/services";
-
 const Services = () => {
-  const scrollToContact = (e) => {
+  const scrollToContact = (e, serviceTitle) => {
     e.preventDefault();
+    if (serviceTitle) {
+      window.dispatchEvent(new CustomEvent("contactServiceSelected", { detail: serviceTitle }));
+    }
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -33,7 +35,7 @@ const Services = () => {
                     <h3 className="service-title">{service.title}</h3>
                   </div>
                   <p className="service-description">{service.description}</p>
-                  <a href="#contact" className="service-cta" onClick={scrollToContact}>
+                  <a href="#contact" className="service-cta" onClick={(e) => scrollToContact(e, service.title)}>
                     Inquire <i className="fas fa-arrow-right"></i>
                   </a>
                 </div>

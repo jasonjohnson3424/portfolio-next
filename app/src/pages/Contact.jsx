@@ -96,11 +96,18 @@ const Contact = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: { honeypot: "" },
   });
+
+  useEffect(() => {
+    const handler = (e) => setValue("subject", e.detail, { shouldValidate: false });
+    window.addEventListener("contactServiceSelected", handler);
+    return () => window.removeEventListener("contactServiceSelected", handler);
+  }, [setValue]);
 
   const messageLength = watch("message", "").length;
 
