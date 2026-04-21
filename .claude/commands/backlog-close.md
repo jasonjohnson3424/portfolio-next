@@ -23,6 +23,8 @@ Usage: `/backlog-close --id <ID> --comment <text>`
    - If `--comment` was provided, append ` — <comment text>` immediately before the badge (inside the same `<td>`).
    - Do NOT add strikethrough or alter any other description text.
 
-5. Show the user a brief summary of the change and confirm before writing.
+5. Write the file directly — no confirmation needed.
 
-6. Write the file. Do not commit.
+6. Do not commit.
+
+7. Open BACKLOG.md in the IDE.
