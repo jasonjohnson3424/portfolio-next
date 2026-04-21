@@ -20,7 +20,7 @@ Never resolve merge conflicts by accepting all incoming or all current on a whol
 
 # Local-Only Files
 
-`BACKLOG.md` is intentionally gitignored and must never be deleted from disk. It is the sole project backlog and has no remote backup. If a git operation (e.g. `git rm --cached`, merge, checkout) would remove it from disk, stop and warn the user before proceeding.
+`BACKLOG.md` lives at `C:\Users\jason\Documents\Apps\jasonljohnson-com_Personal-Portfolio\BACKLOG.md` — one level above the repo root, outside git scope. It is the sole project backlog and has no remote backup. Always read and write it at that path. Never place it inside the repo directory.
 
 Never run `git rm` on any file without explicit user confirmation first. `git rm` permanently deletes from disk and index, bypasses the Windows Recycle Bin, and has no recovery path outside of git history. Always show the user exactly which files would be removed and wait for approval before executing.
 
