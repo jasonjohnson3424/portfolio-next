@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Write(C:\\Users\\jason\\Documents\\Apps\\jasonljohnson-com_Personal-Portfolio\\BACKLOG.md)",
+      "Read(C:\\Users\\jason\\Documents\\Apps\\jasonljohnson-com_Personal-Portfolio\\BACKLOG.md)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

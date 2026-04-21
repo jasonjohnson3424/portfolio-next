@@ -300,7 +300,7 @@ const ProjectDetail = ({ slug }) => {
     return (
       <div className="container py-5 text-center">
         <h2 className="project-detail-title">Project not found.</h2>
-        <button className="btn btn-outline-accent mt-3" onClick={() => router.push("/")}>
+        <button className="btn btn-outline-accent mt-3" onClick={() => router.back()}>
           ← Back to Portfolio
         </button>
       </div>
@@ -319,7 +319,7 @@ const ProjectDetail = ({ slug }) => {
           Please reach out directly to discuss this work.
         </p>
         <div className="d-flex gap-3 justify-content-center">
-          <button className="btn btn-outline-accent" onClick={() => router.push("/")}>
+          <button className="btn btn-outline-accent" onClick={() => router.back()}>
             ← Back to Portfolio
           </button>
           <Link href="/#contact" className="btn btn-accent">Contact Me</Link>
@@ -336,7 +336,7 @@ const ProjectDetail = ({ slug }) => {
       <div className="container">
         <button
           className="btn btn-sm project-detail-back-btn mb-4"
-          onClick={() => router.push("/")}
+          onClick={() => router.back()}
         >
           <i className="fas fa-arrow-left me-2"></i>Back to Portfolio
         </button>
