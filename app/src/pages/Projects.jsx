@@ -133,19 +133,19 @@ const Projects = () => {
           ))}
         </div>
 
-        <motion.div className="row g-4">
-          <AnimatePresence mode="popLayout">
+        <div className="row g-4">
+          <AnimatePresence>
             {filtered.map((project) => (
               <motion.div
                 className="col-md-6 col-lg-4"
                 key={project.id}
                 initial={{ opacity: 0, scale: 0.88, y: 24 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.84, y: -20 }}
+                exit={{ opacity: 0, scale: 0.88, height: 0, marginTop: 0, overflow: "hidden" }}
                 transition={{
-                  layout: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-                  opacity: { duration: 0.35, ease: "easeInOut" },
-                  scale: { duration: 0.35, ease: "easeInOut" },
+                  opacity: { duration: 0.25, ease: "easeInOut" },
+                  scale: { duration: 0.25, ease: "easeInOut" },
+                  height: { duration: 0.25, ease: "easeInOut" },
                   y: { duration: 0.35, ease: "easeInOut" },
                 }}
               >
@@ -196,7 +196,7 @@ const Projects = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {pendingProject && (
