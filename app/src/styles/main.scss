@@ -98,6 +98,11 @@ $badge-padding-x:     0.8em;
 
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
+.container,
+.container-xxl {
+  max-width: 1440px;
+}
+
 body {
   background-color: $color-bg;
   color: $color-text;

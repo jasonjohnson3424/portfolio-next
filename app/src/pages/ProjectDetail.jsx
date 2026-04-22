@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import { projects } from "../data/projects";
 import { recommendations } from "../data/recommendations";
 import LazyImage from "../components/LazyImage";
@@ -103,17 +105,49 @@ const MediaCarousel = ({ items }) => {
   );
 };
 
-const StarSection = ({ label, value }) => {
+const ArticleImage = ({ item, onClick }) => {
+  const placement = item.placement ?? "center";
+  const flow = item.flow ?? (placement === "center" ? "clear" : "wrap");
+  const cls = `article-inline-img article-inline-img--${placement} article-inline-img--${flow}`;
+  return (
+    <figure className={cls}>
+      <button
+        className="article-inline-img-btn"
+        onClick={onClick}
+        aria-label="Enlarge image"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={item.url} alt={item.alt || ""} loading="lazy" />
+        <span className="article-inline-img-zoom">
+          <i className="fas fa-expand-alt"></i>
+        </span>
+      </button>
+      {item.caption && (
+        <figcaption className="article-inline-img-caption">
+          {item.caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+};
+
+const StarSection = ({ label, value, inlineImages, onImageClick }) => {
   if (!value || (Array.isArray(value) && value.length === 0)) return null;
   return (
     <div className="case-study-section">
       <p className="case-study-label">{label}</p>
       <StarField value={value} className="case-study-text" />
+      {inlineImages?.map((img, i) => (
+        <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
+      ))}
+      {inlineImages?.some((img) => img.flow === "wrap") && (
+        <div className="article-inline-img-clearfix" />
+      )}
     </div>
   );
 };
 
-const ResultsList = ({ results }) => {
+const ResultsList = ({ results, inlineImages, onImageClick }) => {
   if (!results?.length) return null;
   return (
     <div className="case-study-section">
@@ -123,6 +157,12 @@ const ResultsList = ({ results }) => {
           <li key={i}>{r}</li>
         ))}
       </ul>
+      {inlineImages?.map((img, i) => (
+        <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
+      ))}
+      {inlineImages?.some((img) => img.flow === "wrap") && (
+        <div className="article-inline-img-clearfix" />
+      )}
     </div>
   );
 };
@@ -133,26 +173,41 @@ const ProjectRecs = ({ recs }) => {
     <div className="project-recommendations">
       <p className="project-recommendations-label">What Colleagues Say</p>
       {recs.map((rec) => (
-        <div key={rec.id} className="project-rec-card">
-          <p className="project-rec-body">{rec.body}</p>
-          <div className="project-rec-author">
-            <div className="rec-avatar">
-              {rec.avatarUrl ? (
-                <Image
-                  src={rec.avatarUrl}
-                  alt={rec.authorName}
-                  width={96}
-                  height={96}
-                />
-              ) : (
-                rec.avatarInitials
-              )}
-            </div>
+        <div key={rec.id} className="rec-carousel project-rec-card">
+          <div className="rec-quote-icon"><i className="fas fa-quote-left"></i></div>
+          <p className="rec-body">
+            {rec.body.split("\n").map((line, i) => (
+              <span key={i}>{line}<br /></span>
+            ))}
+          </p>
+          <div className="rec-author rec-author--bottom">
+            {rec.linkedInUrl ? (
+              <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer" className="rec-avatar">
+                {rec.avatarUrl ? (
+                  <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
+                ) : (
+                  rec.avatarInitials
+                )}
+              </a>
+            ) : (
+              <div className="rec-avatar">
+                {rec.avatarUrl ? (
+                  <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
+                ) : (
+                  rec.avatarInitials
+                )}
+              </div>
+            )}
             <div>
-              <p className="project-rec-name">{rec.authorName}</p>
-              <p className="project-rec-meta">
-                {rec.authorTitle} · {rec.authorCompany}
+              <p className="rec-author-name">
+                {rec.linkedInUrl ? (
+                  <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer">
+                    {rec.authorName}
+                  </a>
+                ) : rec.authorName}
               </p>
+              <p className="rec-author-meta">{rec.authorTitle}</p>
+              <p className="rec-author-meta">{rec.authorCompany}</p>
             </div>
           </div>
         </div>
@@ -165,12 +220,7 @@ const Sidebar = ({ project }) => (
   <aside className="project-detail-sidebar">
     <p className="sidebar-section-label">Project Details</p>
     <div className="sidebar-meta-grid">
-      {project.year && (
-        <div className="sidebar-meta-item">
-          <p className="meta-label">Year</p>
-          <p className="meta-value">{project.year}</p>
-        </div>
-      )}
+      {/* Year hidden until more recent projects are visible — see backlog C17 */}
       {project.duration && (
         <div className="sidebar-meta-item">
           <p className="meta-label">Duration</p>
@@ -233,7 +283,7 @@ const hasStarContent = (p) =>
 // carousel layout: media carousel at top, STAR below, sidebar right
 const CarouselLayout = ({ project, projectRecs }) => (
   <div className="row g-5 align-items-start">
-    <div className="col-lg-8">
+    <div className="col-lg-9">
       {project.mediaItems?.length > 0 && (
         <MediaCarousel items={project.mediaItems} />
       )}
@@ -261,57 +311,102 @@ const CarouselLayout = ({ project, projectRecs }) => (
       <ProjectRecs recs={projectRecs} />
     </div>
 
-    <div className="col-lg-4">
+    <div className="col-lg-3">
       <Sidebar project={project} />
     </div>
   </div>
 );
 
 // article layout: full-width narrative, sidebar below on mobile / right on lg
-const ArticleLayout = ({ project, projectRecs }) => (
-  <div className="row g-5">
-    <div className="col-lg-8">
-      {project.thumbnailUrl && (
-        <div className="project-detail-thumbnail">
-          <LazyImage
-            src={project.thumbnailUrl}
-            alt={project.thumbnailAlt || project.title}
-          />
-        </div>
-      )}
+const ArticleLayout = ({ project, projectRecs }) => {
+  const allMedia = project.mediaItems ?? [];
+  const inlineMedia = allMedia.filter((m) => m.starSection);
+  const carouselMedia = allMedia.filter((m) => !m.starSection);
 
-      <h1 className="project-detail-title">{project.title}</h1>
-      <p className="project-detail-description">{project.description}</p>
+  const sectionImages = (key) =>
+    inlineMedia.filter((m) => m.starSection === key);
 
-      {!hasStarContent(project) && (
-        <div className="project-stub-notice">
-          <i className="fas fa-info-circle"></i>
-          Full case study coming soon. Contact me to discuss this project in
-          detail.
-        </div>
-      )}
+  const lightboxSlides = inlineMedia.map((m) => ({ src: m.url, alt: m.alt }));
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
-      {hasStarContent(project) && (
-        <div className="project-case-study project-case-study--article">
-          <StarSection label="Background" value={project.situation} />
-          <StarSection label="The Challenge" value={project.task} />
-          <StarSection label="My Role" value={project.action} />
-          <ResultsList results={project.results} />
-        </div>
-      )}
+  const openLightbox = (img) => {
+    const idx = inlineMedia.findIndex((m) => m.url === img.url);
+    setLightboxIndex(idx >= 0 ? idx : 0);
+    setLightboxOpen(true);
+  };
 
-      {project.mediaItems?.length > 0 && (
-        <MediaCarousel items={project.mediaItems} />
-      )}
+  return (
+    <div className="row g-5">
+      <div className="col-lg-9">
+        {project.thumbnailUrl && (
+          <div className="project-detail-thumbnail">
+            <LazyImage
+              src={project.thumbnailUrl}
+              alt={project.thumbnailAlt || project.title}
+            />
+          </div>
+        )}
 
-      <ProjectRecs recs={projectRecs} />
+        <h1 className="project-detail-title">{project.title}</h1>
+        <p className="project-detail-description">{project.description}</p>
+
+        {!hasStarContent(project) && (
+          <div className="project-stub-notice">
+            <i className="fas fa-info-circle"></i>
+            Full case study coming soon. Contact me to discuss this project in
+            detail.
+          </div>
+        )}
+
+        {hasStarContent(project) && (
+          <div className="project-case-study project-case-study--article">
+            <StarSection
+              label="Background"
+              value={project.situation}
+              inlineImages={sectionImages("situation")}
+              onImageClick={openLightbox}
+            />
+            <StarSection
+              label="The Challenge"
+              value={project.task}
+              inlineImages={sectionImages("task")}
+              onImageClick={openLightbox}
+            />
+            <StarSection
+              label="My Role"
+              value={project.action}
+              inlineImages={sectionImages("action")}
+              onImageClick={openLightbox}
+            />
+            <ResultsList
+              results={project.results}
+              inlineImages={sectionImages("results")}
+              onImageClick={openLightbox}
+            />
+          </div>
+        )}
+
+        {carouselMedia.length > 0 && (
+          <MediaCarousel items={carouselMedia} />
+        )}
+
+        <ProjectRecs recs={projectRecs} />
+      </div>
+
+      <div className="col-lg-3">
+        <Sidebar project={project} />
+      </div>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={lightboxSlides}
+        index={lightboxIndex}
+      />
     </div>
-
-    <div className="col-lg-4">
-      <Sidebar project={project} />
-    </div>
-  </div>
-);
+  );
+};
 
 const ProjectDetail = ({ slug }) => {
   const router = useRouter();
@@ -368,7 +463,7 @@ const ProjectDetail = ({ slug }) => {
     <div className="project-detail">
       <div className="container">
         <button
-          className="btn btn-sm project-detail-back-btn mb-4"
+          className="project-detail-back-btn mb-4"
           onClick={() => router.back()}
         >
           <i className="fas fa-arrow-left me-2"></i>Home

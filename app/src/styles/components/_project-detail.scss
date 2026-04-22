@@ -69,25 +69,34 @@
 .project-detail {
   padding-top: 6rem;
   padding-bottom: 5rem;
+  background-color: #1e2330;
 }
 
-.project-detail .project-detail-back-btn {
-  --bs-btn-hover-bg: #{rgba($color-warm, 0.08)};
-  --bs-btn-hover-color: #{$color-warm-hover};
-  --bs-btn-hover-border-color: #{$color-warm};
-  background: white;
-  border: 1px solid darken($color-card-light, 14%);
-  color: $color-card-dark-muted;
-  border-radius: 8px;
+.project-detail-back-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid $color-accent;
+  color: #000000;
+  border-radius: 0.25rem;
   font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
   transition: $transition;
+
+  &:hover,
+  &:focus {
+    background: #ffffff;
+    border-color: $color-accent;
+    color: $color-accent;
+  }
 }
 
 .project-detail-thumbnail {
   aspect-ratio: 16/9;
   background: linear-gradient(135deg, $color-surface, $color-subtle);
   border: 1px solid $color-border;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,9 +125,92 @@
 
 .project-detail-description {
   font-size: 1rem;
-  color: $color-muted;
+  color: #ffffff;
   line-height: 1.75;
   margin-bottom: 2.5rem;
+}
+
+// Inline article images
+.article-inline-img {
+  margin: 1.5rem 0;
+
+  img,
+  .lazy-image-wrapper,
+  .lazy-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    display: block;
+  }
+
+  &--left {
+    max-width: 300px;
+    &.article-inline-img--wrap {
+      float: left;
+      margin: 0.25rem 1.75rem 1rem 0;
+    }
+  }
+
+  &--right {
+    max-width: 300px;
+    &.article-inline-img--wrap {
+      float: right;
+      margin: 0.25rem 0 1rem 1.75rem;
+    }
+  }
+
+  &--center {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+  }
+
+  &--clear {
+    clear: both;
+  }
+}
+
+.article-inline-img-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  &:hover .article-inline-img-zoom {
+    opacity: 1;
+  }
+}
+
+.article-inline-img-zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: $transition;
+  border-radius: 0.5rem;
+}
+
+.article-inline-img-caption {
+  font-size: 0.8rem;
+  color: $color-muted;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.article-inline-img-clearfix {
+  clear: both;
 }
 
 // Case-study narrative sections
@@ -153,7 +245,7 @@
 
 .case-study-text {
   font-size: 0.93rem;
-  color: $color-muted;
+  color: #ffffff;
   line-height: 1.8;
   margin: 0;
 }
@@ -171,7 +263,7 @@
     align-items: flex-start;
     gap: 0.65rem;
     font-size: 0.93rem;
-    color: $color-muted;
+    color: #ffffff;
     line-height: 1.6;
 
     &::before {
@@ -190,15 +282,15 @@
 .project-detail-sidebar {
   background-color: #f6f8fa;
   border: 1px solid #d0d7de;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   padding: 1.5rem;
   position: sticky;
   top: 5.5rem;
 }
 
 .sidebar-section-label {
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $color-accent;
@@ -266,60 +358,18 @@
 }
 
 .project-recommendations-label {
-  font-size: 0.7rem;
+  font-size: 1.24rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $color-accent;
+  color: $color-warm;
   margin-bottom: 1.5rem;
 }
 
 .project-rec-card {
-  background: $color-surface;
-  border: 1px solid $color-border;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-
   & + & {
     margin-top: 1rem;
   }
-}
-
-.project-rec-body {
-  font-size: 0.93rem;
-  line-height: 1.8;
-  color: $color-text;
-  font-style: italic;
-  margin-bottom: 1.25rem;
-
-  &::before {
-    content: "\201C";
-  }
-  &::after {
-    content: "\201D";
-  }
-}
-
-.project-rec-author {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-// Reuse .rec-avatar from _recommendations.scss — defined there globally
-
-.project-rec-name {
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: $color-text;
-  margin: 0 0 0.1rem;
-}
-
-.project-rec-meta {
-  font-size: 0.78rem;
-  color: $color-muted;
-  margin: 0;
-  line-height: 1.45;
 }
 
 // Draft / stub notice
