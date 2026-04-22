@@ -74,8 +74,8 @@ const CONTACT_INFO = [
   {
     icon: "fab fa-linkedin-in",
     label: "LinkedIn",
-    value: "linkedin.com/in/jason-johnson-264835146",
-    href: "https://www.linkedin.com/in/jason-johnson-264835146/",
+    value: "linkedin.com/in/jasonlancejohnson",
+    href: "https://www.linkedin.com/in/jasonlancejohnson/",
   },
   {
     icon: "fas fa-map-marker-alt",

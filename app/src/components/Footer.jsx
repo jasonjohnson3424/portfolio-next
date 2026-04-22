@@ -71,7 +71,7 @@ const Footer = () => {
             </nav>
             <div className="footer-social justify-content-center">
               <a
-                href="https://www.linkedin.com/in/jason-johnson-264835146/"
+                href="https://www.linkedin.com/in/jasonlancejohnson/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

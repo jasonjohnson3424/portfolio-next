@@ -87,7 +87,7 @@ const Hero = () => {
 
             <motion.div className="hero-social" {...fadeUp(0.85)}>
               <a
-                href="https://www.linkedin.com/in/jason-johnson-264835146/"
+                href="https://www.linkedin.com/in/jasonlancejohnson/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -137,7 +137,7 @@ const Hero = () => {
             Get In Touch
           </a>
           <a
-            href="https://www.linkedin.com/in/jason-johnson-264835146/"
+            href="https://www.linkedin.com/in/jasonlancejohnson/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

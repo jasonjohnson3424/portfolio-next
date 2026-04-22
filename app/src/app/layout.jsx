@@ -52,7 +52,7 @@ const jsonLd = {
   "availableFor": "L&D leadership roles and web development projects",
   "workLocation": "Remote · US-Based (EST)",
   "sameAs": [
-    "https://www.linkedin.com/in/jason-johnson-264835146/",
+    "https://www.linkedin.com/in/jasonlancejohnson/",
   ],
 };
 
