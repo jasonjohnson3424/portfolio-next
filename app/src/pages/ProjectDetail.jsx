@@ -12,7 +12,9 @@ const StarField = ({ value, className }) => {
   if (!value) return null;
   const paras = Array.isArray(value) ? value : [value];
   return paras.map((p, i) => (
-    <p key={i} className={className}>{p}</p>
+    <p key={i} className={className}>
+      {p}
+    </p>
   ));
 };
 
@@ -32,6 +34,7 @@ const MediaCarousel = ({ items }) => {
           src={item.url}
           controls
           preload="metadata"
+          poster={item.poster}
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
       );
@@ -62,10 +65,18 @@ const MediaCarousel = ({ items }) => {
         {renderMedia(current)}
         {sorted.length > 1 && (
           <>
-            <button className="media-carousel-btn media-carousel-btn--prev" onClick={prev} aria-label="Previous">
+            <button
+              className="media-carousel-btn media-carousel-btn--prev"
+              onClick={prev}
+              aria-label="Previous"
+            >
               <i className="fas fa-chevron-left"></i>
             </button>
-            <button className="media-carousel-btn media-carousel-btn--next" onClick={next} aria-label="Next">
+            <button
+              className="media-carousel-btn media-carousel-btn--next"
+              onClick={next}
+              aria-label="Next"
+            >
               <i className="fas fa-chevron-right"></i>
             </button>
           </>
@@ -108,7 +119,9 @@ const ResultsList = ({ results }) => {
     <div className="case-study-section">
       <p className="case-study-label">Results &amp; Impact</p>
       <ul className="case-study-outcomes">
-        {results.map((r, i) => <li key={i}>{r}</li>)}
+        {results.map((r, i) => (
+          <li key={i}>{r}</li>
+        ))}
       </ul>
     </div>
   );
@@ -124,14 +137,22 @@ const ProjectRecs = ({ recs }) => {
           <p className="project-rec-body">{rec.body}</p>
           <div className="project-rec-author">
             <div className="rec-avatar">
-              {rec.avatarUrl
-                ? <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
-                : rec.avatarInitials
-              }
+              {rec.avatarUrl ? (
+                <Image
+                  src={rec.avatarUrl}
+                  alt={rec.authorName}
+                  width={96}
+                  height={96}
+                />
+              ) : (
+                rec.avatarInitials
+              )}
             </div>
             <div>
               <p className="project-rec-name">{rec.authorName}</p>
-              <p className="project-rec-meta">{rec.authorTitle} · {rec.authorCompany}</p>
+              <p className="project-rec-meta">
+                {rec.authorTitle} · {rec.authorCompany}
+              </p>
             </div>
           </div>
         </div>
@@ -182,7 +203,9 @@ const Sidebar = ({ project }) => (
         <p className="sidebar-section-label">Technologies &amp; Tools</p>
         <div className="sidebar-tags">
           {project.tags.map((tag) => (
-            <span key={tag} className="sidebar-tag">{tag}</span>
+            <span key={tag} className="sidebar-tag">
+              {tag}
+            </span>
           ))}
         </div>
       </>
@@ -207,16 +230,13 @@ const Sidebar = ({ project }) => (
 const hasStarContent = (p) =>
   p.situation || p.task || p.action || p.results?.length > 0;
 
-// carousel layout: media hero at top, STAR below, sidebar right
+// carousel layout: media carousel at top, STAR below, sidebar right
 const CarouselLayout = ({ project, projectRecs }) => (
-  <div className="row g-5">
+  <div className="row g-5 align-items-start">
     <div className="col-lg-8">
-      <div className="project-detail-thumbnail">
-        {project.thumbnailUrl
-          ? <LazyImage src={project.thumbnailUrl} alt={project.thumbnailAlt || project.title} />
-          : <i className="fas fa-folder-open"></i>
-        }
-      </div>
+      {project.mediaItems?.length > 0 && (
+        <MediaCarousel items={project.mediaItems} />
+      )}
 
       <h1 className="project-detail-title">{project.title}</h1>
       <p className="project-detail-description">{project.description}</p>
@@ -224,7 +244,8 @@ const CarouselLayout = ({ project, projectRecs }) => (
       {!hasStarContent(project) && (
         <div className="project-stub-notice">
           <i className="fas fa-info-circle"></i>
-          Full case study coming soon. Contact me to discuss this project in detail.
+          Full case study coming soon. Contact me to discuss this project in
+          detail.
         </div>
       )}
 
@@ -235,10 +256,6 @@ const CarouselLayout = ({ project, projectRecs }) => (
           <StarSection label="My Role" value={project.action} />
           <ResultsList results={project.results} />
         </div>
-      )}
-
-      {project.mediaItems?.length > 0 && (
-        <MediaCarousel items={project.mediaItems} />
       )}
 
       <ProjectRecs recs={projectRecs} />
@@ -256,7 +273,10 @@ const ArticleLayout = ({ project, projectRecs }) => (
     <div className="col-lg-8">
       {project.thumbnailUrl && (
         <div className="project-detail-thumbnail">
-          <LazyImage src={project.thumbnailUrl} alt={project.thumbnailAlt || project.title} />
+          <LazyImage
+            src={project.thumbnailUrl}
+            alt={project.thumbnailAlt || project.title}
+          />
         </div>
       )}
 
@@ -266,7 +286,8 @@ const ArticleLayout = ({ project, projectRecs }) => (
       {!hasStarContent(project) && (
         <div className="project-stub-notice">
           <i className="fas fa-info-circle"></i>
-          Full case study coming soon. Contact me to discuss this project in detail.
+          Full case study coming soon. Contact me to discuss this project in
+          detail.
         </div>
       )}
 
@@ -300,8 +321,11 @@ const ProjectDetail = ({ slug }) => {
     return (
       <div className="container py-5 text-center">
         <h2 className="project-detail-title">Project not found.</h2>
-        <button className="btn btn-outline-accent mt-3" onClick={() => router.back()}>
-          ← Back to Portfolio
+        <button
+          className="btn btn-outline-accent mt-3"
+          onClick={() => router.back()}
+        >
+          ← Home
         </button>
       </div>
     );
@@ -313,22 +337,31 @@ const ProjectDetail = ({ slug }) => {
     return (
       <div className="container py-5 text-center">
         <i className="fas fa-lock fa-3x mb-4" style={{ color: "#8b949e" }}></i>
-        <h2 className="h3 mb-2" style={{ color: "#e6edf3" }}>NDA-Protected Project</h2>
+        <h2 className="h3 mb-2" style={{ color: "#e6edf3" }}>
+          NDA-Protected Project
+        </h2>
         <p style={{ color: "#8b949e", maxWidth: 480, margin: "0 auto 1.5rem" }}>
-          This project is covered by a non-disclosure agreement and cannot be shared publicly.
-          Please reach out directly to discuss this work.
+          This project is covered by a non-disclosure agreement and cannot be
+          shared publicly. Please reach out directly to discuss this work.
         </p>
         <div className="d-flex gap-3 justify-content-center">
-          <button className="btn btn-outline-accent" onClick={() => router.back()}>
-            ← Back to Portfolio
+          <button
+            className="btn btn-outline-accent"
+            onClick={() => router.back()}
+          >
+            ← Home
           </button>
-          <Link href="/#contact" className="btn btn-accent">Contact Me</Link>
+          <Link href="/#contact" className="btn btn-accent">
+            Contact Me
+          </Link>
         </div>
       </div>
     );
   }
 
-  const projectRecs = recommendations.filter((r) => r.projectSlugs?.includes(project.slug));
+  const projectRecs = recommendations.filter((r) =>
+    r.projectSlugs?.includes(project.slug),
+  );
   const layout = project.layoutType ?? "carousel";
 
   return (
@@ -338,13 +371,14 @@ const ProjectDetail = ({ slug }) => {
           className="btn btn-sm project-detail-back-btn mb-4"
           onClick={() => router.back()}
         >
-          <i className="fas fa-arrow-left me-2"></i>Back to Portfolio
+          <i className="fas fa-arrow-left me-2"></i>Home
         </button>
 
-        {layout === "article"
-          ? <ArticleLayout project={project} projectRecs={projectRecs} />
-          : <CarouselLayout project={project} projectRecs={projectRecs} />
-        }
+        {layout === "article" ? (
+          <ArticleLayout project={project} projectRecs={projectRecs} />
+        ) : (
+          <CarouselLayout project={project} projectRecs={projectRecs} />
+        )}
       </div>
     </div>
   );
