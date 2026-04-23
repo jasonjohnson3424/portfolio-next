@@ -133,36 +133,42 @@ const ArticleImage = ({ item, onClick }) => {
 
 const StarSection = ({ label, value, inlineImages, onImageClick }) => {
   if (!value || (Array.isArray(value) && value.length === 0)) return null;
+  const wrapImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "wrap") ?? [];
+  const clearImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "clear") ?? [];
   return (
     <div className="case-study-section">
       <p className="case-study-label">{label}</p>
-      <StarField value={value} className="case-study-text" />
-      {inlineImages?.map((img, i) => (
+      {wrapImgs.map((img, i) => (
         <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
       ))}
-      {inlineImages?.some((img) => img.flow === "wrap") && (
-        <div className="article-inline-img-clearfix" />
-      )}
+      <StarField value={value} className="case-study-text" />
+      {wrapImgs.length > 0 && <div className="article-inline-img-clearfix" />}
+      {clearImgs.map((img, i) => (
+        <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
+      ))}
     </div>
   );
 };
 
 const ResultsList = ({ results, inlineImages, onImageClick }) => {
   if (!results?.length) return null;
+  const wrapImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "wrap") ?? [];
+  const clearImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "clear") ?? [];
   return (
     <div className="case-study-section">
       <p className="case-study-label">Results &amp; Impact</p>
+      {wrapImgs.map((img, i) => (
+        <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
+      ))}
       <ul className="case-study-outcomes">
         {results.map((r, i) => (
           <li key={i}>{r}</li>
         ))}
       </ul>
-      {inlineImages?.map((img, i) => (
+      {wrapImgs.length > 0 && <div className="article-inline-img-clearfix" />}
+      {clearImgs.map((img, i) => (
         <ArticleImage key={i} item={img} onClick={() => onImageClick?.(img)} />
       ))}
-      {inlineImages?.some((img) => img.flow === "wrap") && (
-        <div className="article-inline-img-clearfix" />
-      )}
     </div>
   );
 };
@@ -171,7 +177,7 @@ const ProjectRecs = ({ recs }) => {
   if (!recs.length) return null;
   return (
     <div className="project-recommendations">
-      <p className="project-recommendations-label">What Colleagues Say</p>
+      <p className="project-recommendations-label">Colleagues Said...</p>
       {recs.map((rec) => (
         <div key={rec.id} className="rec-carousel project-rec-card">
           <div className="rec-quote-icon"><i className="fas fa-quote-left"></i></div>
@@ -340,12 +346,19 @@ const ArticleLayout = ({ project, projectRecs }) => {
     <div className="row g-5">
       <div className="col-lg-9">
         {project.thumbnailUrl && (
-          <div className="project-detail-thumbnail">
-            <LazyImage
-              src={project.thumbnailUrl}
-              alt={project.thumbnailAlt || project.title}
-            />
-          </div>
+          <figure className="project-detail-thumbnail-wrap">
+            <div className="project-detail-thumbnail">
+              <LazyImage
+                src={project.thumbnailUrl}
+                alt={project.thumbnailCaption || project.thumbnailAlt || project.title}
+              />
+            </div>
+            {project.thumbnailCaption && (
+              <figcaption className="project-detail-thumbnail-caption">
+                {project.thumbnailCaption}
+              </figcaption>
+            )}
+          </figure>
         )}
 
         <h1 className="project-detail-title">{project.title}</h1>

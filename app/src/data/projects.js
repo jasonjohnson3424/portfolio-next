@@ -518,10 +518,7 @@ export const projects = [
     task:
       "Define a tiered eLearning product and service model that sales could use to anchor client conversations, differentiate offerings by complexity and cost, and move deals forward more predictably. The framework needed to cover the full spectrum from rapid-development templates to fully custom, immersive learning experiences.",
     action: [
-      "Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value.",
-      "Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning.",
-      "Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements.",
-      "Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide.",
+      "Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. ",
     ],
     results: [
       "Framework adopted across the TEKsystems learning solutions practice and used in active sales pursuits within the first quarter.",
@@ -529,7 +526,8 @@ export const projects = [
       "Contributed to new business development conversations with clients seeking mid-tier and premium eLearning solutions.",
     ],
     thumbnailUrl: "/teksystems-elearning-levels_1.webp",
-    thumbnailAlt: "TEKsystems eLearning product and service tiers overview",
+    thumbnailAlt: "Good / Better / Best product matrix developed for sales enablement.",
+    thumbnailCaption: "Good / Better / Best product matrix developed for sales enablement.",
     mediaItems: [
       {
         type: "image",

@@ -115,6 +115,22 @@
   }
 }
 
+.project-detail-thumbnail-wrap {
+  margin-bottom: 1.75rem;
+
+  .project-detail-thumbnail {
+    margin-bottom: 0;
+  }
+}
+
+.project-detail-thumbnail-caption {
+  font-size: 0.8rem;
+  color: $color-muted;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 .project-detail-title {
   font-size: 1.65rem;
   font-weight: 700;
@@ -139,12 +155,12 @@
   .lazy-image {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     display: block;
   }
 
   &--left {
-    max-width: 300px;
+    width: 41.6%;
     &.article-inline-img--wrap {
       float: left;
       margin: 0.25rem 1.75rem 1rem 0;
@@ -152,7 +168,7 @@
   }
 
   &--right {
-    max-width: 300px;
+    width: 41.6%;
     &.article-inline-img--wrap {
       float: right;
       margin: 0.25rem 0 1rem 1.75rem;
@@ -160,10 +176,20 @@
   }
 
   &--center {
-    max-width: 560px;
+    width: 80%;
+    clear: both;
     margin-left: auto;
     margin-right: auto;
-    clear: both;
+
+    .article-inline-img-btn {
+      aspect-ratio: 2/1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &--clear {
@@ -179,7 +205,7 @@
   background: none;
   cursor: zoom-in;
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   overflow: hidden;
 
   &:hover .article-inline-img-zoom {
@@ -198,7 +224,7 @@
   font-size: 1.25rem;
   opacity: 0;
   transition: $transition;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .article-inline-img-caption {
@@ -280,7 +306,7 @@
 
 // Sidebar
 .project-detail-sidebar {
-  background-color: #f6f8fa;
+  background-color: #ffffff;
   border: 1px solid #d0d7de;
   border-radius: 0.25rem;
   padding: 1.5rem;
