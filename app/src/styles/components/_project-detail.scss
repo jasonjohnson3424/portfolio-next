@@ -21,33 +21,36 @@
 
 .media-carousel-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid #d0d7de;
-  background: rgba(#ffffff, 0.85);
-  color: #24292f;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  border: none;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: $transition;
-  backdrop-filter: blur(4px);
-  padding: 0;
   z-index: 2;
-
-  &:hover {
-    border-color: $color-accent;
-    color: $color-accent;
-  }
+  color: #ffffff;
+  font-size: 3.3rem;
+  transition: color $transition;
 
   &--prev {
-    left: 0.65rem;
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+    justify-content: flex-start;
+    padding-left: 1rem;
   }
+
   &--next {
-    right: 0.65rem;
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
+
+  &:hover {
+    color: $color-warm;
   }
 }
 
