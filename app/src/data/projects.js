@@ -18,10 +18,23 @@ export const projects = [
     layoutType: "carousel",
     description:
       "This training program was designed for TGI Fridays restaurant management teams to cover food safety best practices through a gamified, interactive eLearning experience built in Articulate Storyline and published as SCORM for LMS deployment.",
-    situation: "TBD",
-    task: "TBD",
-    action: "TBD",
-    results: [],
+    situation:
+      "TGI Fridays needed a globally consistent food safety certification program for restaurant management teams across hundreds of locations in multiple countries. Regulatory compliance was non-negotiable, and the existing approach — paper materials and in-person briefings — was difficult to scale, impossible to verify consistently, and not available in the languages needed to serve their international footprint.",
+    task:
+      "Lead the instructional design and development of a gamified, LMS-deployed food safety training program that met regulatory certification requirements, was available in 9 languages, and was engaging enough to drive completion and retention across a busy, high-turnover management audience.",
+    action: [
+      "Served as lead instructional designer and project manager on a 12-month, $2.2M engagement in partnership with NSF International, the program's subject matter experts and certifying body.",
+      "Designed a Fridays-branded Monopoly-style game board as the core navigation metaphor, using a familiar game structure to reduce cognitive load and increase engagement with compliance content.",
+      "Coordinated live-action video production of sitcom-style character vignettes filmed on location in a Fridays restaurant, scripting branching scenarios that embedded food safety decisions into realistic kitchen situations.",
+      "Managed multilingual localization across 9 language tracks, coordinating with translation vendors and regional stakeholders to maintain content accuracy and brand consistency across markets.",
+      "Oversaw LMS integration, SCORM packaging, and QA across all language versions, ensuring certification completion data was captured reliably for regulatory reporting.",
+    ],
+    results: [
+      "Program deployed to hundreds of restaurant managers globally, meeting regulatory food safety certification requirements across multiple regions.",
+      "Localized in 9 languages, enabling consistent deployment across TGI Fridays' international restaurant footprint.",
+      "Delivered within a $2.2M program budget over 12 months, on time and to scope.",
+      "Gamified structure drove engagement with content that is traditionally low-interest — compliance training in a high-turnover, time-pressured environment.",
+    ],
     thumbnailUrl: "/TGIF-food-safety-board_project-card.webp",
     thumbnailAlt:
       "TGI Fridays Global Food Safety Training Program monopoly board",
@@ -78,10 +91,21 @@ export const projects = [
     layoutType: "carousel",
     description:
       "When your labor force–thousands of independent contractors nationally–need app training and simulation (and your bottom line depends on it), only give them the best.",
-    situation: "TBD",
-    task: "TBD",
-    action: "TBD",
-    results: [],
+    situation:
+      "DoorDash's Dasher workforce — thousands of independent contractors across the US — needed training on updated app features and workflows following a product release. Existing onboarding materials were text-heavy and inconsistent, and the organization lacked a scalable, trackable digital format for getting contractors up to speed quickly without disrupting their ability to earn.",
+    task:
+      "Build a concise, self-contained microlearning module in Articulate Storyline that guided Dashers through key app screens, settings, and workflows — published via xAPI for granular interaction tracking beyond what standard SCORM could provide.",
+    action: [
+      "Designed and developed a series of interactive Storyline modules that simulated the Dasher app interface, allowing learners to practice real workflows in a low-stakes environment before using the live app.",
+      "Structured content as short, task-focused microlearning segments so Dashers could complete training in brief windows between deliveries.",
+      "Implemented xAPI tracking to capture detailed interaction data — click paths, time-on-task, and retry rates — giving DoorDash's learning team actionable insight into where learners struggled.",
+      "Delivered the complete package within a 4-week timeline, including review cycles and QA.",
+    ],
+    results: [
+      "Delivered a production-ready xAPI microlearning package on schedule, enabling DoorDash to track detailed learner interaction data beyond completion status.",
+      "Simulation-based approach reduced friction for contractors unfamiliar with app updates, providing a safe environment to explore before going live.",
+      "xAPI data provided DoorDash's L&D team with granular insight to inform future content iterations.",
+    ],
     thumbnailUrl: "/dasher-app-storyline_project-card-2.webp",
     thumbnailAlt: "DoorDash's Dasher app training in Storyline",
     mediaItems: [
@@ -135,10 +159,21 @@ export const projects = [
     layoutType: "carousel",
     description:
       "Dasher app training for DoorDash labor force built in Rise 360 provides technical insight by walking the learner through app tools and settings.",
-    situation: "TBD",
-    task: "TBD",
-    action: "TBD",
-    results: [],
+    situation:
+      "Following the Storyline microlearning project, DoorDash identified a need for a broader, structured training course to supplement app onboarding. Contractors needed a single destination that covered the full range of Dasher app tools, settings, and workflows — something more comprehensive than a microlearning burst but still accessible to a mobile-first, time-constrained audience.",
+    task:
+      "Design and develop a multi-module Rise 360 course covering Dasher app functionality end-to-end — structured so learners could navigate by topic, return to specific sections, and complete training at their own pace — published as SCORM for LMS deployment.",
+    action: [
+      "Designed course architecture in Rise 360, organizing content around the natural workflow of a Dasher's day — from account setup through active delivery and earnings review.",
+      "Authored each module as a self-contained learning unit with Rise's native interactive blocks, including step-by-step walkthroughs, labeled graphics, and embedded knowledge checks.",
+      "Optimized the Rise experience for mobile viewing, recognizing that most Dashers would access training on a smartphone between shifts.",
+      "Published as SCORM for integration with DoorDash's LMS and coordinated final QA and handoff within the 6-week timeline.",
+    ],
+    results: [
+      "Delivered a complete, SCORM-compliant Rise 360 course within a 6-week timeline.",
+      "Mobile-first structure aligned with how Dashers actually access digital content — on a phone, between gigs.",
+      "Modular architecture allowed DoorDash to update individual sections independently as app features changed, without rebuilding the full course.",
+    ],
     thumbnailUrl: "/dasher-app-rise_project-card-1.webp",
     thumbnailAlt: "DoorDash's Dasher app training in Rise",
     mediaItems: [
@@ -266,10 +301,21 @@ export const projects = [
     layoutType: "carousel",
     description:
       "A sample onboarding course for a fictional financial institution, built in Rise 360 and published as SCORM for LMS deployment. This course demonstrates how to structure...",
-    situation: "TBD",
-    task: "TBD",
-    action: "TBD",
-    results: [],
+    situation:
+      "Prospective clients in banking and financial services often ask to see a tangible Rise 360 example before committing to a development engagement. Generic tool demos lack the visual credibility and industry-relevant context that decision-makers in regulated industries need to say yes.",
+    task:
+      "Build a polished, client-ready sample onboarding course for a fictional financial institution — demonstrating professional-grade Rise 360 development, branded design, compliance messaging, and interactive elements in a format that resonates with HR and L&D leaders in financial services.",
+    action: [
+      "Designed and developed a complete Rise 360 onboarding course for a fictional bank, Meridian Bank & Trust, applying a consistent brand color system, professional tone, and logical content flow.",
+      "Structured the course around new employee orientation topics including company culture, compliance basics, security policies, and team introductions — mirroring what a real banking client would need.",
+      "Used a range of Rise's native interactive components — timelines, labeled graphics, knowledge checks, and scenario blocks — to demonstrate the platform's engagement potential.",
+      "Published as SCORM and QA'd for LMS compatibility, so the sample could be handed to a client's LMS administrator for a true end-to-end demonstration.",
+    ],
+    results: [
+      "Produced a polished, client-ready sample demonstrating Rise 360's full capability for compliance-adjacent onboarding in a regulated industry.",
+      "Structured to serve as a live demo — deployable in any SCORM-compatible LMS with no modification.",
+      "Used in active sales conversations as a reference point for quick-turn, professional-grade Rise development.",
+    ],
     thumbnailUrl: "/meridian-rise_project-card-2.webp",
     thumbnailAlt: "Meridian Bank & Trust - Sample Course",
     mediaItems: [
@@ -323,10 +369,21 @@ export const projects = [
     layoutType: "carousel",
     description:
       "While with Doner Advertising, MaxMara required a banner ad campaign demonstrating their newest product line featuring Teflon-coated fabrics. I developed a series of interactive HTML5 banner ads that showcased the water-resistant properties of the fabric through engaging animations and user interactions.",
-    situation: "TBD",
-    task: "TBD",
-    action: "TBD",
-    results: [],
+    situation:
+      "MaxMara was launching a new product line featuring Teflon-coated fabrics and needed a digital advertising campaign that could visually communicate the fabric's performance properties — specifically its water resistance — to fashion-forward consumers browsing online. Static display ads wouldn't convey the effect; the campaign needed motion and interaction to make the material feel tangible.",
+    task:
+      "Design and develop a suite of interactive HTML5 banner ads across standard display ad sizes that demonstrated the Teflon fabric's water-repellent properties through animation and user interaction — suitable for major display ad networks within their file size and rendering constraints.",
+    action: [
+      "Built a series of interactive HTML5 banners using CSS3 animation, JavaScript, and Canvas — simulating water droplets beading and rolling off fabric when the user hovered or clicked.",
+      "Developed multiple standard ad sizes (leaderboard, medium rectangle, skyscraper, large rectangle) from a shared animation engine to ensure visual consistency and reduce rework.",
+      "Optimized all assets for display ad file size requirements, balancing animation fidelity with load performance.",
+      "Coordinated with the Doner creative team to ensure MaxMara's brand aesthetic — clean, aspirational, fashion-forward — was maintained throughout the interactive experience.",
+    ],
+    results: [
+      "Delivered a complete suite of animated, interactive HTML5 banners across all required ad sizes on time for the campaign launch.",
+      "Interactive water-repellent simulation communicated the Teflon fabric's core value proposition in a way static imagery could not.",
+      "All banners met display network specifications for file size and rendering compatibility.",
+    ],
     thumbnailUrl: "/doner-maxmara-banner-ad_project-card-1.webp",
     thumbnailAlt: "MaxMara banner ad campaign featuring Teflon-coated fabrics",
     mediaItems: [
@@ -388,15 +445,48 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "Chrysler Academy, as it was called, was a product knowledge and sales training program for retail sales associates at Jeep dealerships across the US and Canada. The program was built as a custom HTML/CSS eLearning course and published as SCORM for deployment on the client’s LMS. The course covered Jeep product features, competitive differentiators, and sales techniques through a series of interactive modules, knowledge checks, and a final certification assessment.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+      "Chrysler Academy, as it was called, was a product knowledge and sales training program for retail sales associates at Jeep dealerships across the US and Canada. The program was built as a custom HTML/CSS eLearning course and published as SCORM for deployment on the client's LMS. The course covered Jeep product features, competitive differentiators, and sales techniques through a series of interactive modules, knowledge checks, and a final certification assessment.",
+    situation:
+      "Jeep dealership sales teams across the US and Canada needed current, consistent product knowledge to compete effectively on the showroom floor. Chrysler Academy's existing training content was outdated — not aligned with new model releases or the competitive positioning Jeep was pushing in market — and associates had no reliable way to get up to speed before engaging customers.",
+    task:
+      "Develop a new Chrysler Academy eLearning course covering updated Jeep product features, competitive differentiators, and consultative sales techniques, designed for self-paced completion by retail sales associates and deployed through the client's LMS.",
+    action: [
+      "Designed and developed a custom Flash/Actionscript eLearning course for Chrysler Academy while working at ES3 & Doner, using a modular structure that matched the showroom conversation flow.",
+      "Organized content around the stages of a dealership interaction — initial product introduction, vehicle walkthrough, feature deep-dives, competitive positioning, and objection handling — so associates could apply learning directly to real customer scenarios.",
+      "Built interactive knowledge checks and a final certification assessment aligned to Chrysler Academy's existing credentialing framework.",
+      "Coordinated with the Chrysler brand team to ensure all visuals, vehicle photography, and messaging were current and brand-compliant.",
+      "Published as SCORM for deployment on the Chrysler Academy LMS and QA'd across browser configurations used by dealership staff.",
+    ],
+    results: [
+      "Delivered a production-ready SCORM course for deployment to hundreds of sales associates across US and Canadian Jeep dealerships.",
+      "Modular structure allowed associates to complete training in focused sessions, fitting dealership schedules without requiring extended downtime.",
+      "Certification assessment provided Chrysler Academy with trackable completion and competency data at the associate level.",
+    ],
     thumbnailUrl: "/es3-jeep-course_project-card-1.webp",
     thumbnailAlt:
       "Chrysler Academy retail sales training course for Jeep dealerships",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Jeep product feature module showing vehicle specifications and competitive differentiators",
+        caption: "Product feature module — vehicle specs, highlights, and competitive positioning.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Chrysler Academy certification assessment screen showing knowledge check questions",
+        caption: "Final certification assessment — aligned to Chrysler Academy's existing credentialing framework.",
+        placement: "center",
+        flow: "clear",
+        starSection: "results",
+        order: 2,
+      },
+    ],
     tags: [
       "Sales Enablement",
       "Product Knowledge",
@@ -409,7 +499,7 @@ export const projects = [
     featured: false,
     protected: true,
     metaDescription:
-      "Chrysler Academy, as it was called, was a product knowledge and sales training program for retail sales associates at Jeep dealerships across the US and Canada. The program was built as a custom HTML/CSS eLearning course and published as SCORM for deployment on the client’s LMS. The course covered Jeep product features, competitive differentiators, and sales techniques through a series of interactive modules, knowledge checks, and a final certification assessment.",
+      "Chrysler Academy, as it was called, was a product knowledge and sales training program for retail sales associates at Jeep dealerships across the US and Canada. The program was built as a custom HTML/CSS eLearning course and published as SCORM for deployment on the client's LMS. The course covered Jeep product features, competitive differentiators, and sales techniques through a series of interactive modules, knowledge checks, and a final certification assessment.",
   },
   {
     id: 8,
@@ -429,15 +519,48 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "Mopar Service & Parts Training was an eLearning course developed for Chrysler service technicians, focusing on the features and benefits of Mopar parts and service offerings. The course was designed to enhance technicians’ product knowledge and upselling capabilities during service appointments. It included interactive modules covering key product lines, diagnostic tools, and customer communication strategies, all built in Flash/Actionscript, HTML/CSS and published as SCORM for LMS deployment.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+      "Mopar Service & Parts Training was an eLearning course developed for Chrysler service technicians, focusing on the features and benefits of Mopar parts and service offerings. The course was designed to enhance technicians' product knowledge and upselling capabilities during service appointments. It included interactive modules covering key product lines, diagnostic tools, and customer communication strategies, all built in Flash/Actionscript, HTML/CSS and published as SCORM for LMS deployment.",
+    situation:
+      "Chrysler service technicians had deep mechanical expertise but inconsistent knowledge of Mopar's parts and service product line — making it difficult to confidently advise customers on upgrades or identify upsell opportunities during service appointments. Chrysler Academy needed a scalable way to close that gap across thousands of service bays nationwide.",
+    task:
+      "Build a Mopar-branded eLearning course for Chrysler Academy that equipped service technicians with the product knowledge and customer communication skills needed to recommend Mopar parts and services with confidence during real service interactions.",
+    action: [
+      "Designed and developed a custom Flash/Actionscript, HTML/CSS eLearning course covering Mopar's product catalog, OEM part benefits, diagnostic tools, and service package offerings.",
+      "Structured content to reflect the technician's workflow — organized around the service bay interaction rather than a product catalog approach — so learning was immediately applicable.",
+      "Built interactive branching scenarios placing the learner in realistic service conversations, requiring them to identify the right Mopar recommendation based on a customer's vehicle and service history.",
+      "Included knowledge checks and scenario assessments calibrated to Chrysler Academy's existing evaluation standards.",
+      "Published as SCORM for LMS deployment on the Chrysler Academy platform and validated across the browser configurations used in dealership service departments.",
+    ],
+    results: [
+      "Delivered a SCORM-compliant course for deployment to thousands of Chrysler service technicians across the US and Canada.",
+      "Scenario-based design gave technicians a safe environment to practice upsell conversations before applying them with real customers.",
+      "Centralized, LMS-tracked training replaced inconsistent in-person briefings, providing Chrysler Academy with reliable completion and competency data.",
+    ],
     thumbnailUrl: "/es3-chrysler-academy-mopar-course_project-card-1.webp",
     thumbnailAlt:
       "Mopar Service & Parts Training course for Chrysler service technicians",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Mopar parts product module showing OEM components and service package options",
+        caption: "Mopar product module — OEM parts catalog with service package recommendations.",
+        placement: "right",
+        flow: "wrap",
+        starSection: "situation",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Branching scenario showing a service technician recommending Mopar parts to a customer",
+        caption: "Service bay scenario — branching conversation practice for upsell interactions.",
+        placement: "center",
+        flow: "clear",
+        starSection: "action",
+        order: 2,
+      },
+    ],
     tags: [
       "Service Training",
       "Product Knowledge",
@@ -451,7 +574,7 @@ export const projects = [
     featured: false,
     protected: true,
     metaDescription:
-      "Mopar Service & Parts Training was an eLearning course developed for Chrysler service technicians, focusing on the features and benefits of Mopar parts and service offerings. The course was designed to enhance technicians’ product knowledge and upselling capabilities during service appointments. It included interactive modules covering key product lines, diagnostic tools, and customer communication strategies, all built in Flash/Actionscript, HTML/CSS and published as SCORM for LMS deployment.",
+      "Mopar Service & Parts Training was an eLearning course developed for Chrysler service technicians, focusing on the features and benefits of Mopar parts and service offerings. The course was designed to enhance technicians' product knowledge and upselling capabilities during service appointments. It included interactive modules covering key product lines, diagnostic tools, and customer communication strategies, all built in Flash/Actionscript, HTML/CSS and published as SCORM for LMS deployment.",
   },
   {
     id: 9,
@@ -471,15 +594,47 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "This software simulation training was developed for TEKsystems to provide their internal staff with hands-on practice using Microsoft SharePoint. The course included a series of interactive simulations that walked learners through common SharePoint tasks and scenarios, such as document management, collaboration features, and site navigation. Built using Camtasia for screen recording and interactivity, the course was published as SCORM for deployment on the client’s LMS. The training aimed to enhance technical proficiency and confidence with SharePoint.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+      "This software simulation training was developed for TEKsystems to provide their internal staff with hands-on practice using Microsoft SharePoint. The course included a series of interactive simulations that walked learners through common SharePoint tasks and scenarios, such as document management, collaboration features, and site navigation. Built using Camtasia for screen recording and interactivity, the course was published as SCORM for deployment on the client's LMS. The training aimed to enhance technical proficiency and confidence with SharePoint.",
+    situation:
+      "TEKsystems was expanding its use of Microsoft SharePoint for document management and cross-team collaboration, but internal staff adoption was slow. Existing documentation was text-heavy and static — employees had no interactive environment to safely practice SharePoint tasks before performing them in the live system, leading to hesitancy, support requests, and inconsistent usage across teams.",
+    task:
+      "Create a software simulation training course that walked learners through real SharePoint workflows in an interactive, low-stakes practice environment — reducing IT support requests and accelerating adoption of the platform across internal teams.",
+    action: [
+      "Recorded screen-capture simulations of key SharePoint workflows using Camtasia, capturing actual platform interactions to ensure fidelity to the live environment.",
+      "Layered interactive branching, click-through steps, and guided practice modes on top of the recordings, so learners could progress at their own pace and retry tasks without consequence.",
+      "Structured the course as a series of task-based microlearning modules covering document libraries, version control, list management, and site navigation — organized by the most common use cases for TEKsystems staff.",
+      "Published as SCORM for LMS deployment with completion and assessment tracking.",
+    ],
+    results: [
+      "Delivered a practical, self-paced simulation course that gave staff a safe environment to practice SharePoint tasks before working in the live system.",
+      "Task-based module structure allowed learners to access only the training relevant to their role, reducing time-to-proficiency.",
+      "SCORM tracking enabled L&D and IT teams to monitor adoption progress and identify teams that needed additional support.",
+    ],
     thumbnailUrl: "/teksystems-sharepoint-microlearning_project-card-1.webp",
     thumbnailAlt:
       "SharePoint software simulation training for TEKsystems' staff",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "SharePoint document library simulation showing file upload and version control steps",
+        caption: "Document library simulation — interactive practice for upload, version control, and folder management.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Camtasia course module menu showing task-based learning paths for SharePoint training",
+        caption: "Task-based module menu — learners navigate by workflow rather than by topic.",
+        placement: "center",
+        flow: "clear",
+        starSection: "action",
+        order: 2,
+      },
+    ],
     tags: [
       "Camtasia",
       "Software Simulation",
@@ -492,7 +647,7 @@ export const projects = [
     featured: false,
     protected: true,
     metaDescription:
-      "This software simulation training was developed for TEKsystems to provide their internal HR staff with hands-on practice using Microsoft SharePoint. The course included a series of interactive simulations that walked learners through common SharePoint tasks and scenarios, such as document management, collaboration features, and site navigation. Built using Camtasia for screen recording and interactivity, the course was published as SCORM for deployment on the client’s LMS. The training aimed to enhance technical proficiency and confidence with SharePoint.",
+      "This software simulation training was developed for TEKsystems to provide their internal HR staff with hands-on practice using Microsoft SharePoint. The course included a series of interactive simulations that walked learners through common SharePoint tasks and scenarios, such as document management, collaboration features, and site navigation. Built using Camtasia for screen recording and interactivity, the course was published as SCORM for deployment on the client's LMS. The training aimed to enhance technical proficiency and confidence with SharePoint.",
   },
   {
     id: 10,
@@ -518,7 +673,10 @@ export const projects = [
     task:
       "Define a tiered eLearning product and service model that sales could use to anchor client conversations, differentiate offerings by complexity and cost, and move deals forward more predictably. The framework needed to cover the full spectrum from rapid-development templates to fully custom, immersive learning experiences.",
     action: [
-      "Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value. Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning. Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements. Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide. ",
+      "Conducted an internal audit of existing project types, delivery timelines, and cost structures to identify natural tiers based on scope and production value.",
+      "Developed a good/better/best framework spanning three levels: template-based rapid development, custom-designed courseware, and premium interactive/simulation-based learning.",
+      "Created sales enablement collateral — including a visual product matrix, scope comparison guide, and sample scoping questions — to help account managers qualify and position engagements.",
+      "Piloted the framework with two enterprise accounts, iterating based on client feedback before rolling out organization-wide.",
     ],
     results: [
       "Framework adopted across the TEKsystems learning solutions practice and used in active sales pursuits within the first quarter.",
@@ -587,13 +745,56 @@ export const projects = [
     layoutType: "article",
     description:
       "Motorola needed a course built for their technicians and sales staff to communicate the features and benefits of their new ET1 enterprise tablet. The course was built for both ILT and digital delivery. It included interactive animations covering product specifications, use cases, competitive differentiators, and sales strategies to equip both technical and sales teams with the knowledge needed to effectively support and sell the ET1 tablet.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+    situation:
+      "Motorola was preparing to launch the ET1, a purpose-built enterprise tablet targeting retail and healthcare verticals. Internal sales teams and field technicians needed deep product knowledge before the launch — but the audience was mixed: technical staff needed spec-level detail while sales staff needed use-case fluency and competitive talking points. A single delivery modality wouldn't serve both groups equally.",
+    task:
+      "Design a dual-modality training program covering the ET1's hardware, software capabilities, vertical use cases, and competitive differentiators — structured to function as both a self-paced digital course and an ILT classroom experience, so Motorola could deploy it flexibly across both audiences.",
+    action: [
+      "Designed a training program in Articulate Storyline built to serve both a live facilitator and a self-paced digital learner, with a structure that could be navigated linearly in a classroom or explored by topic in a solo session.",
+      "Created animated walkthroughs of the ET1's hardware features — screen, ruggedization, battery life, peripheral support — using Storyline's animation tools to make spec comparisons visually engaging.",
+      "Developed scenario-based modules demonstrating the ET1 in realistic retail and healthcare workflows, giving sales staff concrete use-case narratives they could adapt in client conversations.",
+      "Built a competitive comparison section with side-by-side feature analysis against key competing devices, formatted for easy reference during a sales call.",
+      "Coordinated with Motorola's product team to validate all technical content before delivery, ensuring accuracy at launch.",
+    ],
+    results: [
+      "Delivered a complete dual-mode training package on time for the ET1 product launch.",
+      "Equipped hundreds of technicians and sales staff with the product knowledge needed to confidently support and sell the device at launch.",
+      "Dual-modality design allowed Motorola to use the same content asset across ILT sessions and self-paced LMS deployment — maximizing return on the development investment.",
+    ],
     thumbnailUrl: "/teksystems-motorola-tablet_project-card-1.webp",
     thumbnailAlt: "Motorola ET1 enterprise tablet product features",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Motorola ET1 tablet hardware feature animation showing ruggedized design and specs",
+        caption: "Hardware feature walkthrough — animated spec breakdown for the Motorola ET1 enterprise tablet.",
+        placement: "right",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Retail use case scenario showing ET1 tablet in a point-of-sale workflow",
+        caption: "Retail use case scenario — ET1 in a live point-of-sale workflow.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 2,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Competitive comparison matrix for ET1 versus competing enterprise tablets",
+        caption: "Competitive comparison — side-by-side feature analysis formatted for sales conversations.",
+        placement: "center",
+        flow: "clear",
+        starSection: "results",
+        order: 3,
+      },
+    ],
     tags: [
       "elearning",
       "ILT/vILT",
@@ -627,14 +828,47 @@ export const projects = [
     layoutType: "article",
     description:
       "This 2-day ILT workshop was designed to equip Scrum Masters with the knowledge and skills needed to effectively facilitate Agile teams. The curriculum covered Agile principles, Scrum framework, team dynamics, and practical facilitation techniques through a mix of interactive lectures, group activities, and real-world case studies. The workshop was delivered in-person and later adapted for virtual delivery to accommodate remote learners.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+    situation:
+      "TEKsystems was expanding its use of Agile and Scrum practices across delivery teams, and newly appointed Scrum Masters were struggling. Most had product or technical backgrounds and understood the theory, but lacked the facilitation skills and practical tools to run effective sprint ceremonies, navigate team conflict, or coach behavior in the moment. A short briefing wasn't enough — they needed structured practice.",
+    task:
+      "Design a 2-day instructor-led workshop that moved beyond Agile theory and gave Scrum Masters hands-on practice with facilitation techniques, team dynamics, and the real-world scenarios they'd face in the field — structured for cohort-based classroom delivery with a clear facilitator guide.",
+    action: [
+      "Designed the full 2-day curriculum from scratch, including session outlines, a facilitator guide, learner workbooks, and activity sets.",
+      "Anchored each module in a realistic facilitation challenge — sprint planning, retrospectives, daily standups, backlog refinement, stakeholder communication — so learning was immediately applicable rather than conceptual.",
+      "Structured each session as a teach/practice/debrief cycle: brief concept introduction, hands-on team activity, and structured group reflection to surface key principles organically.",
+      "Developed role-play scenarios based on real dysfunction patterns — dominant voices, disengaged team members, scope creep — so Scrum Masters could practice navigating them before facing them live.",
+      "Later adapted the full curriculum for virtual delivery, restructuring activities for breakout rooms and async collaboration tools to maintain engagement across remote cohorts.",
+    ],
+    results: [
+      "Delivered a repeatable, facilitator-ready 2-day workshop curriculum used across multiple Scrum Master cohorts at TEKsystems.",
+      "Teach/practice/debrief structure gave participants real facilitation reps — not just passive exposure to Agile theory.",
+      "Program successfully adapted for vILT delivery, extending its reach to remote teams without rebuilding the curriculum.",
+    ],
     thumbnailUrl: "/teksystems-agile-vilt_project-card-1.webp",
     thumbnailAlt:
       "TEKsystems' Agile for Scrum Masters workshop training introduction slide",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Workshop agenda showing 2-day Agile facilitation curriculum with session blocks and activities",
+        caption: "2-day curriculum map — session flow structured around the Scrum ceremony lifecycle.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Retrospective facilitation activity showing team participation cards and debrief framework",
+        caption: "Retrospective facilitation activity — structured debrief designed to surface team patterns.",
+        placement: "center",
+        flow: "clear",
+        starSection: "action",
+        order: 2,
+      },
+    ],
     tags: [
       "Process Training",
       "Job Aids",
@@ -650,7 +884,7 @@ export const projects = [
   },
   {
     id: 13,
-    slug: "new-manager-development",
+    slug: "teksystems-motorola-tech-enablement",
     title: "Motorola RhoElements Technical Enablement Course",
     status: "published",
     year: 2011,
@@ -666,22 +900,54 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "Motorola required a technical training course to enable their sales and support teams to effectively sell and support RhoElements, a mobile application development platform. The course was designed for ILT delivery with a train-the-trainer component to facilitate internal delivery by Motorola’s learning and development team. The curriculum covered product features, use cases, competitive differentiators, and sales strategies through interactive lectures, group discussions, and hands-on activities to ensure learners were equipped with the knowledge needed to effectively support and sell RhoElements.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+      "Motorola required a technical training course to enable their sales and support teams to effectively sell and support RhoElements, a mobile application development platform. The course was designed for ILT delivery with a train-the-trainer component to facilitate internal delivery by Motorola's learning and development team. The curriculum covered product features, use cases, competitive differentiators, and sales strategies through interactive lectures, group discussions, and hands-on activities to ensure learners were equipped with the knowledge needed to effectively support and sell RhoElements.",
+    situation:
+      "Motorola was bringing RhoElements — a mobile application development platform for enterprise devices — to market, and needed to enable its sales and support teams to articulate the product confidently to technical enterprise buyers. The platform was complex and developer-focused, and the existing documentation wasn't accessible enough for a non-developer sales audience. Motorola also wanted to reduce ongoing vendor dependency by building internal delivery capability.",
+    task:
+      "Design an ILT-based technical enablement course with a fully developed train-the-trainer component, so Motorola's own L&D team could certify, deliver, and maintain the program internally without continued involvement from the vendor.",
+    action: [
+      "Designed the full ILT curriculum including facilitator guides, participant workbooks, and structured hands-on activities covering RhoElements' platform architecture, development workflow, and enterprise use cases.",
+      "Translated dense technical documentation into accessible learning content organized around how a sales or support person would encounter RhoElements in the field — not how an engineer would build with it.",
+      "Built a complete train-the-trainer package including facilitator certification criteria, delivery notes keyed to each activity, and a troubleshooting guide for common learner questions.",
+      "Coordinated closely with Motorola's product SMEs to validate all technical content before delivery, ensuring accuracy without sacrificing accessibility for a non-developer audience.",
+    ],
+    results: [
+      "Delivered a train-the-trainer-ready curriculum enabling Motorola's L&D team to run the RhoElements enablement program autonomously.",
+      "Reduced ongoing vendor dependency for technical enablement delivery — Motorola's internal team could certify and deploy without returning to the vendor.",
+      "Content translation from technical documentation to accessible ILT format gave non-developer sales and support staff a clear, structured path to product fluency.",
+    ],
     thumbnailUrl:
       "/teksystems-motorola-rhoelements-technical-training_project-card-1.webp",
-    thumbnailAlt: "",
-    mediaItems: [],
+    thumbnailAlt: "Motorola RhoElements technical enablement course overview",
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "RhoElements platform architecture diagram used in the technical enablement curriculum",
+        caption: "Platform architecture overview — technical content translated for a sales and support audience.",
+        placement: "right",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Train-the-trainer certification guide for the Motorola RhoElements ILT program",
+        caption: "Train-the-trainer package — facilitator certification criteria and delivery guide.",
+        placement: "center",
+        flow: "clear",
+        starSection: "results",
+        order: 2,
+      },
+    ],
     tags: ["Leadership", "Coaching", "Program Management", "VILT"],
     liveUrl: null,
     demoType: "none",
     featured: false,
     protected: true,
     metaDescription:
-      "Motorola required a technical training course to enable their sales and support teams to effectively sell and support RhoElements, a mobile application development platform. The course was designed for ILT delivery with a train-the-trainer component to facilitate internal delivery by Motorola’s learning and development team. The curriculum covered product features, use cases, competitive differentiators, and sales strategies through interactive lectures, group discussions, and hands-on activities to ensure learners were equipped with the knowledge needed to effectively support and sell RhoElements.",
+      "Motorola required a technical training course to enable their sales and support teams to effectively sell and support RhoElements, a mobile application development platform. The course was designed for ILT delivery with a train-the-trainer component to facilitate internal delivery by Motorola's learning and development team. The curriculum covered product features, use cases, competitive differentiators, and sales strategies through interactive lectures, group discussions, and hands-on activities to ensure learners were equipped with the knowledge needed to effectively support and sell RhoElements.",
   },
   {
     id: 14,
@@ -702,13 +968,56 @@ export const projects = [
     layoutType: "article",
     description:
       "As an eLearning Developer for Deloitte, web and eLearning components were developed for global IFRS training programs, targeting thousands of independent and internal CPAs worldwide for annual CPE credits. The project involved creating interactive learning components using a mix of web development tools and skill sets. The curriculum covered complex accounting standards and compliance requirements through a mix of engaging content, real-world scenarios, and knowledge checks to ensure learners were equipped with the knowledge needed to effectively apply IFRS and other accountingstandards in their work as part of their continuing education.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+    situation:
+      "Deloitte was delivering a large-scale, globally distributed IFRS (International Financial Reporting Standards) training initiative targeting thousands of internal and independent CPAs seeking annual CPE credits. The subject matter was technically complex, jurisdiction-sensitive, and required instructional design credible enough to satisfy CPE accreditation standards — while being engaging enough to hold a professional audience that was completing the training as a regulatory requirement rather than by choice.",
+    task:
+      "Develop a library of reusable interactive web and eLearning components — knowledge checks, branching scenarios, interactive accounting exercises — that could be embedded across a multi-module IFRS curriculum and delivered at scale to a global learner population through Deloitte's CPE platform.",
+    action: [
+      "Built a reusable component library using HTML, CSS, JavaScript, and Flash — including scored knowledge checks, case-based branching scenarios, and interactive accounting exercises that worked across Deloitte's existing SCORM publishing standards.",
+      "Designed each component to handle complex instructional patterns: multi-step branching based on learner responses, adaptive feedback tied to specific answer choices, and scenario outcomes that reflected real-world IFRS application decisions.",
+      "Worked within Deloitte's established content templates and brand system, ensuring new components matched the look and feel of existing curriculum assets without requiring redesign.",
+      "Coordinated with content authors and accounting SMEs to align interactivity with CPE accreditation requirements, including documentation of learning objectives and assessment methodology.",
+      "Ensured accessible development aligned with WCAG standards, as components were deployed to a global audience across varying browser environments.",
+    ],
+    results: [
+      "Components deployed across the global IFRS training program used by thousands of CPAs worldwide for annual CPE credit.",
+      "Reusable component architecture allowed the Deloitte content team to embed interactive elements across multiple modules without repeating development work.",
+      "Program remains active — the IFRS learning platform is publicly accessible at deloitteifrslearning.com.",
+    ],
     thumbnailUrl: "/deloitte-components-exercises_project-card-1.webp",
     thumbnailAlt: "Deloitte Knowledge Check component breakdown",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Deloitte IFRS knowledge check component showing multi-choice question with adaptive feedback",
+        caption: "Knowledge check component — scored assessment with answer-specific adaptive feedback.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "Branching scenario component showing an IFRS accounting decision tree with outcome paths",
+        caption: "Branching scenario — multi-step IFRS decision tree with real-world outcome paths.",
+        placement: "right",
+        flow: "wrap",
+        starSection: "action",
+        order: 2,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "Deloitte IFRS learning platform homepage showing CPE course library",
+        caption: "Deloitte IFRS Learning platform — course library serving thousands of CPAs globally for annual CPE credit.",
+        placement: "center",
+        flow: "clear",
+        starSection: "results",
+        order: 3,
+      },
+    ],
     tags: [
       "Compliance",
       "CPE",
@@ -744,14 +1053,47 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "PictSweet needed an uplift on their website with a custom video player to showcase their product line and brand story. I developed an interactive video player using Flash, Actionscript, HTML/CSS, and JavaScript that allowed users to explore PictSweet’s offerings through engaging video content. The player integrated with the client’s existing website design to create an immersive brand experience for visitors.",
-    situation: null,
-    task: null,
-    action: null,
-    results: [],
+      "PictSweet needed an uplift on their website with a custom video player to showcase their product line and brand story. I developed an interactive video player using Flash, Actionscript, HTML/CSS, and JavaScript that allowed users to explore PictSweet's offerings through engaging video content. The player integrated with the client's existing website design to create an immersive brand experience for visitors.",
+    situation:
+      "PictSweet, a vegetable brand distributed nationally, wanted to modernize their website with an engaging video experience to showcase their product line and brand story. Their existing site had no video capability, and the team needed something more than a basic embed — they wanted a branded, navigable player that felt intentional and polished, integrated seamlessly with their existing design.",
+    task:
+      "Design and develop a custom, branded video player for the PictSweet website — supporting multiple video segments with branded playback controls, chapter navigation, and a visual design that matched PictSweet's brand aesthetic without requiring a site redesign.",
+    action: [
+      "Built a custom video player in Flash/Actionscript with an HTML/CSS/JavaScript wrapper, designing the UI to reflect PictSweet's color palette, typography, and visual style.",
+      "Implemented chapter navigation allowing users to jump directly to individual product videos or brand story segments rather than scrubbing through a single long video.",
+      "Created custom branded playback controls — play/pause, volume, progress bar, and chapter markers — styled to replace the browser's native video UI entirely.",
+      "Integrated the player into PictSweet's existing website structure, ensuring the embed was visually seamless and didn't require structural changes to surrounding page templates.",
+      "Tested across the major browser configurations in use at the time, ensuring consistent playback behavior and visual fidelity.",
+    ],
+    results: [
+      "Delivered a fully functional branded video player that brought PictSweet's video content to life on their website, replacing static imagery with an engaging, navigable brand experience.",
+      "Chapter navigation gave visitors direct access to content relevant to their interests, reducing drop-off versus a linear single-video approach.",
+      "Custom branded controls reinforced visual brand consistency throughout the video experience.",
+    ],
     thumbnailUrl: "/doner-pictsweet-player-overlay_project-card-1.webp",
     thumbnailAlt: "PictSweet Video Player",
-    mediaItems: [],
+    mediaItems: [
+      {
+        type: "image",
+        url: "/placeholder-article-float.webp",
+        alt: "PictSweet branded video player showing custom playback controls and chapter navigation",
+        caption: "Custom video player — branded controls and chapter navigation built to match PictSweet's site design.",
+        placement: "left",
+        flow: "wrap",
+        starSection: "action",
+        order: 1,
+      },
+      {
+        type: "image",
+        url: "/placeholder-article-center.webp",
+        alt: "PictSweet video player embedded in the website showing product video and branded interface",
+        caption: "Player integrated into the PictSweet website — seamless visual embed with no structural site changes.",
+        placement: "center",
+        flow: "clear",
+        starSection: "results",
+        order: 2,
+      },
+    ],
     tags: [
       "javascript",
       "html/css",
@@ -765,6 +1107,6 @@ export const projects = [
     featured: false,
     protected: true,
     metaDescription:
-      "PictSweet needed an uplift on their website with a custom video player to showcase their product line and brand story. I developed an interactive video player using Flash, Actionscript, HTML/CSS, and JavaScript that allowed users to explore PictSweet’s offerings through engaging video content. The player integrated with the client’s existing website design to create an immersive brand experience for visitors.",
+      "PictSweet needed an uplift on their website with a custom video player to showcase their product line and brand story. I developed an interactive video player using Flash, Actionscript, HTML/CSS, and JavaScript that allowed users to explore PictSweet's offerings through engaging video content. The player integrated with the client's existing website design to create an immersive brand experience for visitors.",
   },
 ];

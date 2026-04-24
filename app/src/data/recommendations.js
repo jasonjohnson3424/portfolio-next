@@ -52,7 +52,13 @@ export const recommendations = [
     linkedInUrl: "https://www.linkedin.com/in/margaretkbell/",
     body: "I had the pleasure of hiring Jason Johnson at TEKsystems, where he worked as a Senior Instructional Designer, eLearning Developer, and quickly became a trusted Project Manager. From day one, Jason played a key role in managing client relationships, scoping projects, and ensuring successful training delivery. His expertise was instrumental in developing high-quality eLearning and instructor-led training (ILT) courses for top clients such as McDonald's, Motorola, Verizon, and T-Mobile.\n\nHe was deeply involved in project kick-off meetings, stakeholder calls, product demos, and timeline management, ensuring that every project was aligned with client expectations. Beyond instructional design, Jason was a technical and strategic leader who helped build our department's technical delivery capabilities and pricing model, refining a good/better/best tiered approach that improved our client sales strategy.\n\nHe also played a crucial role in mitigating project risks, proposing revised timelines when product enhancements or scope changes arose, and served as a technical liaison to keep projects on track. Jason's ability to balance instructional expertise, technical acumen, and client-facing professionalism made him an invaluable part of our team. He was truly a pleasure to work with, and his contributions helped shape the department's long-term success. I would happily work with him again.",
     date: "2025-02",
-    projectSlugs: ["teksystems-elearning-levels"],
+    projectSlugs: [
+      "teksystems-elearning-levels",
+      "teksystems-sharepoint-software-training",
+      "teksystems-motorola-tablet-training",
+      "teksystems-agile-scrum-training",
+      "teksystems-motorola-tech-enablement",
+    ],
     featured: true,
   },
   {
@@ -66,7 +72,11 @@ export const recommendations = [
     linkedInUrl: "https://www.linkedin.com/in/aaron-mccray-28844b20/",
     body: "I've had the rare opportunity to work with Jason at two different companies—ES3 and JPMorgan Chase—which speaks to how valuable and skilled he is as a training developer and technologist. Briefly at ES3, we collaborated on product launch and sales enablement training programs for major automotive clients like Chrysler Academy and Jeep, among others. We also worked together for many years at JPMorgan Chase (JPMC), where we were both part of the Asset & Wealth Management Learning Technology team.\n\nJason played a key role in helping me develop Cross Border training for banking analysts across 130+ countries, Dodd-Frank compliance programs, Suitability training for financial advisors, and AML/KYC training. Jason has been involved in every facet of training development and delivery, including LMS administration, assessment development, surveys, script writing, software simulations, train-the-trainer, ILT, blended learning, and digital delivery complete with custom interactive components.\n\nOne of the things I valued most about working with Jason was how his technical expertise perfectly complemented my UI/UX design skills—he has the programming and technical knowledge to bring designs to life. We've also collaborated on professional projects outside of these two companies, and I can say with confidence that Jason is one of the most talented and reliable professionals I've had the pleasure of working with.",
     date: "2025-02",
-    projectSlugs: ["es3-jeep-sales-training", "jpmc-cross-border-training"],
+    projectSlugs: [
+      "jeep-retail-sales-training",
+      "mopar-service-training",
+      "jpmc-cross-border-training",
+    ],
     featured: true,
   },
   {
@@ -80,7 +90,7 @@ export const recommendations = [
     linkedInUrl: "https://www.linkedin.com/in/gavinpohl/",
     body: "I had the pleasure of working with Jason at Doner Advertising, where he was a skilled web designer and developer specializing in HTML/CSS, JavaScript, Flash/ActionScript, PHP/MySQL, and analytics tools like Omniture and Adobe Analytics. We collaborated on digital projects for major clients such as Pictsweet, DuPont, MaxMara, and Pennzoil, as well as Doner's own website. Jason played a crucial role in developing banner ads and websites, seamlessly integrating the assets I designed into functional and polished digital experiences.\n\nWhat I appreciated most about working with Jason was our mutual knowledge exchange. He provided valuable programming insights, while I offered a UX/UI perspective to support his development work. His attention to detail, problem-solving abilities, and knack for bringing creative concepts to life through code made him an effective and collaborative teammate. Anyone looking for a technically skilled and design-savvy developer would be fortunate to work with Jason.",
     date: "2025-02",
-    projectSlugs: ["doner-pictsweet-player"],
+    projectSlugs: ["doner-pictsweet-player", "doner-maxmara-banner-ad-campaign"],
     featured: true,
   },
 
@@ -139,6 +149,20 @@ export const recommendations = [
     body: "I had the pleasure of working with Jason while developing eLearning courses for McDonalds' management training program. As my developer, Jason took my instructional designs and expertly transformed them into polished, interactive courses that met McDonalds' technical requirements. He was highly professional, responsive, and always provided valuable technical insights that improved the final product.\n\nHis attention to detail and ability to execute the vision with precision made the entire process painless. I truly appreciated his expertise, collaboration, and commitment to delivering high-quality work and would invite the opportunity to work with him again.",
     date: "2025-02",
     projectSlugs: ["mcdonalds-management-training"],
+    featured: true,
+  },
+  {
+    id: 11,
+    authorName: "John Rogers",
+    authorTitle: "Strategic Technology Executive | PMP, ITIL, PSM",
+    authorCompany: "Signature Performance, Inc.",
+    relationship: "colleague",
+    avatarInitials: "JR",
+    avatarUrl: "/avatars/avatar-jr2.jpg",
+    linkedInUrl: "https://www.linkedin.com/in/johnrogersdba/",
+    body: "I've had the privilege of knowing and working with Jason Johnson for many years, both personally and professionally. He is an engaging, knowledgeable, and dynamic speaker, and I've seen firsthand—at conferences we've attended and presented at—how well he connects with large audiences while also excelling in more intimate classroom settings. His ability to explain complex concepts in a clear and accessible manner makes him an exceptionally effective instructor and presenter.\n\nBeyond his speaking abilities, Jason is a highly skilled software developer and technologist. I've reviewed his work in OOP/OOD, Node.js, React, and other development tools and languages, and his keen attention to detail, combined with his commitment to excellence, sets him apart. Whether in training delivery, software development, or professional presentations, Jason consistently demonstrates expertise, clarity, and professionalism. He is a trusted business partner and I highly recommend him.",
+    date: "2025-02",
+    projectSlugs: ["portfolio-site"],
     featured: true,
   },
 ];
