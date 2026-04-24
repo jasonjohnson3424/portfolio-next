@@ -13,8 +13,8 @@
 
 .rec-quote-icon {
   position: absolute;
-  top: -1.25rem;
-  left: -1.25rem;
+  bottom: -1.25rem;
+  right: -1.25rem;
   font-size: 9rem;
   color: $color-accent;
   opacity: 0.22;
@@ -41,6 +41,11 @@
   margin-bottom: 0.5rem;
   padding-top: 0.5rem;
   position: relative;
+
+  @media (max-width: 499px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
 }
 
 .rec-author {
@@ -48,7 +53,7 @@
   align-items: flex-start;
   gap: 0.9rem;
 
-  &--bottom { margin-top: 0.75rem; }
+  &--top { margin-bottom: 0.75rem; }
 }
 
 .rec-avatar {

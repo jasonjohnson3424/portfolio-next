@@ -55,6 +55,10 @@ const NavBar = () => {
   const scrollTo = (e, href) => {
     e.preventDefault();
     setMenuOpen(false);
+    if (!isHome) {
+      window.location.href = "/" + href;
+      return;
+    }
     if (href === "#top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;

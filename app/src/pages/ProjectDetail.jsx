@@ -12,12 +12,15 @@ import LazyImage from "../components/LazyImage";
 // Renders a field that may be a string or array of strings
 const StarField = ({ value, className }) => {
   if (!value) return null;
-  const paras = Array.isArray(value) ? value : [value];
-  return paras.map((p, i) => (
-    <p key={i} className={className}>
-      {p}
-    </p>
-  ));
+  if (Array.isArray(value) && value.length > 1) {
+    return (
+      <ul className="case-study-outcomes">
+        {value.map((item, i) => <li key={i}>{item}</li>)}
+      </ul>
+    );
+  }
+  const text = Array.isArray(value) ? value[0] : value;
+  return <p className={className}>{text}</p>;
 };
 
 const MediaCarousel = ({ items }) => {
@@ -105,9 +108,16 @@ const MediaCarousel = ({ items }) => {
   );
 };
 
+const inferLayout = (url = "") => {
+  if (/_float-l-/.test(url)) return { placement: "left", flow: "wrap" };
+  if (/_float-r-/.test(url)) return { placement: "right", flow: "wrap" };
+  if (/_article-wide-/.test(url)) return { placement: "wide", flow: "clear" };
+  if (/_article-/.test(url)) return { placement: "center", flow: "clear" };
+  return null;
+};
+
 const ArticleImage = ({ item, onClick }) => {
-  const placement = item.placement ?? "center";
-  const flow = item.flow ?? (placement === "center" ? "clear" : "wrap");
+  const { placement, flow } = inferLayout(item.url) ?? { placement: "center", flow: "clear" };
   const cls = `article-inline-img article-inline-img--${placement} article-inline-img--${flow}`;
   return (
     <figure className={cls}>
@@ -133,8 +143,8 @@ const ArticleImage = ({ item, onClick }) => {
 
 const StarSection = ({ label, value, inlineImages, onImageClick }) => {
   if (!value || (Array.isArray(value) && value.length === 0)) return null;
-  const wrapImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "wrap") ?? [];
-  const clearImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "clear") ?? [];
+  const wrapImgs = inlineImages?.filter((img) => (inferLayout(img.url) ?? {}).flow === "wrap") ?? [];
+  const clearImgs = inlineImages?.filter((img) => (inferLayout(img.url) ?? { flow: "clear" }).flow === "clear") ?? [];
   return (
     <div className="case-study-section">
       <p className="case-study-label">{label}</p>
@@ -152,8 +162,8 @@ const StarSection = ({ label, value, inlineImages, onImageClick }) => {
 
 const ResultsList = ({ results, inlineImages, onImageClick }) => {
   if (!results?.length) return null;
-  const wrapImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "wrap") ?? [];
-  const clearImgs = inlineImages?.filter((img) => (img.flow ?? (img.placement === "center" ? "clear" : "wrap")) === "clear") ?? [];
+  const wrapImgs = inlineImages?.filter((img) => (inferLayout(img.url) ?? {}).flow === "wrap") ?? [];
+  const clearImgs = inlineImages?.filter((img) => (inferLayout(img.url) ?? { flow: "clear" }).flow === "clear") ?? [];
   return (
     <div className="case-study-section">
       <p className="case-study-label">Results &amp; Impact</p>
@@ -180,13 +190,7 @@ const ProjectRecs = ({ recs }) => {
       <p className="project-recommendations-label">Colleagues Said...</p>
       {recs.map((rec) => (
         <div key={rec.id} className="rec-carousel project-rec-card">
-          <div className="rec-quote-icon"><i className="fas fa-quote-left"></i></div>
-          <p className="rec-body">
-            {rec.body.split("\n").map((line, i) => (
-              <span key={i}>{line}<br /></span>
-            ))}
-          </p>
-          <div className="rec-author rec-author--bottom">
+          <div className="rec-author rec-author--top">
             {rec.linkedInUrl ? (
               <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer" className="rec-avatar">
                 {rec.avatarUrl ? (
@@ -216,6 +220,12 @@ const ProjectRecs = ({ recs }) => {
               <p className="rec-author-meta">{rec.authorCompany}</p>
             </div>
           </div>
+          <p className="rec-body">
+            {rec.body.split("\n").map((line, i) => (
+              <span key={i}>{line}<br /></span>
+            ))}
+          </p>
+          <div className="rec-quote-icon"><i className="fas fa-quote-right"></i></div>
         </div>
       ))}
     </div>
@@ -236,7 +246,7 @@ const Sidebar = ({ project }) => (
       {project.client && (
         <div className="sidebar-meta-item">
           <p className="meta-label">Client</p>
-          <p className="meta-value">{project.client}</p>
+          <p className="meta-value">{project.client.replace(/\//g, "|")}</p>
         </div>
       )}
       {project.clientIndustry && (
@@ -342,27 +352,64 @@ const ArticleLayout = ({ project, projectRecs }) => {
     setLightboxOpen(true);
   };
 
+  const renderHero = () => {
+    if (carouselMedia.length === 0) {
+      if (!project.thumbnailUrl) return null;
+      return (
+        <figure className="project-detail-thumbnail-wrap">
+          <div className="project-detail-thumbnail">
+            <LazyImage
+              src={project.thumbnailUrl}
+              alt={project.thumbnailCaption || project.thumbnailAlt || project.title}
+            />
+          </div>
+          {project.thumbnailCaption && (
+            <figcaption className="project-detail-thumbnail-caption">
+              {project.thumbnailCaption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
+    if (carouselMedia.length === 1) {
+      const item = carouselMedia[0];
+      return (
+        <figure className="project-detail-thumbnail-wrap">
+          <div className="project-detail-thumbnail">
+            {item.type === "video" ? (
+              <video
+                src={item.url}
+                controls
+                preload="metadata"
+                poster={item.poster}
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              />
+            ) : (
+              <LazyImage src={item.url} alt={item.alt || project.title} />
+            )}
+          </div>
+          {item.caption && (
+            <figcaption className="project-detail-thumbnail-caption">
+              {item.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
+    return <MediaCarousel items={carouselMedia} />;
+  };
+
   return (
     <div className="row g-5">
       <div className="col-lg-9">
-        {project.thumbnailUrl && (
-          <figure className="project-detail-thumbnail-wrap">
-            <div className="project-detail-thumbnail">
-              <LazyImage
-                src={project.thumbnailUrl}
-                alt={project.thumbnailCaption || project.thumbnailAlt || project.title}
-              />
-            </div>
-            {project.thumbnailCaption && (
-              <figcaption className="project-detail-thumbnail-caption">
-                {project.thumbnailCaption}
-              </figcaption>
-            )}
-          </figure>
-        )}
+        {renderHero()}
 
         <h1 className="project-detail-title">{project.title}</h1>
         <p className="project-detail-description">{project.description}</p>
+
+        <div className="d-lg-none">
+          <Sidebar project={project} />
+        </div>
 
         {!hasStarContent(project) && (
           <div className="project-stub-notice">
@@ -400,14 +447,10 @@ const ArticleLayout = ({ project, projectRecs }) => {
           </div>
         )}
 
-        {carouselMedia.length > 0 && (
-          <MediaCarousel items={carouselMedia} />
-        )}
-
         <ProjectRecs recs={projectRecs} />
       </div>
 
-      <div className="col-lg-3">
+      <div className="col-lg-3 order-2 d-none d-lg-block">
         <Sidebar project={project} />
       </div>
 
