@@ -380,7 +380,7 @@ export const projects = [
       "http://rise360-course-hosting.s3-website-us-east-1.amazonaws.com/#/",
     demoType: "s3",
     featured: false,
-    protected: true,
+    protected: false,
     metaDescription:
       "A sample onboarding course for a fictional financial institution, built in Rise 360 and published as SCORM for LMS deployment. This course demonstrates how to structure and design an engaging onboarding experience with interactive elements and real-world scenarios.",
   },

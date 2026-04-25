@@ -125,13 +125,13 @@ const NavBar = () => {
               </li>
             ))}
             <li className="nav-item ms-lg-2">
-              <a
+              <Link
                 className="nav-link nav-hire-btn"
                 href="/#contact"
                 onClick={(e) => scrollTo(e, "#contact")}
               >
                 Hire Me
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
