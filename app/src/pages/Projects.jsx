@@ -66,14 +66,23 @@ const Projects = () => {
 
   const isFiltered = Object.values(filters).some((arr) => arr.length > 0);
 
-  const filtered = isFiltered
+  const sortPriority = (p) => {
+    const unlockVisible = !p.protected || unlocked || isDev;
+    if (p.featured && unlockVisible) return 0;
+    if (unlockVisible) return 1;
+    if (p.featured) return 2;
+    return 3;
+  };
+
+  const filtered = (isFiltered
     ? projects.filter((project) =>
         Object.entries(filters).every(([cat, activeTags]) => {
           if (activeTags.length === 0) return true;
           return activeTags.some((tag) => project.taxonomy[cat]?.includes(tag));
         }),
       )
-    : projects;
+    : projects
+  ).slice().sort((a, b) => sortPriority(a) - sortPriority(b));
 
   const toggleTag = (category, value) => {
     setFilters((prev) => {

@@ -55,7 +55,7 @@ const NavBar = () => {
   const scrollTo = (e, href) => {
     e.preventDefault();
     setMenuOpen(false);
-    if (!isHome) {
+    if (window.location.pathname !== "/") {
       window.location.href = "/" + href;
       return;
     }
@@ -117,7 +117,7 @@ const NavBar = () => {
               <li className="nav-item" key={href}>
                 <a
                   className={`nav-link${activeSection === href.slice(1) ? " active" : ""}`}
-                  href={href}
+                  href={`/${href}`}
                   onClick={(e) => scrollTo(e, href)}
                 >
                   {label}
@@ -127,7 +127,7 @@ const NavBar = () => {
             <li className="nav-item ms-lg-2">
               <a
                 className="nav-link nav-hire-btn"
-                href="#contact"
+                href="/#contact"
                 onClick={(e) => scrollTo(e, "#contact")}
               >
                 Hire Me

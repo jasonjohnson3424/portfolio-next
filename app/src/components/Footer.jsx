@@ -10,6 +10,10 @@ const Footer = () => {
 
   const scrollTo = (e, href) => {
     e.preventDefault();
+    if (window.location.pathname !== "/") {
+      window.location.href = "/" + href;
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -64,7 +68,7 @@ const Footer = () => {
                 { label: "Recommendations", href: "#recommendations" },
                 { label: "Contact", href: "#contact" },
               ].map(({ label, href }) => (
-                <a key={href} href={href} onClick={(e) => scrollTo(e, href)}>
+                <a key={href} href={`/${href}`} onClick={(e) => scrollTo(e, href)}>
                   {label}
                 </a>
               ))}

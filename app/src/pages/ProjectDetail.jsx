@@ -183,6 +183,26 @@ const ResultsList = ({ results, inlineImages, onImageClick }) => {
   );
 };
 
+const RecAvatar = ({ rec }) => {
+  const [imgError, setImgError] = useState(false);
+  const inner = rec.avatarUrl && !imgError ? (
+    <Image
+      src={rec.avatarUrl}
+      alt={rec.authorName}
+      width={96}
+      height={96}
+      unoptimized
+      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      onError={() => setImgError(true)}
+    />
+  ) : rec.avatarInitials;
+  return rec.linkedInUrl ? (
+    <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer" className="rec-avatar">{inner}</a>
+  ) : (
+    <div className="rec-avatar">{inner}</div>
+  );
+};
+
 const ProjectRecs = ({ recs }) => {
   if (!recs.length) return null;
   return (
@@ -191,23 +211,7 @@ const ProjectRecs = ({ recs }) => {
       {recs.map((rec) => (
         <div key={rec.id} className="rec-carousel project-rec-card">
           <div className="rec-author rec-author--top">
-            {rec.linkedInUrl ? (
-              <a href={rec.linkedInUrl} target="_blank" rel="noopener noreferrer" className="rec-avatar">
-                {rec.avatarUrl ? (
-                  <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
-                ) : (
-                  rec.avatarInitials
-                )}
-              </a>
-            ) : (
-              <div className="rec-avatar">
-                {rec.avatarUrl ? (
-                  <Image src={rec.avatarUrl} alt={rec.authorName} width={96} height={96} />
-                ) : (
-                  rec.avatarInitials
-                )}
-              </div>
-            )}
+            <RecAvatar rec={rec} />
             <div>
               <p className="rec-author-name">
                 {rec.linkedInUrl ? (
@@ -474,7 +478,7 @@ const ProjectDetail = ({ slug }) => {
         <h2 className="project-detail-title">Project not found.</h2>
         <button
           className="btn btn-outline-accent mt-3"
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
         >
           ← Home
         </button>
@@ -498,7 +502,7 @@ const ProjectDetail = ({ slug }) => {
         <div className="d-flex gap-3 justify-content-center">
           <button
             className="btn btn-outline-accent"
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
           >
             ← Home
           </button>
@@ -520,7 +524,7 @@ const ProjectDetail = ({ slug }) => {
       <div className="container">
         <button
           className="project-detail-back-btn mb-4"
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
         >
           <i className="fas fa-arrow-left me-2"></i>Home
         </button>
