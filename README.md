@@ -40,6 +40,12 @@ Deployed as a static/serverless site on AWS via OpenNext. Contact form backed by
 
 The repository includes shared VS Code settings and tasks under `.vscode/`. Personal preferences, keybindings, snippets, and the rest of your extension list should be restored through VS Code Settings Sync after signing in on the new PC with the same account.
 
+Because Settings Sync was disabled on the old PC at migration time, `migration/vscode/` contains a fallback copy of the user settings and installed extension IDs. If cloud sync is unavailable on the new PC, copy `migration/vscode/settings.json` into your VS Code user settings and restore the extensions from PowerShell:
+
+```powershell
+Get-Content .\migration\vscode\extensions.txt | ForEach-Object { code --install-extension $_ }
+```
+
 ## Migration checklist
 
 - Confirm the latest local commit is present on `origin/main`.
