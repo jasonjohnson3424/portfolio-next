@@ -10,7 +10,7 @@ export const recommendations = [
     linkedInUrl: "https://www.linkedin.com/in/jeff-zwick-6897841/",
     body: "Jason was a key member of my Digital Learning Solutions team at JPMC, where his expertise in learning technology, vendor evaluations, and digital delivery made a lasting impact. I relied on him to conduct in-depth technical reviews and recommendations for commercial learning tools such as WalkMe, Oracle Guided Learning, the Articulate 360 suite, and AI-driven solutions like Synthesia. His ability to assess these tools for capability, scalability, and fit within the JPMC landscape was invaluable to our decision-making process.\n\nBeyond technical reviews, Jason played a critical role in course development using Articulate and Adobe tools and our custom web-based course development tool, as well as enhancing our custom LCMS and Oracle HCM learning systems. He was exceptional in his delivery of train-the-trainer sessions to internal training developers for our internal course development tool. Clients enjoyed his engaging presentation style, clarity in communication, and ability to simplify complex topics.\n\nHe also worked closely with our learning vendor partners, managing relationships, reviewing vendor materials, and troubleshooting third-party content within our LMS. His ability to balance technical expertise, strategic vendor management, and instructional excellence made him an asset to our team.",
     date: "2025-02",
-    projectSlugs: ["jpmc-tool-development"],
+    projectSlugs: ["jpmc-tool-development", "meridian-bank-sample-rise"],
     featured: true,
   },
   {

@@ -9,18 +9,40 @@ import { projects } from "../data/projects";
 import { recommendations } from "../data/recommendations";
 import LazyImage from "../components/LazyImage";
 
+// Inline text parser — supports: **bold**, *italic*, __underline__, ~~strikethrough~~
+const parseInline = (text) => {
+  const pattern = /(\*\*(.+?)\*\*|\*(.+?)\*|__(.+?)__|~~(.+?)~~)/g;
+  const parts = [];
+  let last = 0, match, i = 0;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    if (match[2] !== undefined) parts.push(<strong key={i}>{match[2]}</strong>);
+    else if (match[3] !== undefined) parts.push(<em key={i}>{match[3]}</em>);
+    else if (match[4] !== undefined) parts.push(<u key={i}>{match[4]}</u>);
+    else if (match[5] !== undefined) parts.push(<s key={i}>{match[5]}</s>);
+    last = match.index + match[0].length;
+    i++;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+};
+
 // Renders a field that may be a string or array of strings
 const StarField = ({ value, className }) => {
   if (!value) return null;
   if (Array.isArray(value) && value.length > 1) {
     return (
       <ul className="case-study-outcomes">
-        {value.map((item, i) => <li key={i}>{item}</li>)}
+        {value.map((item, i) => <li key={i}>{parseInline(item)}</li>)}
       </ul>
     );
   }
   const text = Array.isArray(value) ? value[0] : value;
-  return <p className={className}>{text}</p>;
+  const paragraphs = text.split("\n\n").filter(Boolean);
+  if (paragraphs.length > 1) {
+    return <>{paragraphs.map((p, i) => <p key={i} className={className}>{parseInline(p)}</p>)}</>;
+  }
+  return <p className={className}>{parseInline(text)}</p>;
 };
 
 const MediaCarousel = ({ items }) => {

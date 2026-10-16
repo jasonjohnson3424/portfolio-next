@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-next",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "cd app && npm ci && cd ../infra && npm ci",
+  "forwardPorts": [3000],
+  "remoteUser": "node"
+}

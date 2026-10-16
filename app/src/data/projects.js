@@ -303,79 +303,86 @@ export const projects = [
     },
     layoutType: "article",
     description:
-      "A sample onboarding course for a fictional financial institution, built in Rise 360 and published as SCORM for LMS deployment. This course demonstrates how to structure...",
+      "A sample onboarding course for a financial institution, built in Rise 360 and published as SCORM for LMS deployment. This course demonstrates the structure and design of an engaging onboarding experience with interactive elements and real-world scenarios, drawing from my extensive experience designing enterprise learning programs for JPMorgan Chase's Asset & Wealth Management and Corporate HR divisions.",
     situation:
       "After spending over eight years designing and delivering enterprise learning programs at JPMorgan Chase within Asset & Wealth Management and Corporate HR, I developed extensive experience building onboarding and new hire training for roles such as Financial Analysts and Private Bankers. These programs were primarily delivered through Articulate Storyline and focused on preparing employees to navigate complex, high-stakes financial environments.",
-    task: "After leaving the organization, I wanted to translate that real-world experience into a modern, portfolio-ready artifact that demonstrated both my instructional design capability and my proficiency with Articulate Rise. The goal was to create a realistic, enterprise-level onboarding experience that reflected the rigor and expectations of a Private Bank environment.",
+    task: "After leaving JPMC, I wanted to translate that real-world experience into a modern, portfolio-ready artifact that demonstrated both my instructional design capability as well as my proficiency with Articulate Rise. The goal was to create a realistic, enterprise-level onboarding experience that reflected the rigor and expectations of a Private Bank environment.\n\nDo you realize how difficult it is to invent a banking institution out of thin air with an heir of realism? Complete with the needed Code of Conduct and Workplace Ethics Policy documents to perfect the experience? Well, I do.\n\nThis course comes packaged with authentic tone and complexity of real Private Bank onboarding programs developed for banks like JPMC. It was a fun challenge to create something from scratch that still felt grounded in the real-world experience of enterprise banking.",
     action:
       "I designed and storyboarded the course using PowerPoint to establish structure, flow, and narrative, then developed the full digital experience in Articulate Rise. I intentionally built the course to mirror real onboarding programs I had previously delivered—incorporating authentic tone, Private Bank communication style, and complex workplace scenarios. Rather than simplifying the content, I appreciate that this course \”goes hard\” on real-world challenges, including ethical dilemmas, client pressure situations, and colleague dynamics. Also, I integrated AI-generated assets to include executive leadership video content, created with HyGen, for enhancing realism and engagement.",
     results: [
       "Highly realistic onboarding experience reflecting enterprise Private Bank standards",
-      "Structured 30-60-90 day onboarding framework to guide new hires through phased learning",
+      "Structured 30-60-90 day onboarding plan (paralleled as Day 1, Week 1, Month 1) to guide new hires through phased learning",
       "Nuanced comparison between Code of Conduct vs. Workplace Ethics policies, addressing a commonly overlooked gap in training",
       "Immersive, scenario-based learning focused on real-world decision-making and workplace challenges",
       "Integration of AI-generated leadership messaging to enhance realism and engagement",
       "Use of modern, industry-standard tooling & methodologies to deliver scalable, high-quality learning solutions within Rise",
       "Strong balance of innovation and instructional integrity in course design",
     ],
-    thumbnailUrl: "/meridian-bank-sample-rise/meridian-bank-sample-rise_card.webp",
+    thumbnailUrl:
+      "/meridian-bank-sample-rise/meridian-bank-sample-rise_card.webp",
     thumbnailAlt: "Meridian Bank & Trust - Sample Course",
     mediaItems: [
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_carousel-1.webp",
         type: "image",
-        caption: "Course home screen — Meridian Bank & Trust onboarding experience built in Rise 360",
-        alt: "Meridian Bank & Trust Rise 360 course home screen",
-        order: 1,
+        caption:
+          "Mission, Vision, & Values presented by the Global Head of Talent Acquisition in this Rise 360 course",
+        alt: "Meridian Bank & Trust Rise 360 course screenshot depicting company culture intro",
+        order: 2,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_carousel-2.webp",
         type: "image",
-        caption: "Module lesson view — branded content with Private Bank tone and enterprise-level detail",
-        alt: "Rise 360 lesson module showing Meridian Bank onboarding content",
-        order: 2,
+        caption:
+          "The Digital Transformation Era portion of Meridian's timeline offered to the learner as a telling backstory",
+        alt: "Screenshot of Rise 360 course displaying a person holding a mobile device in front of a laptop signaling the Digital Transformation Era for this fictitious company",
+        order: 3,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_carousel-3.webp",
         type: "image",
-        caption: "Scenario-based knowledge check — real-world ethical dilemmas and workplace decision-making",
-        alt: "Rise 360 branching scenario or knowledge check screen",
-        order: 3,
+        caption:
+          "Senior VP of Banking, Frank Condiosi, delivers a welcome message to new hires (courtesy of HeyGen's AI video generation)",
+        alt: "Senior VP of Banking, Frank Condiosi, delivers a welcome message to new hires",
+        order: 1,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_article-wide-1.webp",
         type: "image",
-        caption: "Enterprise onboarding context — drawing from eight years of JPMorgan Chase program delivery across Asset & Wealth Management and Corporate HR",
-        alt: "Context slide or overview showing the enterprise banking environment that inspired the course",
+        caption:
+          "Compromsing situations with clients and colleagues can come in subtle and not-so-subtle forms",
+        alt: "Female client stands with arms crossed, looking displeased while facing the camera",
         starSection: "situation",
         order: 4,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_float-l-1.webp",
         type: "image",
-        caption: "Course structure and storyboard — designed to mirror real Private Bank onboarding in scope, tone, and complexity",
-        alt: "PowerPoint storyboard or course outline used to plan the Meridian Bank Rise 360 course",
+        caption: "Code of Conduct compared with Workplace Ethics Policies",
+        alt: "Table comparing Code of Conduct and Workplace Ethics Policies, highlighting the differences and importance of each",
         starSection: "task",
         order: 5,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_article-wide-2.webp",
         type: "image",
-        caption: "Rise 360 development in action — branching scenarios, ethical dilemmas, and AI-generated executive video via HeyGen integrated throughout",
-        alt: "Rise 360 authoring environment or course content showing complex scenario and AI video integration",
+        caption:
+          "Real-life workplace scenarios with colleagues present moral & ethical challenges",
+        alt: "Dark-haired businesswoman in a corporate cafeteria setting, speaking directly to the camera with a confident and inquisitive demeanor",
         starSection: "action",
         order: 6,
       },
       {
         url: "/meridian-bank-sample-rise/meridian-bank-sample-rise_float-r-1.webp",
         type: "image",
-        caption: "30-60-90 day onboarding framework — phased learning path guiding new Private Bank hires from orientation through full productivity",
-        alt: "30-60-90 day onboarding framework or results-oriented content from the Meridian Bank course",
+        caption:
+          "30-60-90 day onboarding structure, framed as Day 1, Week 1, Month 1",
+        alt: "Day 1, Week 1, Month 1 onboarding checklist",
         starSection: "results",
         order: 7,
       },
     ],
-    tags: ["Project Management", "SCORM", "Rise", "LMS", "HyGen"],
+    tags: ["Project Management", "SCORM", "Rise", "LMS", "HeyGen"],
     liveUrl:
       "http://rise360-course-hosting.s3-website-us-east-1.amazonaws.com/#/",
     demoType: "s3",

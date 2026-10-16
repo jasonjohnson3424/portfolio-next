@@ -2,6 +2,7 @@
 node_modules/
 .next/
 next-env.d.ts
+debug.log
 
 # Leftover artifacts from initial repo restructure (root-level only)
 /src/
